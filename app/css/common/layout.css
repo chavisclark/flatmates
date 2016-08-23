@@ -1,0 +1,29 @@
+@value color-mercury from './colors.css';
+
+
+@media(min-width: 800px){
+  .box {
+    padding: 8px 24px;
+    transition: 500ms;
+  }
+}
+
+.flexNotMoreThan100 {
+  flex: 0 1 100px;
+}
+
+.flexNotMoreThan200 {
+  flex: 0 1 200px;
+}
+
+.flexNotMoreThan300 {
+  flex: 0 1 300px;
+}
+
+.flexNotMoreThan350 {
+  flex: 0 1 350px;
+}
+
+.flexNotMoreThan400 {
+  flex: 0 1 400px;
+}

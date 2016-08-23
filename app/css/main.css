@@ -1,0 +1,23 @@
+@value roboto from './common/typography.css';
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from './common/colors.css';
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+a {
+  color: color-dodger-blue;
+  text-decoration: none;
+}
+.app {
+  composes: box from './common/layout.css';
+  height: 100%;
+  font-family: roboto;
+  font-weight: normal;
+  font-smoothing: antialiased;
+}
+
