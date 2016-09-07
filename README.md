@@ -1,4 +1,5 @@
-## FlatMates (Work currently in progress)
+## FlatMates (Currently in development)
+![alt text](https://d3brgjqtir64ox.cloudfront.net/fm-bg.gif "FlatMates")
 
 A full-stack app with ES6/ES2015 React.js featuring universal Redux, React Router, Hot reloading, CSS modules, Express 4.x, and MongoDB.
 
