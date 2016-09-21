@@ -3,7 +3,7 @@ import { Route } from 'react-router'
 import App from 'containers/App'
 import Home from 'components/Home'
 
-export default (store) => {
+export default () => {
 
   return (
     <Route component={App}>

@@ -12,7 +12,6 @@ export default class Home extends React.Component {
         <div>
           <h1 className={cx("header")}>FlatMates</h1>
           <br/>
-          <a className={cx("button-line")} href="/">Home</a> 
         </div>
       </div>
 
