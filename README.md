@@ -26,3 +26,5 @@ npm run dev
 
 ```
 
+##### Made with 💚 from my basement 
+— C.C.
