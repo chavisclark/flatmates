@@ -1,16 +1,16 @@
-import React from 'react'
+import React, {Component} from 'react'
 import classNames from 'classnames/bind'
 import {Link} from 'react-router'
-import styles from 'navigation'
+import styles from './navigation.css'
 
 const cx = classNames.bind(styles);
 
-export default class Navigation extends React.Component {
+export default class Navigation extends Component {
 
   render() {
     return (
-      <div className={cx("navigation")}>
-      </div>
+      <nav className={cx("navbar")}>
+      </nav>
 
     )
   }

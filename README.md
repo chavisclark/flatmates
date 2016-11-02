@@ -1,7 +1,12 @@
-## FlatMates (Currently in development)
+## FlatMates
+
+#### The initial project can be viewed at [flatmates.chavis.io](http://flatmates.chavis.io)
+> The current project is still under RE-development.
+
 ![alt text](https://d3brgjqtir64ox.cloudfront.net/fm-bg.png "FlatMates")
 
-A full-stack app with ES6/ES2015 React.js featuring universal Redux, React Router, Hot reloading, CSS modules, Express 4.x, and MongoDB.
+### Description
+A full-stack JS app with ES6/ES2015 React.js featuring universal Redux, React Router, Hot reloading, CSS modules, Express 4.x, and MongoDB.
 
 
 ### Current status

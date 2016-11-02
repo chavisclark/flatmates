@@ -1,8 +1,4 @@
 node_modules
 npm-debug.log
-.tmp
-.idea
 public
 compiled
-.swp
-.vscode
