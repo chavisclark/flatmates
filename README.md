@@ -1,7 +1,7 @@
 ## FlatMates
 
-#### The initial project can be viewed at [flatmates.chavis.io](http://flatmates.chavis.io)
-> The current project is still under RE-development.
+#### The old project can be viewed at [flatmates.chavis.io](http://flatmates.chavis.io)
+> This current repo is still in development. I'm redesigning the old UI and making significant improvements to the Node.js server.
 
 ![alt text](https://d3brgjqtir64ox.cloudfront.net/fm-bg.png "FlatMates")
 
