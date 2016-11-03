@@ -1,7 +1,7 @@
-import React, {Component} from 'react'
-import classNames from 'classnames/bind'
-import {Link} from 'react-router'
-import styles from './navigation.css'
+import React, {Component} from 'react';
+import classNames from 'classnames/bind';
+import {Link} from 'react-router';
+import styles from './navigation.css';
 
 const cx = classNames.bind(styles);
 

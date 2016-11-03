@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import 'css/util/normalize.css';
-import 'css/util/skeleton.css';
+import '../css/util/normalize.css';
+import '../css/util/skeleton.css';
 
 const App = ({children}) => {
   return (
