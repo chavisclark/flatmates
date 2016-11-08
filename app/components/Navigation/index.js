@@ -10,6 +10,9 @@ export default class Navigation extends Component {
   render() {
     return (
       <nav className={cx("navbar")}>
+        <div className={cx("logo")}>
+          Flatmates
+        </div>
       </nav>
 
     )

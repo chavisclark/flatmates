@@ -14,7 +14,6 @@ const history = browserHistory;
 const routes = createRoutes(store);
 
 function onUpdate() {
-
   if (window.__INITIAL_STATE__ !== null) {
     window.__INITIAL_STATE__ = null;
     return;

@@ -50,13 +50,16 @@ module.exports = {
     },
     module: {
       loaders: commonLoaders.concat([
+        { test: /\.scss$/,
+          loader: 'style!css!sass'
+        },
         { test: /\.css$/,
           loader: 'style!css',
           include: path.join(__dirname, '..', 'app', 'css', 'util')
         },
         { test: /\.css$/,
           loader: 'style!css?module&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader',
-          exclude: path.join(__dirname, '..', 'app', 'css', 'util')
+          exclude: [path.join(__dirname, '..', 'app', 'css', 'util')]
         }
       ])
     },
@@ -69,7 +72,10 @@ module.exports = {
         new webpack.NoErrorsPlugin(),
         new webpack.DefinePlugin({
           __DEVCLIENT__: true,
-          __DEVSERVER__: false
+          __DEVSERVER__: false,
+          "process.env": {
+            BROWSER: JSON.stringify(true)
+          }
         })
     ],
     postcss: postCSSConfig

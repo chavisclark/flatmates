@@ -3,6 +3,7 @@ var webpack = require('webpack');
 var assetsPath = path.join(__dirname, '..', 'public', 'assets');
 
 var commonLoaders = [
+
   { test: /\.js$|\.jsx$/,
     loader: 'babel-loader',
     query: {
@@ -50,7 +51,10 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
           __DEVCLIENT__: false,
-          __DEVSERVER__: true
+          __DEVSERVER__: true,
+          "process.env": {
+            BROWSER: JSON.stringify(false)
+          }
         })
     ]
 };
