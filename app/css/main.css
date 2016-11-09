@@ -1,6 +1,8 @@
 @value roboto from './common/typography.css';
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from './common/colors.css';
-
+a {
+  cursor: pointer;
+}
   
 .header {
   color: #FFF;
@@ -22,8 +24,7 @@
 }
 
 .full-screen {
-  position: fixed;
-  top: 0;
+  margin-top: 200px;
   right: 0;
   bottom: 0;
   left: 0;
@@ -60,4 +61,8 @@
 
 .button-line:hover {
   opacity: 1;
+}
+
+.tripRequester{
+  display: inline-flex;
 }

@@ -40,6 +40,8 @@ export default class DateRangePickerWrapper extends Component {
       <div>
         <DatePicker
           {...this.props}
+          startDatePlaceholderText={"Check In"}
+          endDatePlaceholderText={"Check Out"}
           orientation={"vertical"}
           withFullScreenPortal={true}
           onDatesChange={this.onDatesChange}
@@ -49,7 +51,7 @@ export default class DateRangePickerWrapper extends Component {
           endDate={endDate}
           showClearDates={true}
         />
-        <span className={cx('trav-btn')} onClick={this.handleDates.bind(this)}><span>Submit</span></span>
+        <span className={cx('trav-btn')} onClick={this.handleDates.bind(this)}><span>Search</span></span>
       </div>
     );
   }

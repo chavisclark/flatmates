@@ -1,0 +1,33 @@
+
+.backdrop{
+    background: rgba(0, 0, 0, 0.8);
+    box-sizing: border-box;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1
+}
+.popup{
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 5;
+    box-sizing: border-box;
+    min-height: 200;
+    padding: 20;
+    position: relative;
+    min-width: 300;
+    color: black
+}
+.popupContainer{
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 11
+}

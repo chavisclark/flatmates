@@ -55,12 +55,10 @@ export default class CitySelect extends Component {
     let options = places.map((p, index)=> <option key={index} value={p.id} className="something">{p.city}</option>);
     let selected = this.state.selected || places.filter((s)=> s.id == this.state.selected);
     return (
-      <div>
       <select className={cx("input")} onChange={this.handleCitySelect}>
         <option value={selected.id}>{selected.city}</option>
         {options}
       </select>
-      </div>
     )    
   }
 } 
