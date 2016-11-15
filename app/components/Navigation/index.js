@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import classNames from 'classnames/bind';
 import styles from './navigation.css';
 import Modal from '../Modal';
-import Authenticate from '../../containers/Authenticate';
+import AuthContainer from '../../containers/AuthContainer';
 
 const cx = classNames.bind(styles);
 
@@ -28,7 +28,7 @@ const Navigation = (props) => {
             <Link to="/about" className={cx('item', 'nav')} activeClassName={cx('active')}>About</Link>
         </nav>
         <Modal authenticated={props.authenticated} isOpen={props.isPopupOpen} closePopupProp={props.handleClosePopup}>
-          <Authenticate />
+          <AuthContainer />
         </Modal>
       </div>
     );

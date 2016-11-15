@@ -1,5 +1,4 @@
-/* Schema Definitions
------------------------------------------------------*/
+/* Schema Definitions */
 import mongoose from 'mongoose';
 
 const DaySchema = new mongoose.Schema({

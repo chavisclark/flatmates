@@ -1,9 +1,8 @@
-/*
- * Schema Definitions
- */
+/* Schema Definitions */
 import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
-const deepPopulate = require('mongoose-deep-populate')(mongose);
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const FlatSchema = new Schema({
     name: {
         type: String

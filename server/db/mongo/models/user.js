@@ -1,7 +1,7 @@
-/* Schema Definitions
--------------------------------------------------------------*/
+/* Schema Definitions */
 import bcrypt from 'bcrypt-nodejs';
 import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const UserSchema = new Schema({
