@@ -71,7 +71,8 @@
     "redux": "^3.5.2",
     "redux-form": "^6.2.0",
     "redux-thunk": "^2.1.0",
-    "url-loader": "^0.5.7"
+    "url-loader": "^0.5.7",
+    "uuid": "^2.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.11.4",

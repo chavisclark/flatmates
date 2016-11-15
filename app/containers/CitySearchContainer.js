@@ -2,10 +2,12 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { logOut } from 'actions/users';
-import dynamics from 'dynamics.js';
 import CitySelect from 'components/CitySelect';
 import DateRangeWrapper from 'components/DateRangeWrapper';
 import ReactDates from 'react-dates';
+import omitBy from 'lodash/omitBy'
+import isEmpty from 'lodash/isEmpty'
+import uuid from 'uuid'
 const ReactDatesPicker = ReactDates.DateRangePicker;
 
 class CitySearchContainer extends Component {
@@ -15,7 +17,8 @@ class CitySearchContainer extends Component {
         selected: '',
         focusedInput: null,
         startDate: null,
-        endDate: null
+        endDate: null,
+        startReservation: false
       };
       this.handleCitySelect = this.handleCitySelect.bind(this);
       this.handleDates      = this.handleDates.bind(this)
@@ -43,14 +46,36 @@ class CitySearchContainer extends Component {
     onFocusChange(focusedInput) {
       this.setState({ focusedInput });
     }
+  
+    handleReservationPlans(start, end) {
+      const stayId = uuid.v4();
+      let stateObj = omitBy(this.state, isEmpty);
+      if (start && end) {
+        let stay = { id: stayId, start: start, end: end };
+
+       ///Update State here
+
+        this.setState({
+          startReservation: true
+        })
+        console.log(stay)
+        console.log(this.state.selected)
+      ///Save State here      
+      }
+    }
 
     handleDates() {
       if (this.state.endDate) {
         var from = this.state.startDate._d;
         var to = this.state.endDate._d;
-        this.props.containerDateValues(from, to)
+        this.handleReservationPlans(from, to)
       }
     }
+
+    handleSearch() {
+      ///Send action and hit API (not yet created)
+    }
+
     render() {
       const { focusedInput, startDate, endDate } = this.state;
       let places = [
@@ -85,7 +110,7 @@ class CitySearchContainer extends Component {
             selectedCity={selected.city}
             selectedId={selected.id}
             options={options} />
-          <DateRangeWrapper>
+          <DateRangeWrapper handleDates={this.handleDates}>
             <ReactDatesPicker 
               {...this.props}
               startDatePlaceholderText={"Check In"}
@@ -93,7 +118,6 @@ class CitySearchContainer extends Component {
               orientation={"vertical"}
               withFullScreenPortal={true}
               showClearDates={true}
-              handleDates={this.handleDates}
               onDatesChange={this.onDatesChange}
               onFocusChange={this.onFocusChange}
               focusedInput={focusedInput}
