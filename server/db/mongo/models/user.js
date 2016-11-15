@@ -2,8 +2,7 @@
 -------------------------------------------------------------*/
 import bcrypt from 'bcrypt-nodejs';
 import mongoose from 'mongoose';
-var Schema = mongoose.Schema;
-
+const Schema = mongoose.Schema;
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const UserSchema = new Schema({
   email: { type: String, unique: true, lowercase: true },

@@ -3,8 +3,8 @@
  */
 import mongoose from 'mongoose';
 
-var deepPopulate = require('mongoose-deep-populate')(mongoose);
-var Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
+const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const StaySchema = new Schema({
   city: {
            type: String
