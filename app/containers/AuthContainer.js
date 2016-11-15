@@ -7,7 +7,7 @@ import AuthLoginHeader from '../components/AuthLoginHeader'
 import AuthRegisterHeader from '../components/AuthRegisterHeader'
 import AuthForm from '../components/AuthForm'
 
-class Authenticate extends Component {
+class AuthContainer extends Component {
   constructor(props) {
     super(props);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -50,7 +50,7 @@ class Authenticate extends Component {
   }
 }
 
-Authenticate.propTypes = {
+AuthContainer.propTypes = {
   user: PropTypes.object,
   manualLogin: PropTypes.func.isRequired,
   signUp: PropTypes.func.isRequired,
@@ -63,5 +63,5 @@ function mapStateToProps({user}) {
   };
 }
 
-export default connect(mapStateToProps, { manualLogin, signUp, toggleLoginMode })(Authenticate);
+export default connect(mapStateToProps, { manualLogin, signUp, toggleLoginMode })(AuthContainer);
 

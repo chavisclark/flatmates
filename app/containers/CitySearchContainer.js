@@ -5,9 +5,9 @@ import { logOut } from 'actions/users';
 import CitySelect from 'components/CitySelect';
 import DateRangeWrapper from 'components/DateRangeWrapper';
 import ReactDates from 'react-dates';
-import omitBy from 'lodash/omitBy'
-import isEmpty from 'lodash/isEmpty'
-import uuid from 'uuid'
+import omitBy from 'lodash/omitBy';
+import isEmpty from 'lodash/isEmpty';
+import uuid from 'uuid';
 const ReactDatesPicker = ReactDates.DateRangePicker;
 
 class CitySearchContainer extends Component {
