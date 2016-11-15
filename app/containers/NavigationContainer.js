@@ -1,10 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logOut } from 'actions/users';
+import { logOut } from '../actions/users';
+import Navigation from '../components/Navigation';
 import dynamics from 'dynamics.js';
-import Navigation from 'components/Navigation';
-import classNames from 'classnames/bind';
 
 class NavigationContainer extends Component {
     constructor(props){

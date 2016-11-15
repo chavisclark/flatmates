@@ -1,6 +1,6 @@
-import React, {PropTypes} from 'react'
+import React, {PropTypes} from 'react';
 import classNames from 'classnames/bind';
-import styles from './modal'
+import styles from './modal.css';
 
 const cx = classNames.bind(styles);
 

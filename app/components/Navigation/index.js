@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import classNames from 'classnames/bind';
 import styles from './navigation.css';
-import Modal from '../Modal'
-import Authenticate from 'containers/Authenticate'
+import Modal from '../Modal';
+import Authenticate from '../../containers/Authenticate';
 
 const cx = classNames.bind(styles);
 

@@ -2,15 +2,6 @@ import React from 'react';
 import { shallow, mount, render } from 'enzyme';
 import CitySelect from '../app/components/CitySelect';
 
-describe('<CitySelect />', () => {
-
-  it('should exists', () => {
-    const wrapper = mount(
-      <CitySelect />
-    )
-    expect(wrapper).toBeDefined();
-  });
-
   it('should render multiple options', ()=> {
     let places = [
                   {
@@ -40,5 +31,3 @@ describe('<CitySelect />', () => {
       <option key={index} value={p.id} className="something">{p.city}</option>)
     expect(options.length).toBeGreaterThan(0);
   });
-
-});

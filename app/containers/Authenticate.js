@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { manualLogin, signUp, toggleLoginMode } from 'actions/users';
+import { manualLogin, signUp, toggleLoginMode } from '../actions/users';
 
-import hourGlassSvg from 'images/hourglass.svg';
-import AuthLoginHeader from 'components/AuthLoginHeader'
-import AuthRegisterHeader from 'components/AuthRegisterHeader'
-import AuthForm from 'components/AuthForm'
+import hourGlassSvg from '../images/hourglass.svg';
+import AuthLoginHeader from '../components/AuthLoginHeader'
+import AuthRegisterHeader from '../components/AuthRegisterHeader'
+import AuthForm from '../components/AuthForm'
 
 class Authenticate extends Component {
   constructor(props) {

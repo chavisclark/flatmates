@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import NavigationContainer from 'containers/NavigationContainer'
-import CitySelect from '../CitySelect'
-import ReactDatesPicker from '../ReactDatesPicker'
+import CitySearchContainer from 'containers/CitySearchContainer'
 import classNames from 'classnames/bind'
 import styles from 'css/main'
 
@@ -17,10 +16,7 @@ export default class Home extends Component {
           <div>
             <h1 className={cx("header")}>Where to?</h1>
             <br/>
-            <div className={cx("tripRequester")}>
-              <CitySelect /> 
-              <ReactDatesPicker />
-            </div>
+            <CitySearchContainer className={cx("tripRequester")} /> 
           </div>
         </div>
       </div>

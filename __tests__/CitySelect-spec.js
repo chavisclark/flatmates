@@ -1,14 +1,13 @@
 import React from 'react';
 import { shallow, mount, render } from 'enzyme';
-import Navigation from '../app/components/Navigation';
+import CitySelect from '../app/components/CitySelect';
 
-describe('<Navigation />', () => {
+describe('<CitySelect />', () => {
 
   it('should exists', () => {
     const wrapper = mount(
-      <Navigation />
+      <CitySelect />
     )
     expect(wrapper).toBeDefined();
   });
-
 });
