@@ -14,7 +14,8 @@ import {
   EDIT_USER_ERROR,
   LOGOUT_USER,
   LOGOUT_SUCCESS_USER,
-  LOGOUT_ERROR_USER } from 'constants';
+  LOGOUT_ERROR_USER 
+} from 'constants';
 
 export default function user(state = {
   isLogin: true,

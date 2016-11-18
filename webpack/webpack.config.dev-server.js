@@ -56,5 +56,8 @@ module.exports = {
             BROWSER: JSON.stringify(false)
           }
         })
-    ]
+    ],
+  devServer: {
+    historyApiFallback: true
+  }
 };

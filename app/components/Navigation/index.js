@@ -14,12 +14,15 @@ const Navigation = (props) => {
           <Link to="/"
             className={cx('item', 'logo')}
             activeClassName={cx('active')}>FlatMates</Link>
+            <Link to="/add-flat" className={cx('item', 'nav')}>Add Flat</Link>
+
             { props.authenticated ? (
               <a onClick={props.logOut}
                 className={cx('item', 'nav')} to="/">Logout</a>
             ) : (
               ""
             )}
+
             { props.authenticated ? (
               <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
             ) : (

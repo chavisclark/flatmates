@@ -4,7 +4,7 @@ import mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 const deepPopulate = require('mongoose-deep-populate')(mongoose);
 const StaySchema = new Schema({
-  city: {
+  location: {
            type: String
   },
   flat: {
@@ -15,9 +15,9 @@ const StaySchema = new Schema({
            type: Schema.ObjectId,
            ref: 'User'
   },
-  days: [{
-        type: Schema.ObjectId,
-        ref: 'Day'
+  reserved: [{
+      from: String,
+      to: String
   }],
   isConfirmed: {
         type: Boolean,

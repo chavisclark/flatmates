@@ -7,7 +7,7 @@ const FlatSchema = new Schema({
     name: {
         type: String
     },
-    price: {
+    price_per_month: {
         type: Number
     },
     rooms: {
@@ -19,7 +19,7 @@ const FlatSchema = new Schema({
     capacity: {
         type: Number
     },
-    city: {
+    location: {
         type: String
     },
     description: {
@@ -32,9 +32,9 @@ const FlatSchema = new Schema({
         type: Boolean,
         default: false
     },
-    days: [{
-        type: Schema.ObjectId,
-        ref: 'Day'
+    reserved: [{
+        from: String,
+        to: String
     }]
 });
 

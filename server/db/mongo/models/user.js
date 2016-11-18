@@ -43,9 +43,9 @@ const UserSchema = new Schema({
            type: Schema.ObjectId,
            ref: 'Stay'
   }],
-  days: [{
-           type: Schema.ObjectId,
-           ref: 'Day'
+  reserved: [{
+      from: String,
+      to: String
   }],
   roomieReq: { 
     type: Boolean, 
