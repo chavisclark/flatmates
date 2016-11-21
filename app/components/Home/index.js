@@ -14,7 +14,7 @@ export default class Home extends Component {
         <NavigationContainer />
         <div className={cx("full-screen")}>
           <div>
-            <h1 className={cx("header")}>Where to?</h1>
+            <h1 className={cx("header")}>Find a travel buddy</h1>
             <br/>
             <CitySearchContainer className={cx("tripRequester")} /> 
           </div>

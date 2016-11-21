@@ -1,23 +1,26 @@
 /* Google Map 
 ------------------------------------*/
 .map {
-  height: 600px;
-  overflow-x: hidden;
+  display: none;
 }
-.form-inline {
-  margin: 20px 0;
+
+.container {
+  display: inline-block;
 }
-.form-inline .form-group {
-  margin-bottom: 0;
-}
-.form-inline .form-group,
-.form-inline .form-control,
-.form-inline button {
-  width: 100%;
-}
-.bg-danger,
-.bg-info {
-  padding: 25px;
+
+.address {
+  padding: 20px;
+  width: 250px;
   margin: 0;
   font-size: 1em !important;
+}
+
+.bg-danger {
+  background-color: rgba(255,99,71, .88);
+  color: #FFFFFF;
+}
+
+.bg-info {
+  background-color: transparent;
+  color: #FFFFFF;
 }

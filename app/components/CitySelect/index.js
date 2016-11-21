@@ -6,16 +6,12 @@ const cx = classNames.bind(styles);
 
 const CitySelect = (props) => {
     return (
-      <div>
+      <div className={cx('container')}>
         <input className={cx('input')}
                type="text"
                name="location"
-               placeholder="Location"
+               placeholder="Where"
                onBlur={props.setLocation} />
-        <span className={cx('trav-btn')} 
-              onClick={props.startSearch(props.foundAddress).init()}>
-          <span>Search</span>
-        </span>
       </div>
     )    
 }

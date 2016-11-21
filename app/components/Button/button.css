@@ -1,0 +1,21 @@
+.trav-btn span {
+    margin-left: 0;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.1);
+    background: rgba(126,87,194,1);
+     padding: 15px;
+     color: white;
+    border-radius: 4px;
+    -moz-border-radius: 4px;
+    -webkit-border-radius: 4px;
+    transition: 500ms;
+    cursor: pointer;
+    height:50px;
+}
+
+.trav-btn span:hover {
+  transform: scale(1.1) rotate(4deg);
+}

@@ -1,13 +1,13 @@
 import React, { Component, PropTypes, cloneElement } from 'react';
 import { connect } from 'react-redux';
-import { createFlat } from '../../actions/flats';
+import { searchCity } from 'actions/stays';
 import classNames from 'classnames/bind';
 import styles from './map.css';
 
 const cx = classNames.bind(styles);
 
 const INITIAL_LOCATION = {
-  address: 'London, United Kingdom',
+  address: 'e.g.   London, United Kingdom',
   position: {
     latitude: 51.5085300,
     longitude: -0.1257400
@@ -33,13 +33,15 @@ class GoogleMapsWrapper extends Component {
   }
 
   geocodeAddress(address) {
+    const { searchCity } = this.props;
     this.geocoder.geocode({ 'address': address }, function handleResults(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         this.setState({
           foundAddress: results[0].formatted_address,
           isGeocodingError: false
         });
-
+        searchCity(results[0].formatted_address)
+        
         this.map.setCenter(results[0].geometry.location);
         this.marker.setPosition(results[0].geometry.location);
 
@@ -102,14 +104,14 @@ class GoogleMapsWrapper extends Component {
         } = this.state;
 
     return (
-      <div>
+      <div className={cx("container")}>
+          { isGeocodingError ? 
+             <p className={cx("address", "bg-danger")}>Address not found.</p> 
+           : <p className={cx("address", "bg-info")}>{foundAddress}</p> 
+          }
           {cloneElement(this.props.children, 
             {setLocation: this.handleSetLocation, 
               foundAddress: foundAddress})}
-          { isGeocodingError ? 
-             <p className={cx("bg-danger")}>Address not found.</p> 
-           : <p className={cx("bg-info")}>{foundAddress}</p> 
-          }
           <div className={cx("map")} ref={this.setMapElementReference}></div>
       </div>
     );
@@ -123,5 +125,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createFlat })(GoogleMapsWrapper);
+export default connect(mapStateToProps, { searchCity })(GoogleMapsWrapper);
 

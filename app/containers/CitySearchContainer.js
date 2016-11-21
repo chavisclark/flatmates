@@ -1,12 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logOut } from 'actions/users';
 import CitySelect from '../components/CitySelect';
+import Button from '../components/Button';
 import GoogleMapsWrapper from '../components/GoogleMapsWrapper';
 import ReactDates from 'react-dates';
-import omitBy from 'lodash/omitBy';
-import isEmpty from 'lodash/isEmpty';
 import uuid from 'uuid';
 const ReactDatesPicker = ReactDates.DateRangePicker;
 
@@ -19,7 +17,7 @@ class CitySearchContainer extends Component {
         endDate: null,
         startReservation: false
       };
-      this.handleSearch      = this.handleSearch.bind(this)
+      this.handleSearch     = this.handleSearch.bind(this)
       this.onDatesChange    = this.onDatesChange.bind(this);
       this.onFocusChange    = this.onFocusChange.bind(this);
     }
@@ -32,17 +30,17 @@ class CitySearchContainer extends Component {
       this.setState({ focusedInput });
     }
 
-    handleSearch(address) {
+    handleSearch() {
+      let address = this.props.state.stay.city;
       return {
         init: () => {
           var from = !this.state.startDate ? '' : this.state.startDate._d;
           var to = !this.state.endDate ? '' : this.state.endDate._d;
           let reservation = {from, to, address};
 
-          if (this.state.endDate && address) {
-            //Create search action => search(reservation)
-            console.log(reservation)
-          }
+          //Create search action => search(reservation)
+          console.log(reservation)
+
         }         
       }
     }
@@ -51,7 +49,10 @@ class CitySearchContainer extends Component {
     render() {
       const { focusedInput, startDate, endDate } = this.state;
       return (
-        <div >
+        <div className='container'>
+          <GoogleMapsWrapper>
+            <CitySelect setLocation={this.props.setLocation} />
+          </GoogleMapsWrapper>
           <ReactDatesPicker 
             {...this.props}
             startDatePlaceholderText={"Check In"}
@@ -64,13 +65,20 @@ class CitySearchContainer extends Component {
             focusedInput={focusedInput}
             startDate={startDate}
             endDate={endDate} />
-          <GoogleMapsWrapper>
-            <CitySelect setLocation={this.props.setLocation} startSearch={this.handleSearch} />
-          </GoogleMapsWrapper>
+            {
+              this.state.endDate && this.props.state.stay.city ? this.handleSearch().init() 
+              : ''
+            }
         </div>
       );      
     }
 };
 
 
-export default CitySearchContainer;
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
+
+export default connect(mapStateToProps, {})(CitySearchContainer);
