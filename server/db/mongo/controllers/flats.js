@@ -2,7 +2,7 @@ import _ from 'lodash';
 import Flat from '../models/flat';
 
 export function add(req, res) {
-  console.log('API initialized...');
+  console.log('api initialized...');
   const flat = new Flat({
     name: req.body.data.name,
     price_per_month: req.body.data.price,
@@ -20,12 +20,23 @@ export function add(req, res) {
     return saved;
   });
   
-
   console.log('Flat saved... ', flat );
 
   return res.json({message: flat.name + ' was added!'});
 }
 
+export function find(req, res) {
+  console.log(req.body)
+  const location = req.body.data.address;
+  Flat.find({location: location}, (err, flats) => {
+    if (err) {
+      throw err
+    }
+    return res.json({data: flats});
+  })
+}
+
 export default {
-  add
+  add,
+  find
 };

@@ -16,11 +16,11 @@ function makeFlatRequest(method, data, api = '/flats') {
   });
 }
 
-export function fetchFlats(city) {
+export function fetchFlatsPromise(data) {
   return {
     type: types.GET_FLATS,
-    promise: makeFlatRequest('get', city, '/flats/'+city),
-    city
+    promise: makeFlatRequest('post', data, '/find-flats'),
+    data
   };
 }
 
@@ -58,6 +58,24 @@ export function createFlat(data) {
           dispatch(createFlatError('Oops! Something went wrong'));
         }
       })
+  };
+}
+
+export function fetchFlats(data) {
+  return dispatch => {
+    dispatch(fetchFlatsPromise(data))
+      .then(response => {
+        if (response.status === 200) {
+          console.log(response.data)
+          // dispatch(loginSuccess(response.data.message));
+          // dispatch(push('/'));
+        } else {
+          // dispatch(loginError('Oops! Something went wrong!'));
+        }
+      })
+      .catch(err => {
+        // dispatch(loginError(err.data.message));
+      });
   };
 }
 
