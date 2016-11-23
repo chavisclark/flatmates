@@ -32,26 +32,17 @@ class CitySearchContainer extends Component {
     }
 
     handleSearch() {
-      let address = this.props.state.stay.city;
-
-      return {
-        init: () => {
-          var from = !this.state.startDate ? '' : this.state.startDate._d;
-          var to = !this.state.endDate ? '' : this.state.endDate._d;
-          let reservation = {from, to, address};
-          
-          this.handleReservation(reservation)
-          this.setState({ startReservation: false });
-        }         
-      }
-    }
-
-    handleReservation(reservation) {
       const { fetchFlats } =  this.props; 
+      let address = this.props.state.stay.city;
+      var from = !this.state.startDate ? '' : this.state.startDate._d;
+      var to = !this.state.endDate ? '' : this.state.endDate._d;
+      
+      let reservation = {from, to, address};
+      console.log('HEY YA')
       if (this.state.endDate && this.props.state.stay.city) { 
         fetchFlats(reservation);         
       }
-   
+        return;
     }
 
     componentWillMount() {
@@ -61,8 +52,8 @@ class CitySearchContainer extends Component {
 
     render() {
       const { focusedInput, startDate, endDate } = this.state;
-      let search = this.state.startReservation ? this.handleSearch().init() 
-                    : ''
+      const init = () => {this.handleSearch()} 
+      
       return (
         <div className='container'>
           <GoogleMapsWrapper>
@@ -80,7 +71,7 @@ class CitySearchContainer extends Component {
             focusedInput={focusedInput}
             startDate={startDate}
             endDate={endDate} />
-            {search}
+            <Button search={init} />
         </div>
       );      
     }

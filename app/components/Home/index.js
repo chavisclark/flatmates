@@ -9,6 +9,7 @@ const cx = classNames.bind(styles);
 export default class Home extends Component {
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <NavigationContainer />

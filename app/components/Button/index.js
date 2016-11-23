@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 const Button = (props) => {
   return (
     <span className={cx('trav-btn')} 
-          onClick={props.startSearch().init()}>
+          onClick={props.search}>
       <span>Search</span>
     </span>
   )

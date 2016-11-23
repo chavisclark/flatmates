@@ -27,7 +27,7 @@ export function add(req, res) {
 
 export function find(req, res) {
   console.log(req.body)
-  const location = req.body.data.address;
+  const location = req.body.address;
   Flat.find({location: location}, (err, flats) => {
     if (err) {
       throw err
