@@ -15,7 +15,7 @@ const config = {
     { name: 'mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-capable', content: 'yes' },
     { name: 'apple-mobile-web-app-status-bar-style', content: 'black' },
-    { name: 'apple-mobile-web-app-title', content: 'FlatMates' },
+    { name: 'apple-mobile-web-app-title', content: 'Cheers' },
     { name: 'msapplication-TileColor', content: '#3372DF' }
   ]
 };

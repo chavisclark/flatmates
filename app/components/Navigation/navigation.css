@@ -1,4 +1,4 @@
-@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold from '../../css/common/colors.css';
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 
 nav {
   z-index: 2
@@ -19,7 +19,7 @@ nav {
 }
 
 .logo {
-  color: black;
+  color: color-matte-blue;
   font-size: 1.5em;
 }
 
@@ -55,10 +55,9 @@ a {
   border-bottom: solid 3px transparent;
 }
 a:hover {
-  color: #FFF;
-  border-bottom: solid 3px rgba(126,87,194,1)
+  color: color-matte-blue;
 }
 
 .active {
-  color: #FFF;
+  color: color-matte-blue;
 }

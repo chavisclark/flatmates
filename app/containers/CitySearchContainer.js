@@ -57,6 +57,7 @@ class CitySearchContainer extends Component {
             {...this.props}
             id="date_input"
             numberOfMonths={1}
+            placeholder="When"
             orientation={"vertical"}
             withFullScreenPortal={true}
             showClearDates={true}

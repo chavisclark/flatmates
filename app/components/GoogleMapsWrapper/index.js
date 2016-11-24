@@ -106,7 +106,7 @@ class GoogleMapsWrapper extends Component {
     return (
       <div className={cx("container")}>
           { isGeocodingError ? 
-             <p className={cx("address", "bg-danger")}>Address not found.</p> 
+             <p className={cx("address", "bg-danger")}>Location not found.</p> 
            : <p className={cx("address", "bg-info")}>{foundAddress}</p> 
           }
           {cloneElement(this.props.children, 

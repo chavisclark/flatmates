@@ -51,7 +51,8 @@ const UserSchema = new Schema({
     type: Boolean, 
     default: false 
   },
-  password: String
+  password: String,
+  fake: Boolean
 });
 
 function encryptPassword(next) {

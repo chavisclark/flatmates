@@ -1,5 +1,5 @@
-/* Google Map 
-------------------------------------*/
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
+
 .map {
   display: none;
 }
@@ -22,5 +22,5 @@
 
 .bg-info {
   background-color: transparent;
-  color: #FFFFFF;
+  color: color-matte-blue;
 }

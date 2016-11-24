@@ -13,8 +13,8 @@ const Navigation = (props) => {
         <nav className={cx('navigation')} role="navigation">
           <Link to="/"
             className={cx('item', 'logo')}
-            activeClassName={cx('active')}>FlatMates</Link>
-            <Link to="/add-flat" className={cx('item', 'nav')}>Add Flat</Link>
+            activeClassName={cx('active')}>Cheers</Link>
+            <Link to="/add-flat" className={cx('item', 'nav')}></Link>
 
             { props.authenticated ? (
               <a onClick={props.logOut}

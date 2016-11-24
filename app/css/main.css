@@ -18,7 +18,8 @@ a {
   cursor: pointer;
 }
   
-.header {
+.banner {
+  background-image: url('https://images.unsplash.com/photo-1467504057324-4c38f39ff87c?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop=');
   color: #FFF;
   font-family: 'Avant Garde', sans-serif;
   font-weight: 800;
