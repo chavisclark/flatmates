@@ -19,16 +19,29 @@ a {
 }
   
 .banner {
-  background-image: url('https://images.unsplash.com/photo-1467504057324-4c38f39ff87c?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop=');
-  color: #FFF;
-  font-family: 'Avant Garde', sans-serif;
-  font-weight: 800;
+  position: absolute;
+  top:72px;
+  background-color: color-white;
+  width: 80%;
+  padding: 25px;
   font-size: 4em;
   letter-spacing: -2px;
-  text-align: center;
 }
 
+.banner .text {
 
+}
+
+.container {
+  position: relative;
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.container img {
+  z-index: -1;
+  max-width: 100%;
+}
 
 .app {
   composes: box from './common/layout.css';
@@ -38,15 +51,22 @@ a {
   font-smoothing: antialiased;
 }
 
-.full-screen {
-  margin-top: 200px;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
+.action-container {
+  padding: 25px;
+  margin: 10px;
+  width: 80%;
+  margin: 0 auto;
+  bottom: 400px;
   text-align: center;
+  position: relative;
+  vertical-align: top;
+  height: 200px;
+  border: solid #DDD 1px;
+}
+
+.action-container:before {
+  content: '';
+  position: absolute; 
 }
 
 .button-line {

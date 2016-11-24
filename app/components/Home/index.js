@@ -11,10 +11,11 @@ export default class Home extends Component {
   render() {
     return (
       <div>
+        <div className={cx("container")}>
         <NavigationContainer />
-        <div className={cx("full-screen")}>
-          <div>
-            <h1 className={cx("header")}>Enjoy the local life</h1>
+          <img src='https://images.unsplash.com/photo-1467504057324-4c38f39ff87c?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop='/>
+          <h1 className={cx("banner")}>Enjoy the local life</h1>
+          <div className={cx("action-container")}>
             <br/>
             <CitySearchContainer className={cx("tripRequester")} /> 
           </div>
