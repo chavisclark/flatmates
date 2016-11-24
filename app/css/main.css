@@ -1,5 +1,19 @@
 @value roboto from './common/typography.css';
-@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from './common/colors.css';
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold from './common/colors.css';
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  display: block;
+    background-color: color-white;
+  background-size: 300% 300%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+
 a {
   cursor: pointer;
 }
