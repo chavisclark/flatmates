@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { fetchFlats } from 'actions/flats';
 import CitySelect from '../components/CitySelect';
-import Button from '../components/Button';
+import Button_Search from '../components/Button_Search';
 import GoogleMapsWrapper from '../components/GoogleMapsWrapper';
 import ReactDates from 'react-dates';
 import uuid from 'uuid';
@@ -65,7 +65,7 @@ class CitySearchContainer extends Component {
             onFocusChange={this.onFocusChange}
             focused={focused}
             date={date} />
-            <Button search={init} />
+            <Button_Search search={init} />
         </div>
       );      
     }

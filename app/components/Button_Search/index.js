@@ -4,7 +4,7 @@ import styles from './button.css';
 
 const cx = classNames.bind(styles);
 
-const Button = (props) => {
+const Button_Search = (props) => {
   return (
     <span className={cx('trav-btn')} 
           onClick={props.search}>
@@ -13,4 +13,4 @@ const Button = (props) => {
   )
 }
 
-export default Button;
+export default Button_Search;
