@@ -16,7 +16,7 @@ class CitySearchContainer extends Component {
         focused: false,
         date: null
       };
-      this.handleSearch     = this.handleSearch.bind(this)
+      this.handleSearch     = this.handleSearch.bind(this);
       this.onDateChange    = this.onDateChange.bind(this);
       this.onFocusChange    = this.onFocusChange.bind(this);
     }
