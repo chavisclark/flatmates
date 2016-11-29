@@ -7,37 +7,42 @@ import Button_Search from '../components/Button_Search';
 import GoogleMapsWrapper from '../components/GoogleMapsWrapper';
 import ReactDates from 'react-dates';
 import uuid from 'uuid';
-const ReactDatesPicker = ReactDates.SingleDatePicker;
+const ReactDatesPicker = ReactDates.DateRangePicker;
 
 class CitySearchContainer extends Component {
     constructor(props){
       super(props);
       this.state = {
-        focused: false,
-        date: null
+        focusedInput: null,
+        startDate: null,
+        endDate: null,
+        startReservation: false
       };
-      this.handleSearch     = this.handleSearch.bind(this);
-      this.onDateChange    = this.onDateChange.bind(this);
+      this.handleSearch     = this.handleSearch.bind(this)
+      this.onDatesChange    = this.onDatesChange.bind(this);
       this.onFocusChange    = this.onFocusChange.bind(this);
     }
   
-    onDateChange(date) {
-      this.setState({ date });
+    onDatesChange({ startDate, endDate }) {
+      this.setState({ startDate, endDate });
     }
 
-    onFocusChange({focused}) {
-      this.setState({ focused });
+    onFocusChange(focusedInput) {
+      this.setState({ focusedInput });
     }
 
     handleSearch() {
       const { fetchFlats } =  this.props; 
       let address = this.props.state.stay.city;
-      var day = !this.state.date ? '' : this.state.date._d;
+      var from = !this.state.startDate ? '' : this.state.startDate._d;
+      var to = !this.state.endDate ? '' : this.state.endDate._d;
       
-      let reservation = {day, address};
-
-      if (this.props.state.stay.city) 
+      let reservation = {from, to, address};
+      console.log('HEY YA')
+      if (this.state.endDate && this.props.state.stay.city) { 
         fetchFlats(reservation);         
+      }
+        return;
     }
 
     componentWillMount() {
@@ -46,8 +51,9 @@ class CitySearchContainer extends Component {
 
 
     render() {
-      const { focused, date } = this.state;
+      const { focusedInput, startDate, endDate } = this.state;
       const init = () => {this.handleSearch()} 
+      
       return (
         <div className='container'>
           <GoogleMapsWrapper>
@@ -55,17 +61,17 @@ class CitySearchContainer extends Component {
           </GoogleMapsWrapper>
           <ReactDatesPicker 
             {...this.props}
-            id="date_input"
-            numberOfMonths={1}
-            placeholder="When"
+            startDatePlaceholderText={"Move In"}
+            endDatePlaceholderText={"Move Out"}
             orientation={"vertical"}
             withFullScreenPortal={true}
             showClearDates={true}
-            onDateChange={this.onDateChange}
+            onDatesChange={this.onDatesChange}
             onFocusChange={this.onFocusChange}
-            focused={focused}
-            date={date} />
-            <Button_Search search={init} />
+            focusedInput={focusedInput}
+            startDate={startDate}
+            endDate={endDate} />
+            <Button search={init} />
         </div>
       );      
     }
