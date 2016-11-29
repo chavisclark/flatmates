@@ -1,6 +1,5 @@
 ## FlatMates
 
-#### The old project can be viewed at [flatmates.chavis.io](http://flatmates.chavis.io)
 > This repo is incomplete. A full description will be added once this project is finished. I'm redesigning the old UI, adding tests, and making significant improvements to the server.
 
 ![alt text](https://d3brgjqtir64ox.cloudfront.net/fm-bg.png "FlatMates")
