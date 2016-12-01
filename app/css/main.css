@@ -5,14 +5,11 @@
   box-sizing: border-box;
 }
 
-html {
-  display: block;
-    background-color: color-white;
-  background-size: 300% 300%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-}
 
+body {
+  min-height: 100%;
+  margin: 0;
+}
 
 a {
   cursor: pointer;
@@ -28,39 +25,38 @@ a {
   letter-spacing: -2px;
 }
 
-.banner .text {
-
-}
-
 .container {
   position: relative;
-  max-width: 1500px;
+  width: 100%;
   margin: 0 auto;
+}
+
+section.bottom {
+  margin-top: -200px;
+  background-color: #efefe9;
+  text-align: center;
+  color: black;
+  height: 250px;
+
 }
 
 .container img {
   z-index: -1;
-  max-width: 100%;
-}
-
-.app {
-  composes: box from './common/layout.css';
+  min-width: 100%;
   height: 100%;
-  font-family: roboto;
-  font-weight: normal;
-  font-smoothing: antialiased;
 }
 
 .action-container {
   padding: 25px;
-  margin: 10px;
   width: 80%;
+  max-width: 800px;
   margin: 0 auto;
-  bottom: 400px;
+  bottom: 600px;
   text-align: center;
   position: relative;
   vertical-align: top;
   height: 200px;
+  background: rgba(255,255,255, .5);
   border: solid #DDD 1px;
 }
 

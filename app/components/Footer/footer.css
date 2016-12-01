@@ -1,0 +1,14 @@
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
+
+.footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #efefe9;
+  min-height: 150px;
+  text-align: center;
+  border-top: 1px solid #d8d8d2;
+  color: #b0b0b0;
+}
