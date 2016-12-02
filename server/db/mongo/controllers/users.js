@@ -11,9 +11,13 @@ export function login(req, res, next) {
     if (!user) {
       return res.status(401).json({ message: info.message });
     }
+    user.location = req.body.currentLocation;
+    user.save();
+
     return req.logIn(user, (loginErr) => {
       if (loginErr) return res.status(401).json({ message: loginErr });
       return res.status(200).json({
+        user: user,
         message: 'You have been successfully logged in.'
       });
     });
@@ -34,7 +38,8 @@ export function logout(req, res) {
 export function signUp(req, res, next) {
   const user = new User({
     email: req.body.email,
-    password: req.body.password
+    password: req.body.password,
+    location: req.body.currentLocation
   });
 
   User.findOne({ email: req.body.email }, (findErr, existingUser) => {
@@ -47,6 +52,7 @@ export function signUp(req, res, next) {
       return req.logIn(user, (loginErr) => {
         if (loginErr) return res.status(401).json({ message: loginErr });
         return res.status(200).json({
+          user: user,
           message: 'You have been successfully logged in.'
         });
       });

@@ -23,9 +23,10 @@ function beginLogin() {
   return { type: types.MANUAL_LOGIN_USER };
 }
 
-function loginSuccess(message) {
+function loginSuccess(message, user) {
   return {
     type: types.LOGIN_SUCCESS_USER,
+    info: user,
     message
   };
 }
@@ -52,9 +53,10 @@ function beginFetch() {
   return { type: types.BEGIN_USER_FETCH };
 }
 
-function signUpSuccess(message) {
+function signUpSuccess(message, user) {
   return {
     type: types.SIGNUP_SUCCESS_USER,
+    info: user,
     message
   };
 }
@@ -105,7 +107,7 @@ export function manualLogin(data) {
     return makeUserRequest('post', data, '/login')
       .then(response => {
         if (response.status === 200) {
-          dispatch(loginSuccess(response.data.message));
+          dispatch(loginSuccess(response.data.message, response.data.user));
           dispatch(push('/'));
         } else {
           dispatch(loginError('Oops! Something went wrong!'));
@@ -144,7 +146,7 @@ export function signUp(data) {
     return makeUserRequest('post', data, '/signup')
       .then(response => {
         if (response.status === 200) {
-          dispatch(signUpSuccess(response.data.message));
+          dispatch(signUpSuccess(response.data.message, response.data.user));
           dispatch(push('/'));
         } else {
           dispatch(signUpError('Oops! Something went wrong'));

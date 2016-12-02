@@ -32,9 +32,11 @@ class GoogleMapsWrapper extends Component {
     this.setMapElementReference =this.setMapElementReference.bind(this);
   }
 
-  geocodeAddress(address) {
+  geocodeAddress(lat,lng) {
     const { searchCity } = this.props;
-    this.geocoder.geocode({ 'address': address }, function handleResults(results, status) {
+    let latlng = {lat: parseFloat(lat), lng: parseFloat(lng)};
+
+    this.geocoder.geocode({ 'location': latlng }, function handleResults(results, status) {
       if (status === google.maps.GeocoderStatus.OK) {
         this.setState({
           foundAddress: results[0].formatted_address,
@@ -73,6 +75,12 @@ class GoogleMapsWrapper extends Component {
   }
 
   componentDidMount() {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition((position) => {
+        this.geocodeAddress(position.coords.latitude, position.coords.longitude);
+      })
+    }
+
     let mapElement = this.mapElement;
 
     this.map = new google.maps.Map(mapElement, {

@@ -22,9 +22,9 @@ const UserSchema = new Schema({
     type: String, 
     default: '' 
   },
-  location: { 
-    type: String, 
-    default: '' 
+  location: {
+        type: [Number],  // [<longitude>, <latitude>]
+        index: '2d'
   },
   website: { 
     type: String, 
