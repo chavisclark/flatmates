@@ -11,13 +11,6 @@ class AddFlatContainer extends Component {
   }
 
   handleOnSubmit(data) {
-    // let name = data.name;
-    // let price_per_month = data.price;
-    // let rooms = data.rooms;
-    // let beds = data.beds;
-    // let capacity = data.capacity;
-    // let location = data.location;
-    // let description = data.description;
     const { createFlat } = this.props;
     createFlat({ data });
   }
