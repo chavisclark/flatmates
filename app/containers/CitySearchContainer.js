@@ -40,10 +40,6 @@ class CitySearchContainer extends Component {
         fetchFlats(reservation);         
     }
 
-    componentWillMount() {
-
-    }
-
 
     render() {
       const { focused, date } = this.state;

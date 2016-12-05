@@ -72,6 +72,10 @@ class ActionBoxContainer extends Component {
       }
     }
 
+    componentWillUnmount () {
+      
+    }
+
     render() {
       return (
         <ActionBox logOut={this.handleLogOut} 

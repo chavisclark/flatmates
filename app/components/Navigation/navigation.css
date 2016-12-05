@@ -21,6 +21,7 @@ nav {
 .logo {
   color: color-matte-blue;
   font-size: 1.5em;
+  left:1em;
 }
 
 @media(max-width: 800px){
@@ -38,9 +39,6 @@ nav {
   }
 }
 
-.logo{
-  left:1em;
-}
 
 .nav {
   float: right;

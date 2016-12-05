@@ -1,11 +1,48 @@
-@value color-athens-gray, color-mercury, color-white, color-skyes, color-dodger-blue, color-crimson, color-bombay from '../../css/common/colors.css';
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 
-.login {
-  width: 380px;
+nav {
+  z-index: 2
+}
+
+.navigation {
+  width: 100%;
+  background: rgba(0,0,0,.05);
+  border-bottom: solid .5px rgba(0,0,0,.05);
+  height: 40px;
+}
+
+.navigation > span {
+  display: inline-block;
+  display: -moz-inline-box;
+  *display: inline; /* For IE7 */
+  zoom: 1; /* Trigger hasLayout */
+  width: 32.5%;
+}
+
+.settings {
+  text-align: left;
+  margin-left: 1%;
+}
+
+.logo {
+  color: color-matte-blue;
+  font-size: 1.5em;
+  text-align: center;
+}
+
+.activities {
+  text-align: right;
+}
+
+
+
+.container {
+  max-width: 800px;
   margin: 0 auto;
   background-color: color-athens-gray;
   border: 2px solid color-mercury;
   border-radius: global-radius;
+  height: 100vh;
 }
 
 .waiting {
@@ -41,16 +78,10 @@
     margin: 24px auto;
   }
 
-  .email-container {
-    padding: 16px 12px;
-    border-bottom: 2px solid color-mercury;
-  }
-
-  .google-container {
+  .sub-container {
+    margin-top: 200px;
     padding: 16px 12px;
   }
-
-  .header {}
 
   .heading {
     composes: subheading from '../../css/common/typography';
