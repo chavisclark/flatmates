@@ -8,16 +8,9 @@ import dynamics from 'dynamics.js';
 class NavigationContainer extends Component {
     constructor(props){
       super(props);
-      this.handleLogOut = this.handleLogOut.bind(this);
       this.state = {
         isPopupOpen:false
       }
-    }
-
-    handleLogOut(data) {
-      const { logOut } = this.props;
-        logOut({null});
-        this.handleClosePopup();
     }
 
     handleOpenPopup() {
@@ -55,8 +48,7 @@ class NavigationContainer extends Component {
 
     render() {
       return (
-        <Navigation logOut={this.handleLogOut} 
-          authenticated={this.props.user.authenticated}
+        <Navigation authenticated={this.props.user.authenticated}
           handleClosePopup={this.handleClosePopup.bind(this)}
           isPopupOpen={this.state.isPopupOpen}
           openLoginPopup={this.handleOpenPopup.bind(this)} />

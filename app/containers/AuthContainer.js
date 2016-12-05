@@ -10,34 +10,20 @@ import AuthForm from '../components/AuthForm'
 class AuthContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currentLocation: [null]
-    }
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
-  }
-  
-  componentDidMount() {
-    if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition((position) => {
-        this.setState({
-          currentLocation: [position.coords.latitude, position.coords.longitude]
-        });
-      })
-    }
   }
 
   handleOnSubmit(data) {
     let email = data.email;
     let password = data.password;
-    let currentLocation = this.state.currentLocation;
-    const { manualLogin, signUp, user: { isLogin } } = this.props;
-    if (isLogin) {
+    const { manualLogin, signUp, user: { isLogin }, currentLocation } = this.props;
+    
+    if (isLogin && currentLocation)
       manualLogin({ email, password, currentLocation });
-    } else {
+    if (!isLogin && currentLocation)
       signUp({ email, password, currentLocation });
-    }
   }
-
+  
   renderHeader() {
     const { user: { isLogin } , toggleLoginMode } = this.props;
     if (isLogin) {

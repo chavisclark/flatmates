@@ -11,7 +11,11 @@ const ActionBox = (props) => {
     return (
       <div>
             { props.authenticated ? (
-              ""
+              <div className={cx('home_actions')}>
+                <button onClick={props.logOut} className={cx('login-button', 'primary')}>
+                  <span>Log out</span>
+                </button>
+              </div>
             ) : (
               <div className={cx('home_actions')}>
                 <button onClick={props.openLoginPopup} className={cx('login-button', 'primary')}>
@@ -23,7 +27,7 @@ const ActionBox = (props) => {
               </div>
             )}
         <Modal authenticated={props.authenticated} isOpen={props.isPopupOpen} closePopupProp={props.handleClosePopup}>
-          <AuthContainer />
+          <AuthContainer currentLocation={props.currentLocation}/>
         </Modal>
       </div>
     );

@@ -17,21 +17,11 @@ const Navigation = (props) => {
             <Link to="/add-flat" className={cx('item', 'nav')}></Link>
 
             { props.authenticated ? (
-              <a onClick={props.logOut}
-                className={cx('item', 'nav')} to="/">Logout</a>
+              <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
             ) : (
               ""
             )}
-
-            { props.authenticated ? (
-              <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
-            ) : (
-              <a onClick={props.openLoginPopup} className={cx('item', 'nav')}>Log in</a>
-            )}
         </nav>
-        <Modal authenticated={props.authenticated} isOpen={props.isPopupOpen} closePopupProp={props.handleClosePopup}>
-          <AuthContainer />
-        </Modal>
       </div>
     );
 };

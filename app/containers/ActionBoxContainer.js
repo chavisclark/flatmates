@@ -10,11 +10,30 @@ class ActionBoxContainer extends Component {
       super(props);
       this.handleLogOut = this.handleLogOut.bind(this);
       this.state = {
-        isPopupOpen:false
+        isPopupOpen:false,
+        currentLocation: [null]
       }
     }
+  
+    componentDidMount() {
+      const vm = this;
+      function success (position) {
+        let lat = position.coords.latitude,
+            lng = position.coords.longitude;
+            
+            console.info('Your coordinates are ' + lat + ', '+ lng)
+            vm.setState({currentLocation: [lat, lng]})
+      }
 
-    handleLogOut(data) {
+      function error(err) {
+        console.warn('ERROR(' + err.code + '): ' + err.message);
+      }
+  
+      navigator.geolocation.getCurrentPosition(success, error)
+
+    }
+  
+    handleLogOut() {
       const { logOut } = this.props;
         logOut({null});
         this.handleClosePopup();
@@ -59,6 +78,7 @@ class ActionBoxContainer extends Component {
           authenticated={this.props.user.authenticated}
           handleClosePopup={this.handleClosePopup.bind(this)}
           isPopupOpen={this.state.isPopupOpen}
+          currentLocation={this.state.currentLocation}
           openLoginPopup={this.handleOpenPopup.bind(this)} />
       );      
     }
