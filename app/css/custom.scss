@@ -6,3 +6,19 @@ $react-dates-color-primary-shade-3: #0d8ed9 !default;
 $react-dates-color-primary-shade-4: #0b7ec1 !default;
 @import '~react-dates/css/variables.scss';
 @import '~react-dates/css/styles.scss';
+
+@value roboto from './common/typography.css';
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  min-height: 100%;
+  margin: 0;
+}
+
+a {
+  cursor: pointer;
+}

@@ -1,4 +1,4 @@
-@value color-white, color-salem, darker-color-salem, color-slate, color-darker-slate from './colors.css';
+@value color-white, color-salem, darker-color-salem, color-matte-blue, color-darker-slate from './colors.css';
 
 .button {
   composes: small from './typography.css';
@@ -36,8 +36,8 @@
 .slateButton {
   composes: button;
 
-  background: color-slate;
-  border-color: color-slate;
+  background: color-matte-blue;
+  border-color: color-matte-blue;
   color: color-white;
 
   &:hover {
@@ -51,7 +51,7 @@
 
   background: color-darker-slate;
   border-color: color-darker-slate;
-  color: color-slate;
+  color: color-matte-blue;
 
   &:hover {
     background: color-darker-slate;

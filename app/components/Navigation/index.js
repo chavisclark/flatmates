@@ -28,7 +28,6 @@ const Navigation = (props) => {
             ) : (
               <a onClick={props.openLoginPopup} className={cx('item', 'nav')}>Log in</a>
             )}
-            <Link to="/about" className={cx('item', 'nav')} activeClassName={cx('active')}>About</Link>
         </nav>
         <Modal authenticated={props.authenticated} isOpen={props.isPopupOpen} closePopupProp={props.handleClosePopup}>
           <AuthContainer />

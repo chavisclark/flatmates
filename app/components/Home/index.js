@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import NavigationContainer from 'containers/NavigationContainer';
-import CitySearchContainer from 'containers/CitySearchContainer';
+import ActionBoxContainer from 'containers/ActionBoxContainer';
 import Footer from 'components/Footer';
 import classNames from 'classnames/bind';
-import styles from 'css/main';
+import styles from './home';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +16,7 @@ export default class Home extends Component {
           <NavigationContainer />
           <img src='https://images.unsplash.com/photo-1467504057324-4c38f39ff87c?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop='/>
           <h1 className={cx("banner")}>Find a local. Experience the city.</h1>
-
+          <ActionBoxContainer />
           <Footer />
         </div>
 

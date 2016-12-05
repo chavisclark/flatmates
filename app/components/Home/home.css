@@ -1,0 +1,27 @@
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold from '../../css/common/colors.css';
+
+.banner {
+  position: absolute;
+  top:72px;
+  background-color: color-white;
+  width: 80%;
+  padding: 25px;
+  font-size: 4em;
+  letter-spacing: -2px;
+}
+
+.container {
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.container img {
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+}
+
+.tripRequester{
+  display: inline-flex;
+}

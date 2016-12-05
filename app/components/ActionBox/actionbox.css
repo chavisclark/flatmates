@@ -1,0 +1,25 @@
+.home_actions {
+  display: block;
+  left: 50%;
+  margin-left: -400px;
+  position: absolute;
+  top: 50%;
+  width: 800px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.login-button {
+  margin: 5px auto;
+  color: color-white;
+  width:50%;
+  display: block;
+}
+
+.primary {
+  background: #0969A2
+}
+
+.secondary {
+  background: rgba(255, 255, 255, .5)
+}
