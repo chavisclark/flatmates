@@ -50,9 +50,6 @@ class CitySearchContainer extends Component {
       const init = () => {this.handleSearch()} 
       return (
         <div className='container'>
-          <GoogleMapsWrapper>
-            <CitySelect setLocation={this.props.setLocation} />
-          </GoogleMapsWrapper>
           <ReactDatesPicker 
             {...this.props}
             id="date_input"
