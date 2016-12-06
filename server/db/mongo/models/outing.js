@@ -1,16 +1,17 @@
 /* Schema Definitions */
-import mongoose from 'mongoose';
+import mongoose, { Schema } from 'mongoose';
 
 const OutingSchema = new mongoose.Schema({
+  owner: {
+    type: Schema.ObjectId,
+    ref: 'User'
+  },
   text: {
     type: String
   },
-  keyword: { 
+  keywords: [{ 
     type: String
-  },
-  topic: { 
-    type: String
-  },
+  }]
 })
 
 export default mongoose.model('Outing', OutingSchema);

@@ -31,7 +31,7 @@ const RequestBox = (props) => {
               <Field component="input" 
               className={cx('input')}
               type="text"
-              name="search"
+              name="text"
               placeholder="What's your activity?" />
               <p className={cx('message', {
                 'message-show': props.message && props.message.length > 0

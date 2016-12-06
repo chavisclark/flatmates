@@ -2,7 +2,6 @@ import React from 'react'
 import { Route, IndexRoute } from 'react-router'
 import App from 'containers/App'
 import Home from 'components/Home'
-import AddFlatContainer from 'containers/AddFlatContainer'
 
 export default (store) => {
   // const requireAuth = (nextState, replace, callback) => {
@@ -28,7 +27,6 @@ export default (store) => {
   return (
     <Route path="/" component={App}>
       <IndexRoute component={Home} />
-      <Route path="/add-flat" component={AddFlatContainer} />
     </Route>
   );
 };

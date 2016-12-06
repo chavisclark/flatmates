@@ -14,7 +14,6 @@ const Navigation = (props) => {
           <Link to="/"
             className={cx('item', 'logo')}
             activeClassName={cx('active')}>Cheers</Link>
-            <Link to="/add-flat" className={cx('item', 'nav')}></Link>
 
             { props.authenticated ? (
               <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
