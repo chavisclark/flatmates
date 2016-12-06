@@ -1,5 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
+import Modal from '../Modal';
 import styles from './requestbox.css';
 import classNames from 'classnames/bind';
 
@@ -27,7 +28,10 @@ const RequestBox = (props) => {
             <div className={cx('loader')}></div>
           </div>
           <div className={cx('sub-container')}>
-            <form onSubmit={handleSubmit(data => { props.handleOnSubmit(data) })}>
+            <form id="quest" onSubmit={handleSubmit(data => {
+              data.expire = props.expire; 
+              props.handleOnSubmit(data) 
+            })}>
               <Field component="input" 
               className={cx('input')}
               type="text"
@@ -36,11 +40,19 @@ const RequestBox = (props) => {
               <p className={cx('message', {
                 'message-show': props.message && props.message.length > 0
               })}>{props.message}</p>
-              <button className={cx('button')}
-                type="submit" disabled={pristine || submitting}>Find</button>
             </form>
+            <button onClick={props.openPopup} className={cx('button')}>
+              Find
+            </button>
           </div>
         </div>
+        <Modal isOpen={props.isOpen} closePopupProp={props.closePopup}>
+          <div>
+            <button onClick={props.OnToday}>Today</button>
+            <button onClick={props.OnTomorrow}>Tomorrow</button>
+            <button onClick={props.OnAny}>Any</button>
+          </div>
+        </Modal>
       </div>
   )
 }

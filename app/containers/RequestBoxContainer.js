@@ -7,17 +7,67 @@ class RequestBoxContainer extends Component {
   constructor(props) {
     super(props);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    this.handleOpenPopup = this.handleOpenPopup.bind(this);
+    this.handleClosePopup = this.handleClosePopup.bind(this);
+    this.handleToday = this.handleToday.bind(this);
+    this.handleTomorrow = this.handleTomorrow.bind(this);
+    this.handleAny = this.handleAny.bind(this);
+    this.state = {
+      isPopupOpen: false,
+      expire: 0
+    }
+  }
+
+  handleOpenPopup() {
+      this.setState({
+          isPopupOpen: true
+      });
+  }
+
+  handleClosePopup() {
+      this.setState({
+        isPopupOpen: false
+      });
+  }
+
+  handleToday() {
+    this.setState({
+      expire: 1
+    })
+    document.getElementById('quest').dispatchEvent(new Event("submit"));
+  }
+
+  handleTomorrow() {
+    this.setState({
+      expire: 2
+    })
+    document.getElementById('quest').dispatchEvent(new Event("submit"));
+  }
+
+  handleAny() {
+    this.setState({
+      expire: Infinity
+    })
+    document.getElementById('quest').dispatchEvent(new Event("submit"));
   }
 
   handleOnSubmit(data) {
     const { createOuting } = this.props;
-    data.outingLocation = this.props.currentLocation;
     createOuting({ data });
   }
 
   render() {
     return (
-        <RequestBox handleOnSubmit={this.handleOnSubmit} />
+      <div>
+        <RequestBox handleOnSubmit={this.handleOnSubmit}
+          expire={this.state.expire}
+          OnToday={this.handleToday}
+          OnTomorrow={this.handleTomorrow}
+          OnAny={this.handleAny}
+          closePopup={this.handleClosePopup}
+          openPopup={this.handleOpenPopup}
+          isOpen={this.state.isPopupOpen} />
+      </div>
     );
   }
 }

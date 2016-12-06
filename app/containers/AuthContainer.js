@@ -43,6 +43,7 @@ class AuthContainer extends Component {
       <AuthForm isWaiting={isWaiting}
           message={message}
           isLogin={isLogin}
+          closePopupProp={this.props.closePopupProp}
           handleOnSubmit={this.handleOnSubmit}
           renderHeader={this.renderHeader()}
           />

@@ -11,7 +11,13 @@ const OutingSchema = new mongoose.Schema({
   },
   keywords: [{ 
     type: String
-  }]
+  }],
+  sent: {
+    type: Date
+  },
+  expire: {
+    type: Number    
+  }
 })
 
 export default mongoose.model('Outing', OutingSchema);

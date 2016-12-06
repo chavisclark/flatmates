@@ -6,7 +6,18 @@ import Outing from '../models/outing';
 
 export function add(req, res) {
   const text = req.body.data.text;
+  const exDate = req.body.data.expire;
   let outingKeywords = [];
+  let today = new Date(Date.now());
+  let expire = today.setDate(today.getDate() + 1);
+
+  if (exDate == 2)
+    return expire
+  if (exDate == Infinity)
+    return expire = ''
+  if (exDate == 1)
+    return expire = today.setHours(24,0,0,0);
+  //fix times and configure keyword search
   let keywordFn = () => {
     retext().use(keywords).process(text, (err, file) => {
       file.data.keywords.forEach((keyword)=>{
@@ -20,7 +31,9 @@ export function add(req, res) {
   const outing = new Outing({
     owner: req.user._id,
     text: text,
-    keywords: keywordFn()
+    keywords: keywordFn(),
+    sent: today,
+    expire: expire,
   });
 
   console.log('Request recieved... ');
