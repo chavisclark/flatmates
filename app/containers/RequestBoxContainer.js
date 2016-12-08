@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting } from '../actions/outings';
 import RequestBox from '../components/RequestBox';
@@ -32,21 +33,25 @@ class RequestBoxContainer extends Component {
 
   handleToday() {
     this.setState({
-      expire: 1
+      expire: 1,
+      isPopupOpen: false
     })
     document.getElementById('quest').dispatchEvent(new Event("submit"));
+    document.getElementById('quest').reset();
   }
 
   handleTomorrow() {
     this.setState({
-      expire: 2
+      expire: 2,
+      isPopupOpen: false
     })
     document.getElementById('quest').dispatchEvent(new Event("submit"));
   }
 
   handleAny() {
     this.setState({
-      expire: Infinity
+      expire: Infinity,
+      isPopupOpen: false
     })
     document.getElementById('quest').dispatchEvent(new Event("submit"));
   }
