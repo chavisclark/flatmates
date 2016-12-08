@@ -1,6 +1,7 @@
 import { polyfill } from 'es6-promise';
 import request from 'axios';
 import { push } from 'react-router-redux';
+import { reset } from 'redux-form';
 
 import * as types from 'constants';
 
@@ -36,6 +37,7 @@ function createOutingSuccess(message) {
 export function createOuting(data) {
   return dispatch => {
     dispatch(beginCreate());
+    dispatch(reset('RequestBox'));
     return makeOutingRequest('post', data, '/add-outing')
       .then(response => {
         if (response.status === 200) {

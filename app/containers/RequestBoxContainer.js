@@ -37,7 +37,6 @@ class RequestBoxContainer extends Component {
       isPopupOpen: false
     })
     document.getElementById('quest').dispatchEvent(new Event("submit"));
-    document.getElementById('quest').reset();
   }
 
   handleTomorrow() {
@@ -58,7 +57,11 @@ class RequestBoxContainer extends Component {
 
   handleOnSubmit(data) {
     const { createOuting } = this.props;
-    createOuting({ data });
+    if (data.text)
+      return createOuting({ data });
+    if (!data.text)
+      return alert('Hey you forgot to add your activity, silly rabbit!');
+    
   }
 
   render() {
