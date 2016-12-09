@@ -36,22 +36,21 @@ const RequestBox = (props) => {
               className={cx('input')}
               type="text"
               name="text"
-              placeholder="What's your activity?" />
+              placeholder="What's your activity?" 
+              required/>
               <p className={cx('message', {
                 'message-show': props.message && props.message.length > 0
               })}>{props.message}</p>
+              <button type="submit" className={cx('button')}>
+                Find
+              </button>
             </form>
-            <button onClick={props.openPopup} className={cx('button')}>
-              Find
-            </button>
           </div>
         </div>
-        <Modal isOpen={props.isOpen} closePopupProp={props.closePopup}>
-          <div>
-            <button onClick={props.OnToday}>Today</button>
-            <button onClick={props.OnTomorrow}>Tomorrow</button>
-            <button onClick={props.OnAny}>Any</button>
-          </div>
+        <Modal noBg={true} isOpen={props.isOpen} closePopupProp={props.closePopup}>
+            <button className={cx('button')} onClick={props.OnToday}>Today</button>
+            <button className={cx('button')} onClick={props.OnTomorrow}>Tomorrow</button>
+            <button className={cx('button')} onClick={props.OnAny}>Any</button>
         </Modal>
       </div>
   )

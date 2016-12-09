@@ -19,6 +19,12 @@
     min-width: 300;
     color: black
 }
+
+.popup-noBG{
+    padding: 0;
+    background: transparent;
+}
+
 .popupContainer{
     align-items: center;
     box-sizing: border-box;

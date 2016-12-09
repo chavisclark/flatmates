@@ -15,7 +15,7 @@ const ActionBox = (props) => {
                 <button onClick={props.logOut} className={cx('login-button', 'primary')}>
                   <span>Log out</span>
                 </button>
-                <button onClick={props.showRequest} className={cx('login-button', 'secondary', 'blue')}>
+                <button onClick={props.showRequest} className={cx('login-button', 'secondary', 'black')}>
                   <span>New Request</span>
                 </button>
               </div>

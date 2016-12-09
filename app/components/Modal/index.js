@@ -5,14 +5,15 @@ import styles from './modal.css';
 const cx = classNames.bind(styles);
 
 const Modal = (props) => {
-  const {isOpen, closePopupProp, children, authenticated} = props;
+  const {noBg, isOpen, closePopupProp, children, authenticated} = props;
+  const alt = noBg ? "-noBg" : "";
   
   if (isOpen == false || authenticated) {
     return null
   } else {
       return (
         <section className={cx("popupContainer")}>
-            <div id='modal-box' className={cx("popup")}>
+            <div id='modal-box' className={cx(`popup${alt}`)}>
                 {children}
             </div>
             <div className={cx("backdrop")} onClick={closePopupProp}></div>

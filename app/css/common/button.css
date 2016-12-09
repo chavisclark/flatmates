@@ -1,4 +1,4 @@
-@value color-white, color-salem, darker-color-salem, color-matte-blue, color-darker-slate from './colors.css';
+@value color-white, color-salem, darker-color-salem, color-matte-blue, color-darker-slate, color-gold from './colors.css';
 
 .button {
   composes: small from './typography.css';
@@ -43,6 +43,7 @@
   &:hover {
     background: color-darker-slate;
     border-color: color-darker-slate;
+    color: color-gold;
   }
 }
 

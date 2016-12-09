@@ -13,7 +13,7 @@
 .login-button {
   margin: 5px auto;
   color: color-white;
-  width:50%;
+  width: 50%;
   display: block;
 }
 
@@ -23,4 +23,8 @@
 
 .secondary {
   background: rgba(255, 255, 255, .5)
+}
+
+.black {
+  color: #000000
 }

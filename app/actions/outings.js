@@ -43,16 +43,17 @@ export function showNewRequest(){
 export function createOuting(data) {
   return dispatch => {
     dispatch(beginCreate());
-    dispatch(reset('RequestBox'));
+    //Fix empty server response bug
     return makeOutingRequest('post', data, '/add-outing')
       .then(response => {
         if (response.status === 200) {
+          dispatch(reset('RequestBox'));
           dispatch(createOutingSuccess(response.data.message));
 
           (setTimeout(() => {
             alert(response.data.message)
             dispatch(push('/'));
-            }, 500));
+            }, 200));
         } else {
           dispatch(createOutingError('Oops! Something went wrong'));
         }

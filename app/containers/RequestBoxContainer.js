@@ -36,42 +36,39 @@ class RequestBoxContainer extends Component {
     this.setState({
       expire: 1,
       isPopupOpen: false
-    })
-    return this.submitForm();
+    });
+    this.submitForm();
   }
 
   handleTomorrow() {
     this.setState({
       expire: 2,
       isPopupOpen: false
-    })
-    return this.submitForm();
+    });
+    this.submitForm();
   }
 
   handleAny() {
     this.setState({
       expire: Infinity,
       isPopupOpen: false
-    })
-    return this.submitForm();
+    });
+    this.submitForm();
   }
 
   handleOnSubmit(data) {
-    const { createOuting } = this.props;
-    if (data.text)
-      return createOuting({ data });
-    if (!data.text)
-      return alert('Hey you forgot to add your activity, silly rabbit!');
-    
+      return this.setState({ isPopupOpen: true, formData: data})
   }
 
-  submitForm () {
-    return document.getElementById('quest').dispatchEvent(new Event("submit"));
+  submitForm() {
+    const { createOuting } = this.props;
+    let data = this.state.formData;
+    //Fix empty server response bug
+    return createOuting({ data });
   }
 
   render() {
     const { outing } = this.props.state;
-    const { beginCreate } = this.props;
     return (
       <div>
         { outing.showRequest ? 
