@@ -34,6 +34,12 @@ function createOutingSuccess(message) {
   };
 }
 
+export function showNewRequest(){
+  return dispatch => {
+    dispatch(beginCreate());
+  }
+}
+
 export function createOuting(data) {
   return dispatch => {
     dispatch(beginCreate());

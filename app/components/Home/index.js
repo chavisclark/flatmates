@@ -13,7 +13,8 @@ class Home extends Component {
   constructor(props){
     super(props);
     this.state = {
-      currentLocation: [null]
+      currentLocation: [null],
+      initialRequest: true
     }
   }
 

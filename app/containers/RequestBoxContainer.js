@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting } from '../actions/outings';
 import RequestBox from '../components/RequestBox';
+import ActionBoxContainer from 'containers/ActionBoxContainer';
 
 class RequestBoxContainer extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class RequestBoxContainer extends Component {
       expire: 1,
       isPopupOpen: false
     })
-    document.getElementById('quest').dispatchEvent(new Event("submit"));
+    return this.submitForm();
   }
 
   handleTomorrow() {
@@ -44,7 +45,7 @@ class RequestBoxContainer extends Component {
       expire: 2,
       isPopupOpen: false
     })
-    document.getElementById('quest').dispatchEvent(new Event("submit"));
+    return this.submitForm();
   }
 
   handleAny() {
@@ -52,7 +53,7 @@ class RequestBoxContainer extends Component {
       expire: Infinity,
       isPopupOpen: false
     })
-    document.getElementById('quest').dispatchEvent(new Event("submit"));
+    return this.submitForm();
   }
 
   handleOnSubmit(data) {
@@ -64,17 +65,27 @@ class RequestBoxContainer extends Component {
     
   }
 
+  submitForm () {
+    return document.getElementById('quest').dispatchEvent(new Event("submit"));
+  }
+
   render() {
+    const { outing } = this.props.state;
+    const { beginCreate } = this.props;
     return (
       <div>
-        <RequestBox handleOnSubmit={this.handleOnSubmit}
-          expire={this.state.expire}
-          OnToday={this.handleToday}
-          OnTomorrow={this.handleTomorrow}
-          OnAny={this.handleAny}
-          closePopup={this.handleClosePopup}
-          openPopup={this.handleOpenPopup}
-          isOpen={this.state.isPopupOpen} />
+        { outing.showRequest ? 
+          <RequestBox handleOnSubmit={this.handleOnSubmit}
+            expire={this.state.expire}
+            OnToday={this.handleToday}
+            OnTomorrow={this.handleTomorrow}
+            OnAny={this.handleAny}
+            closePopup={this.handleClosePopup}
+            openPopup={this.handleOpenPopup}
+            isOpen={this.state.isPopupOpen} /> :
+            <ActionBoxContainer currentLocation={this.props.currentLocation} />
+        }
+
       </div>
     );
   }

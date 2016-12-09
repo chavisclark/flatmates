@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { logOut } from '../actions/users';
+import { showNewRequest } from '../actions/outings';
 import ActionBox from '../components/ActionBox';
 import dynamics from 'dynamics.js';
 
@@ -9,6 +10,7 @@ class ActionBoxContainer extends Component {
     constructor(props){
       super(props);
       this.handleLogOut = this.handleLogOut.bind(this);
+      this.handleNewRequest = this.handleNewRequest.bind(this);
       this.state = {
         isPopupOpen:false
       }
@@ -30,6 +32,11 @@ class ActionBoxContainer extends Component {
         this.setState({
           isPopupOpen: false
         });
+    }
+
+    handleNewRequest() {
+      const { showNewRequest } = this.props;
+      showNewRequest();
     }
 
     animateModal() {
@@ -60,6 +67,7 @@ class ActionBoxContainer extends Component {
     render() {
       return (
         <ActionBox logOut={this.handleLogOut} 
+          showRequest={this.handleNewRequest}
           authenticated={this.props.user.authenticated}
           handleClosePopup={this.handleClosePopup.bind(this)}
           isPopupOpen={this.state.isPopupOpen}
@@ -80,4 +88,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {logOut})(ActionBoxContainer);
+export default connect(mapStateToProps, {logOut, showNewRequest})(ActionBoxContainer);
