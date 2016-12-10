@@ -14,9 +14,12 @@ class ScenesContainer extends Component {
     this.handleToday = this.handleToday.bind(this);
     this.handleTomorrow = this.handleTomorrow.bind(this);
     this.handleAny = this.handleAny.bind(this);
+    this.handleViewActivities = this.handleViewActivities.bind(this);
+    this.handleViewRequest = this.handleViewRequest.bind(this);
     this.state = {
       isPopupOpen: false,
-      expire: 0
+      expire: 0,
+      currentScene: 'request'
     }
   }
 
@@ -56,6 +59,18 @@ class ScenesContainer extends Component {
     this.submitForm();
   }
 
+  handleViewActivities() {
+    this.setState({
+      currentScene: 'activities'
+    })
+  }
+
+  handleViewRequest() {
+    this.setState({
+      currentScene: 'request'
+    })
+  }
+
   handleOnSubmit(data) {
       return this.setState({ isPopupOpen: true, formData: data})
   }
@@ -79,10 +94,12 @@ class ScenesContainer extends Component {
             OnAny={this.handleAny}
             closePopup={this.handleClosePopup}
             openPopup={this.handleOpenPopup}
-            isOpen={this.state.isPopupOpen} /> :
-            <ActionBoxContainer currentLocation={this.props.currentLocation} />
+            isOpen={this.state.isPopupOpen}
+            viewActivities={this.handleViewActivities}
+            viewRequest={this.handleViewRequest}
+            currentScene={this.state.currentScene} /> :
+          <ActionBoxContainer currentLocation={this.props.currentLocation} />
         }
-
       </div>
     );
   }

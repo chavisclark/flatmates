@@ -20,7 +20,7 @@ const RequestBox = (props) => {
             <span className={cx('logo')}>
             Cheers
             </span>
-            <span className={cx('activities')}>
+            <span onClick={props.viewActivities} className={cx('activities')}>
             🍻
             </span>
           </nav>
