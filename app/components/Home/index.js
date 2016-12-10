@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import NavigationContainer from 'containers/NavigationContainer';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
-import RequestBoxContainer from 'containers/RequestBoxContainer';
+import ScenesContainer from 'containers/ScenesContainer';
 import Footer from 'components/Footer';
 import classNames from 'classnames/bind';
 import styles from './home';
@@ -41,7 +41,7 @@ class Home extends Component {
 
     return (
       <div className={cx("container")}>
-        {authenticated ? (<RequestBoxContainer currentLocation={this.state.currentLocation}/>) : (
+        {authenticated ? (<ScenesContainer currentLocation={this.state.currentLocation}/>) : (
           <span>
             <NavigationContainer />
             <img src='https://images.unsplash.com/photo-1467504057324-4c38f39ff87c?dpr=1&auto=format&fit=crop&w=1500&h=NaN&q=80&cs=tinysrgb&crop='/>

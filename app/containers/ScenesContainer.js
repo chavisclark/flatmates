@@ -2,10 +2,10 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting } from '../actions/outings';
-import RequestBox from '../components/RequestBox';
+import Scenes from '../components/Scenes';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
 
-class RequestBoxContainer extends Component {
+class ScenesContainer extends Component {
   constructor(props) {
     super(props);
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
@@ -72,7 +72,7 @@ class RequestBoxContainer extends Component {
     return (
       <div>
         { outing.showRequest ? 
-          <RequestBox handleOnSubmit={this.handleOnSubmit}
+          <Scenes handleOnSubmit={this.handleOnSubmit}
             expire={this.state.expire}
             OnToday={this.handleToday}
             OnTomorrow={this.handleTomorrow}
@@ -95,5 +95,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createOuting })(RequestBoxContainer);
+export default connect(mapStateToProps, { createOuting })(ScenesContainer);
 
