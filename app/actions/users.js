@@ -53,6 +53,21 @@ function beginFetch() {
   return { type: types.BEGIN_USER_FETCH };
 }
 
+function fetchUserSuccess(info) {
+  return {
+    type: types.USER_FETCH_SUCCESS,
+    info
+  };
+}
+
+
+function fetchUserError(message) {
+  return {
+    type: types.USER_FETCH_ERROR ,
+    message
+  };
+}
+
 function signUpSuccess(message, user) {
   return {
     type: types.SIGNUP_SUCCESS_USER,
@@ -84,14 +99,6 @@ function logoutSuccess() {
   return { type: types.LOGOUT_SUCCESS_USER };
 }
 
-function fetchSuccess() {
-  return { type: types.USER_FETCH_SUCCESS };
-}
-
-function fetchError() {
-  return { type: types.USER_FETCH_ERROR };
-}
-
 function logoutError() {
   return { type: types.LOGOUT_ERROR_USER };
 }
@@ -120,9 +127,15 @@ export function manualLogin(data) {
 }
 
 export function fetchUser(data) {
-  return {
-    type: types.USER_FETCH,
-    promise: makeUserRequest('get', data, '/user')
+  return dispatch => {
+     return makeUserRequest('get', data, '/user')
+      .then(response => {
+        if (response.status == 200) {
+          dispatch(fetchUserSuccess(response.data))
+        } else {
+          dispatch(fetchUserError(response.data.message))
+        }
+      })
   };
 }
 

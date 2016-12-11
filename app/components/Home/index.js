@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
+import {fetchUser} from 'actions/users';
 import NavigationContainer from 'containers/NavigationContainer';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
 import ScenesContainer from 'containers/ScenesContainer';
@@ -20,6 +21,7 @@ class Home extends Component {
 
   componentDidMount() {
     const vm = this;
+    const { fetchUser } = this.props;
     function success (position) {
       let lat = position.coords.latitude,
           lng = position.coords.longitude;
@@ -33,6 +35,8 @@ class Home extends Component {
     }
 
     navigator.geolocation.getCurrentPosition(success, error)
+
+    fetchUser();
 
   }
 
@@ -61,4 +65,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {null})(Home);
+export default connect(mapStateToProps, {fetchUser})(Home);

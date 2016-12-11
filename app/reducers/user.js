@@ -47,7 +47,7 @@ export default function user(state = {
       return Object.assign({}, state, {
         isWaiting: false,
         message: '',
-        info: action.res.data
+        info: action.info
       });
     case USER_FETCH_ERROR:
       return Object.assign({}, state, {

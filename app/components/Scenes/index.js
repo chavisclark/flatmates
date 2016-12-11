@@ -20,7 +20,7 @@ const Scenes = (props) => {
             openPopup={props.openPopup}
             isOpen={props.isOpen}
             viewActivities={props.viewActivities} /> :
-          <ActivityList viewRequest={props.viewRequest} />
+          <ActivityList activities={props.activities} viewRequest={props.viewRequest} />
           }
       </div>
     );
