@@ -51,10 +51,17 @@ export function add(req, res) {
 }
 
 export function find(req, res) {
-  Outing.find({owner: req.user._id}, (err, outings) => {
+  const today = new Date();
+
+  Outing.find({owner: req.user._id}, (err, updated) => {
     if (err) {
       return res.json({message: err});
     }
+    const outings = updated.filter((outing) => {
+      var expirationDate = new Date(outing.expire)
+      return expirationDate > today || !outing.expire;
+    })
+
     return res.json({outings: outings});
   })
 }
