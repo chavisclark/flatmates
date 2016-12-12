@@ -8,32 +8,40 @@ const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
   const {viewRequest, outings} = props;
+  var todaysDate = new Date();
+  var endOfToday = new Date(new Date().setHours(24,0,0,0));
+
   const outingsToday = outings.filter((outing) => {
-    let exDate = new Date(outing.expire);
-    console.log(new Date(outing.expire))
-    return exDate > outing.sentDate;
+    var expirationDate = new Date(outing.expire)
+    return expirationDate > todaysDate && expirationDate <= endOfToday
   })
-  let MappedTodaysOutings = outingsToday.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+
+  const outingsTomorrow = outings.filter((outing) => {
+    var expirationDate = new Date(outing.expire)
+    return expirationDate > todaysDate && expirationDate > endOfToday
+  })
+
+  const outingsAny = outings.filter((outing) => !outing.expire)
+
+  const RenderTodaysOutings = outingsToday.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderTomorrowsOutings = outingsTomorrow.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderAnyOutings = outingsAny.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
   
   return (
       <div className={cx('container', {
         waiting: props.isWaiting
       })}>
-      <div>
-        <button onClick={viewRequest} className={cx('request-toggle')}>
-        View Request
-        </button>
-      </div>
-      <h1>Today</h1>
-      {MappedTodaysOutings}
-      <h1>Tomorrow</h1>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
-      <h1>Any</h1>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
+        <div>
+          <button onClick={viewRequest} className={cx('request-toggle')}>
+          View Request
+          </button>
+        </div>
+        <h1>Today</h1>
+        {RenderTodaysOutings}
+        <h1>Tomorrow</h1>
+        {RenderTomorrowsOutings}
+        <h1>Any</h1>
+        {RenderAnyOutings}      
       </div>
   )
 }

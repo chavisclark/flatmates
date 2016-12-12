@@ -64,7 +64,6 @@ class ScenesContainer extends Component {
 
   render() {
     const { outing } = this.props.state;
-    // const init = () => {()} 
     return (
       <div>
         { outing.showRequest ? 
