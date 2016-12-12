@@ -2,7 +2,8 @@ import {
 
   CREATE_OUTING,
   CREATE_SUCCESS_OUTING,
-  CREATE_ERROR_OUTING
+  CREATE_ERROR_OUTING,
+  SHOW_USER_OUTINGS
 
 } from 'constants';
 
@@ -21,6 +22,10 @@ export default function outing(state = {
       return Object.assign({}, state, {
         message: action.message,
         showRequest: false
+      });
+    case SHOW_USER_OUTINGS:
+      return Object.assign({}, state, {
+        outings: action.outings
       });
     case CREATE_ERROR_OUTING:
       return Object.assign({}, state, {

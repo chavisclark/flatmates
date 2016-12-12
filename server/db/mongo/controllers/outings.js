@@ -49,13 +49,11 @@ export function add(req, res) {
 }
 
 export function find(req, res) {
-  console.log(req.body)
-  const location = req.body.address;
-  Outing.find({location: location}, (err, outings) => {
+  Outing.find({owner: req.user._id}, (err, outings) => {
     if (err) {
-      throw err
+      return res.json({message: err});
     }
-    return res.json({data: outings});
+    return res.json({outings: outings});
   })
 }
 

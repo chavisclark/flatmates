@@ -34,6 +34,20 @@ function createOutingSuccess(message) {
   };
 }
 
+function showUserOutings(outings) {
+  return { 
+    type: types.SHOW_USER_OUTINGS,
+    outings 
+  };
+}
+
+function showUserOutingsError() {
+  return { 
+    type: types.SHOW_USER_OUTINGS_ERROR,
+    message 
+  };
+}
+
 export function showNewRequest(){
   return dispatch => {
     dispatch(beginCreate());
@@ -59,4 +73,17 @@ export function createOuting(data) {
         }
       })
   };
+}
+
+export function findUserOutings() {
+  return dispatch => {
+    return makeOutingRequest('get', null, '/find-outings')
+      .then(response => {
+        if (response.status === 200) {
+          dispatch(showUserOutings(response.data.outings))
+        } else {
+          dispatch(showUserOutingsError(response.data.message))
+        }
+      })
+  }
 }

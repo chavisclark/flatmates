@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { createOuting } from '../actions/outings';
+import { createOuting, findUserOutings } from '../actions/outings';
 import Scenes from '../components/Scenes';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
 
@@ -112,5 +112,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createOuting })(ScenesContainer);
+export default connect(mapStateToProps, { createOuting, findUserOutings })(ScenesContainer);
 

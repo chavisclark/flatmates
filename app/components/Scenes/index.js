@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import RequestBox from '../RequestBox';
-import ActivityList from '../ActivityList';
+import ActivityListContainer from '../../containers/ActivityListContainer';
 import classNames from 'classnames/bind';
 import styles from './scenes.css';
 
@@ -20,7 +20,7 @@ const Scenes = (props) => {
             openPopup={props.openPopup}
             isOpen={props.isOpen}
             viewActivities={props.viewActivities} /> :
-          <ActivityList activities={props.activities} viewRequest={props.viewRequest} />
+          <ActivityListContainer  activities={props.activities} viewRequest={props.viewRequest}/>
           }
       </div>
     );
