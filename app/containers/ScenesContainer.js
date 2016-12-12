@@ -11,14 +11,11 @@ class ScenesContainer extends Component {
     this.handleOnSubmit = this.handleOnSubmit.bind(this);
     this.handleOpenPopup = this.handleOpenPopup.bind(this);
     this.handleClosePopup = this.handleClosePopup.bind(this);
-    this.handleToday = this.handleToday.bind(this);
-    this.handleTomorrow = this.handleTomorrow.bind(this);
-    this.handleAny = this.handleAny.bind(this);
+    this.handleExpire = this.handleExpire.bind(this);
     this.handleViewActivities = this.handleViewActivities.bind(this);
     this.handleViewRequest = this.handleViewRequest.bind(this);
     this.state = {
       isPopupOpen: false,
-      expire: 0,
       currentScene: 'request'
     }
   }
@@ -35,28 +32,11 @@ class ScenesContainer extends Component {
       });
   }
 
-  handleToday() {
+  handleExpire(n) {
     this.setState({
-      expire: 1,
       isPopupOpen: false
     });
-    this.submitForm();
-  }
-
-  handleTomorrow() {
-    this.setState({
-      expire: 2,
-      isPopupOpen: false
-    });
-    this.submitForm();
-  }
-
-  handleAny() {
-    this.setState({
-      expire: Infinity,
-      isPopupOpen: false
-    });
-    this.submitForm();
+    this.submitForm(n);
   }
 
   handleViewActivities() {
@@ -75,23 +55,21 @@ class ScenesContainer extends Component {
       return this.setState({ isPopupOpen: true, formData: data})
   }
 
-  submitForm() {
+  submitForm(n) {
     const { createOuting } = this.props;
     let data = this.state.formData;
     //Fix empty server response bug
-    return createOuting({ data });
+    return createOuting(data, n);
   }
 
   render() {
     const { outing } = this.props.state;
+    // const init = () => {()} 
     return (
       <div>
         { outing.showRequest ? 
           <Scenes handleOnSubmit={this.handleOnSubmit}
-            expire={this.state.expire}
-            OnToday={this.handleToday}
-            OnTomorrow={this.handleTomorrow}
-            OnAny={this.handleAny}
+            OnExpire={this.handleExpire}
             closePopup={this.handleClosePopup}
             openPopup={this.handleOpenPopup}
             isOpen={this.state.isPopupOpen}

@@ -12,10 +12,7 @@ const Scenes = (props) => {
       <div className={cx('scene')}>
           { props.currentScene == 'request' ?
           <RequestBox handleOnSubmit={props.handleOnSubmit}
-            expire={props.expire}
-            OnToday={props.OnToday}
-            OnTomorrow={props.OnTomorrow}
-            OnAny={props.OnAny}
+            OnExpire={props.OnExpire}
             closePopup={props.closePopup}
             openPopup={props.openPopup}
             isOpen={props.isOpen}

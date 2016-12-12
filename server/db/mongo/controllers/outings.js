@@ -5,18 +5,20 @@ import nlp from 'nlp_compromise';
 import Outing from '../models/outing';
 
 export function add(req, res) {
-  const text = req.body.data.text;
-  const exDate = req.body.data.expire;
-  let outingKeywords = [];
-  let today = new Date(Date.now());
-  let expire = today.setDate(today.getDate() + 1);
+  const text = req.body.text;
+  const exDate = req.body.expire;
+  const outingKeywords = [];
+  const today = new Date();
+  
+  let expire = (exDate) => {
+    if (exDate == 2)
+      return new Date(today.setHours(48,0,0,0));
+    if (exDate == Infinity)
+      return ''
+    if (exDate == 1)
+      return new Date(today.setHours(24,0,0,0));
+  }
 
-  if (exDate == 2)
-    return expire
-  if (exDate == Infinity)
-    return expire = ''
-  if (exDate == 1)
-    return expire = today.setHours(24,0,0,0);
   //fix times and configure keyword search
   let keywordFn = () => {
     retext().use(keywords).process(text, (err, file) => {
@@ -32,8 +34,8 @@ export function add(req, res) {
     owner: req.user._id,
     text: text,
     keywords: keywordFn(),
-    sent: today,
-    expire: expire,
+    sent: new Date(),
+    expire: expire(exDate),
   });
 
   console.log('Request recieved... ');

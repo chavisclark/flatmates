@@ -29,7 +29,6 @@ const RequestBox = (props) => {
           </div>
           <div className={cx('sub-container')}>
             <form id="quest" onSubmit={handleSubmit(data => {
-              data.expire = props.expire; 
               props.handleOnSubmit(data) 
             })}>
               <Field component="input" 
@@ -48,9 +47,9 @@ const RequestBox = (props) => {
           </div>
         </div>
         <Modal noBg={true} isOpen={props.isOpen} closePopupProp={props.closePopup}>
-            <button className={cx('button')} onClick={props.OnToday}>Today</button>
-            <button className={cx('button')} onClick={props.OnTomorrow}>Tomorrow</button>
-            <button className={cx('button')} onClick={props.OnAny}>Any</button>
+            <button className={cx('button')} onClick={() => {props.OnExpire(1)}}>Today</button>
+            <button className={cx('button')} onClick={() => {props.OnExpire(2)}}>Tomorrow</button>
+            <button className={cx('button')} onClick={() => {props.OnExpire('')}}>Any</button>
         </Modal>
       </div>
   )

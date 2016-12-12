@@ -16,7 +16,7 @@ const OutingSchema = new mongoose.Schema({
     type: Date
   },
   expire: {
-    type: Number    
+    type: Date    
   }
 })
 

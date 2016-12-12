@@ -54,10 +54,11 @@ export function showNewRequest(){
   }
 }
 
-export function createOuting(data) {
+export function createOuting(data, n) {
   return dispatch => {
     dispatch(beginCreate());
     //Fix empty server response bug
+    data.expire = n;
     return makeOutingRequest('post', data, '/add-outing')
       .then(response => {
         if (response.status === 200) {

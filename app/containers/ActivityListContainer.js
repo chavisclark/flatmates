@@ -15,8 +15,9 @@ class ActivityListContainer extends Component {
     }
 
     render() {
+      const {outing} = this.props.state;
       return (
-        <ActivityList activities={this.props.activities} viewRequest={this.props.viewRequest} />
+        <ActivityList outings={outing.outings} viewRequest={this.props.viewRequest} />
       );      
     }
 };

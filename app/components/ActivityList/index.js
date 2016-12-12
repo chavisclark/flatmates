@@ -7,7 +7,14 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
-  const {viewRequest} = props
+  const {viewRequest, outings} = props;
+  const outingsToday = outings.filter((outing) => {
+    let exDate = new Date(outing.expire);
+    console.log(new Date(outing.expire))
+    return exDate > outing.sentDate;
+  })
+  let MappedTodaysOutings = outingsToday.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  
   return (
       <div className={cx('container', {
         waiting: props.isWaiting
@@ -18,9 +25,7 @@ const ActivityList = (props) => {
         </button>
       </div>
       <h1>Today</h1>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
-      <span className={cx('activity-item')}>...</span>
+      {MappedTodaysOutings}
       <h1>Tomorrow</h1>
       <span className={cx('activity-item')}>...</span>
       <span className={cx('activity-item')}>...</span>
