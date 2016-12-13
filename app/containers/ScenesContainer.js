@@ -16,6 +16,7 @@ class ScenesContainer extends Component {
     this.handleExpire = this.handleExpire.bind(this);
     this.handleViewActivities = this.handleViewActivities.bind(this);
     this.handleViewRequest = this.handleViewRequest.bind(this);
+    this.handleViewSettings = this.handleViewSettings.bind(this);
     this.state = {
       isPopupOpen: false,
       currentScene: 'request'
@@ -47,17 +48,18 @@ class ScenesContainer extends Component {
     })
   }
 
+  handleViewSettings() {
+    this.setState({
+      currentScene: 'settings'
+    })
+  }
+
   handleViewRequest() {
     this.setState({
       currentScene: 'request'
     })
   }
 
-  handleViewSettings() {
-    this.setState({
-      currentScene: 'settings'
-    })
-  }
 
   handleOnSubmit(data) {
       return this.setState({ isPopupOpen: true, formData: data})
@@ -80,19 +82,16 @@ class ScenesContainer extends Component {
             openPopup={this.handleOpenPopup}
             isOpen={this.state.isPopupOpen}
             viewActivities={this.handleViewActivities}
-            viewSettings={this.handleViewSettings} /> 
+            viewSettings={this.handleViewSettings}
+            viewRequest={this.handleViewRequest} /> 
       );
 
     if (currentScene == 'settings')
-      return (
-        <SettingsBox viewRequest={this.handleViewRequest} viewActivities={this.handleViewActivities}/>
-      )
+      return (<SettingsBox viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} viewActivities={this.handleViewActivities} />)
 
     if (currentScene == 'activities')
-      return (<ActivityListContainer  viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} />)
+      return (<ActivityListContainer  viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} viewActivities={this.handleViewActivities} />)
   }
-
-  handle
 
   render() {
     const { outing } = this.props.state;

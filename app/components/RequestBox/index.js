@@ -14,10 +14,10 @@ const RequestBox = (props) => {
       })}>
         <div>
           <nav className={cx('navigation')}>
-            <span className={cx('settings')}>
+            <span  onClick={props.viewSettings} className={cx('settings')}>
             ⚙
             </span>
-            <span className={cx('logo')}>
+            <span onClick={props.viewRequest} className={cx('logo')}>
             Cheers
             </span>
             <span onClick={props.viewActivities} className={cx('activities')}>

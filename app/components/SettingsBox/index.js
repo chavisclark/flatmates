@@ -1,6 +1,6 @@
 import React from 'react';
 import {Field, reduxForm} from 'redux-form';
-import styles from '../Auth/login.css';
+import styles from './settings.css';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
@@ -8,36 +8,26 @@ const cx = classNames.bind(styles);
 const SettingsBox = (props) => {
   const {handleSubmit, pristine, reset, submitting} = props
   return (
-      <div className={cx('login', {
+      <div className={cx('container', {
         waiting: props.isWaiting
       })}>
-        <div className={cx('container')}>
-          { props.renderHeader }
+        <div>
+          <nav className={cx('navigation')}>
+            <span onClick={props.viewSettings} className={cx('settings')}>
+            ⚙
+            </span>
+            <span onClick={props.viewRequest} className={cx('logo')}>
+            Cheers
+            </span>
+            <span onClick={props.viewActivities} className={cx('activities')}>
+            🍻
+            </span>
+          </nav>
           <div className={cx('loading')}>
             <div className={cx('loader')}></div>
           </div>
-          <div className={cx('email-container')}>
-            <form onSubmit={handleSubmit(data => { props.handleOnSubmit(data) })}>
-              <Field component="input" 
-              className={cx('input')}
-              type="email"
-              name="email"
-              placeholder="email" />
-              <Field component="input" 
-              className={cx('input')}
-              type="password"
-              name="password"
-              placeholder="password" />
-              <div className={cx('hint')}>
-              <div>Hint</div>
-              <div>email: example@wgzimmer.com <br />password: zimmer</div>
-              </div>
-              <p className={cx('message', {
-                'message-show': props.message && props.message.length > 0
-              })}>{props.message}</p>
-              <button className={cx('button')}
-                type="submit" disabled={pristine || submitting}>{props.isLogin ? 'Login' : 'Register'}</button>
-            </form>
+          <div className={cx('sub-container')}>
+            SETTINGS
           </div>
         </div>
       </div>
