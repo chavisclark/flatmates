@@ -6,7 +6,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const SettingsBox = (props) => {
-  const {handleSubmit, pristine, reset, submitting} = props
+  const {handleSubmit, pristine, reset, submitting} = props;
   return (
       <div className={cx('container', {
         waiting: props.isWaiting
@@ -27,7 +27,12 @@ const SettingsBox = (props) => {
             <div className={cx('loader')}></div>
           </div>
           <div className={cx('sub-container')}>
-            SETTINGS
+            <p>
+                        SETTINGS
+            </p>
+            <button onClick={props.logOut} className={cx('login-button', 'primary')}>
+              <span>Log out</span>
+            </button>
           </div>
         </div>
       </div>

@@ -2,8 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting, findUserOutings } from '../actions/outings';
+import { logOut,  } from '../actions/users';
 import RequestBox from '../components/RequestBox';
-import SettingsBox from '../components/SettingsBox';
+import SettingsBoxContainer from 'containers/SettingsBoxContainer';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
 import ActivityListContainer from 'containers/ActivityListContainer';
 
@@ -17,6 +18,7 @@ class ScenesContainer extends Component {
     this.handleViewActivities = this.handleViewActivities.bind(this);
     this.handleViewRequest = this.handleViewRequest.bind(this);
     this.handleViewSettings = this.handleViewSettings.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
     this.state = {
       isPopupOpen: false,
       currentScene: 'request'
@@ -60,6 +62,11 @@ class ScenesContainer extends Component {
     })
   }
 
+  handleLogOut() {
+    const { logOut } = this.props;
+      logOut({null});
+      this.handleClosePopup();
+  }
 
   handleOnSubmit(data) {
       return this.setState({ isPopupOpen: true, formData: data})
@@ -87,7 +94,11 @@ class ScenesContainer extends Component {
       );
 
     if (currentScene == 'settings')
-      return (<SettingsBox viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} viewActivities={this.handleViewActivities} />)
+      return (<SettingsBoxContainer viewRequest={this.handleViewRequest} 
+                viewSettings={this.handleViewSettings} 
+                viewActivities={this.handleViewActivities}
+                logOut={this.handleLogOut} />
+      )
 
     if (currentScene == 'activities')
       return (<ActivityListContainer  viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} viewActivities={this.handleViewActivities} />)
@@ -112,5 +123,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createOuting, findUserOutings })(ScenesContainer);
+export default connect(mapStateToProps, { createOuting, findUserOutings, logOut })(ScenesContainer);
 
