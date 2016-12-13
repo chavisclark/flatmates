@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting, findUserOutings } from '../actions/outings';
 import Scenes from '../components/Scenes';
+import RequestBox from '../components/RequestBox';
+import SettingsBox from '../components/SettingsBox';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
+import ActivityListContainer from 'containers/ActivityListContainer';
 
 class ScenesContainer extends Component {
   constructor(props) {
@@ -51,6 +54,12 @@ class ScenesContainer extends Component {
     })
   }
 
+  handleViewSettings() {
+    this.setState({
+      currentScene: 'settings'
+    })
+  }
+
   handleOnSubmit(data) {
       return this.setState({ isPopupOpen: true, formData: data})
   }
@@ -62,19 +71,35 @@ class ScenesContainer extends Component {
     return createOuting(data, n);
   }
 
-  render() {
-    const { outing } = this.props.state;
-    return (
-      <div>
-        { outing.showRequest ? 
-          <Scenes handleOnSubmit={this.handleOnSubmit}
+  renderScene() {
+    const { currentScene } = this.state;
+    if (currentScene == 'request') 
+      return ( 
+        <RequestBox handleOnSubmit={this.handleOnSubmit}
             OnExpire={this.handleExpire}
             closePopup={this.handleClosePopup}
             openPopup={this.handleOpenPopup}
             isOpen={this.state.isPopupOpen}
             viewActivities={this.handleViewActivities}
-            viewRequest={this.handleViewRequest}
-            currentScene={this.state.currentScene} /> :
+            viewSettings={this.handleViewSettings} /> 
+      );
+
+    if (currentScene == 'settings')
+      return (
+        <SettingsBox viewRequest={this.handleViewRequest} viewActivities={this.handleViewActivities}/>
+      )
+
+    if (currentScene == 'activities')
+      return (<ActivityListContainer  viewRequest={this.handleViewRequest} viewSettings={this.handleViewSettings} />)
+  }
+
+  handle
+
+  render() {
+    const { outing } = this.props.state;
+    return (
+      <div>
+        { outing.showRequest ? this.renderScene() :
           <ActionBoxContainer currentLocation={this.props.currentLocation} />
         }
       </div>
