@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting, findUserOutings } from '../actions/outings';
-import Scenes from '../components/Scenes';
 import RequestBox from '../components/RequestBox';
 import SettingsBox from '../components/SettingsBox';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
