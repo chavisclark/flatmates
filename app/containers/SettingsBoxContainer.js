@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchUser, logOut } from 'actions/users';
+import { fetchUser, onEntryChange, logOut } from 'actions/users';
 import SettingsBox from '../components/SettingsBox';
 import ControlPanel from '../components/ControlPanel';
 import Profile from '../components/Profile';
@@ -55,13 +55,13 @@ class SettingsBoxContainer extends Component {
       if (currentSettingsView == 'profile')
         return ( <Profile /> )
       if (currentSettingsView == 'profile-edit')
-        return ( <ProfileEdit /> )
+        return ( <ProfileEdit onEntryChange={this.props.onEntryChange} /> )
     }
 
     render() {
       const {info} = this.props.state.user;
       return (
-        <SettingsBox logOut={this.handleLogOut} 
+        <SettingsBox logOut={this.handleLogOut}
           viewRequest={this.props.viewRequest} 
           viewActivities={this.props.viewActivities} 
           viewSettings={this.props.viewSettings}
@@ -81,4 +81,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {fetchUser, logOut})(SettingsBoxContainer);
+export default connect(mapStateToProps, {fetchUser, onEntryChange, logOut})(SettingsBoxContainer);
