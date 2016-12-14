@@ -16,8 +16,27 @@ class ActivityListContainer extends Component {
 
     render() {
       const {outing} = this.props.state;
+      var todaysDate = new Date();
+      var endOfToday = new Date(new Date().setHours(24,0,0,0));
+
+      const outingsToday = outing.outings.filter((outing) => {
+        var expirationDate = new Date(outing.expire)
+        return expirationDate > todaysDate && expirationDate <= endOfToday
+      })
+
+      const outingsTomorrow = outing.outings.filter((outing) => {
+        var expirationDate = new Date(outing.expire)
+        return expirationDate > todaysDate && expirationDate > endOfToday
+      })
+
+      const outingsAny = outing.outings.filter((outing) => !outing.expire)
+
       return (
-        <ActivityList outings={outing.outings} viewRequest={this.props.viewRequest} viewSettings={this.props.viewSettings} />
+        <ActivityList TodaysOutings={outingsToday} 
+          TomorrowsOutings={outingsTomorrow}
+          AnyOutings={outingsAny}
+          viewRequest={this.props.viewRequest} 
+          viewSettings={this.props.viewSettings} />
       );      
     }
 };

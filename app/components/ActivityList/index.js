@@ -1,5 +1,4 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
 import Modal from '../Modal';
 import styles from './activitylist.css';
 import classNames from 'classnames/bind';
@@ -7,25 +6,10 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
-  const {viewRequest, viewSettings, viewActivities, outings} = props;
-  var todaysDate = new Date();
-  var endOfToday = new Date(new Date().setHours(24,0,0,0));
-
-  const outingsToday = outings.filter((outing) => {
-    var expirationDate = new Date(outing.expire)
-    return expirationDate > todaysDate && expirationDate <= endOfToday
-  })
-
-  const outingsTomorrow = outings.filter((outing) => {
-    var expirationDate = new Date(outing.expire)
-    return expirationDate > todaysDate && expirationDate > endOfToday
-  })
-
-  const outingsAny = outings.filter((outing) => !outing.expire)
-
-  const RenderTodaysOutings = outingsToday.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderTomorrowsOutings = outingsTomorrow.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderAnyOutings = outingsAny.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const {viewRequest, viewSettings, viewActivities, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
+  const RenderTodaysOutings = TodaysOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderAnyOutings = AnyOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
   
   return (
       <div className={cx('container', {
@@ -59,7 +43,5 @@ const ActivityList = (props) => {
   )
 }
 
-export default reduxForm({
-  form: 'ActivityList'
-})(ActivityList)
+export default ActivityList;
 
