@@ -18,7 +18,7 @@ let ProfileEdit = props => {
     );
   }
   let renderPic = () => {
-      var avatar = 'https://robohash.org/'+email+'?set=set2&bgset=bg1';
+      var avatar = 'https://gravatar.com/avatar/bf039ae8736a6cedb03a29358565c608';
     return (
         <center>
         <img src={avatar} className={cx('profile')}/>

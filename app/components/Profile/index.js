@@ -7,12 +7,13 @@ import home from 'images/residential-block-profile.svg';
 
 const cx = classNames.bind(styles);
 
-const Profile = ({ state }) => {
+const Profile = ({ state, viewProfileEdit }) => {
   const {email, name, job, company, location, bio, website, gender} = state.user.info;
-  var avatar = 'https://robohash.org/'+email+'?set=set2&bgset=bg1';
+  var avatar = 'https://gravatar.com/avatar/bf039ae8736a6cedb03a29358565c608';
     return (
       <div className={cx('login')}>
         <figure className={cx('card')}>
+        <span className={cx('edit')} onClick={viewProfileEdit}> edit ✏ </span>
           <img src={avatar} className={cx('imageHeight')} />
           <figcaption>
             <h2 className={cx('name')}>{name}<span className={cx(gender)}></span></h2>

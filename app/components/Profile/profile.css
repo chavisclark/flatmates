@@ -4,7 +4,6 @@
   width: 380px;
   margin: 0 auto;
   background-color: color-athens-gray;
-  border: 2px solid color-mercury;
   border-radius: global-radius;
   min-width: 380px;
 }
@@ -28,7 +27,7 @@
   background-color: #000000;
   display: inline-block;
   border-radius: 7px;
-  border: color-mercury solid 1px;
+
 }
 .card * {
   -webkit-box-sizing: border-box;
@@ -41,6 +40,7 @@
   vertical-align: top;
   opacity: 0.85;
 }
+
 .card figcaption {
   width: 100%;
   background-color: color-dodger-blue;
@@ -58,6 +58,19 @@
   border-width: 55px 0 0 400px;
   border-color: transparent transparent transparent color-dodger-blue;
 }
+
+.card .edit {
+  background-color: color-white;
+  color: black;
+  padding: 5px;
+  position: absolute;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 2;
+}
+
+
+
 .card figcaption a {
   padding: 5px;
   border: 1px solid #ffffff;
@@ -148,6 +161,4 @@
 
 .imageHeight {
   width: 100%;
-  padding-top: 10px;
-  background: color-matte-blue;
 }

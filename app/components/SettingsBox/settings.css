@@ -1,7 +1,6 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 
 .switcher {
-  padding: 20px;
   text-align: center;
   border: 2px solid color-mercury;
   border-radius: global-radius;
@@ -16,7 +15,9 @@
 
 
 .sub-nav {
-  margin-bottom: 30px;
+  margin: 30px auto;
+  width: 380px;
+  background-color: color-matte-blue;
 }
 
 .container {
@@ -89,3 +90,32 @@
     composes: small from '../../css/common/typography';
     color: color-bombay;
   }
+.switch {
+  color: #6f839a;
+  cursor: pointer;
+  font-weight: 600;
+  line-height: 1.5em;
+  border-radius: 3px;
+  padding: .125em .5em;
+  display: inline-block;
+  background-color: #3e4956;
+  transition: .15s ease;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"]:checked + .switch {
+  color: #fff;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+input[type="radio"]:checked + .switch--on {
+  background-color: #7eab55;
+}
+
+input[type="radio"]:checked + .switch--off {
+  background-color: #dd4a38;
+}

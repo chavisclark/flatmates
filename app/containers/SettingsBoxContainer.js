@@ -53,7 +53,7 @@ class SettingsBoxContainer extends Component {
       if (currentSettingsView == 'controls')
         return ( <ControlPanel /> )
       if (currentSettingsView == 'profile')
-        return ( <Profile /> )
+        return ( <Profile viewProfileEdit={this.handleViewProfileEdit} /> )
       if (currentSettingsView == 'profile-edit')
         return ( <ProfileEdit onEntryChange={this.props.onEntryChange} /> )
     }
@@ -66,8 +66,7 @@ class SettingsBoxContainer extends Component {
           viewActivities={this.props.viewActivities} 
           viewSettings={this.props.viewSettings}
           viewControlPanel={this.handleViewControlPanel} 
-          viewProfile={this.handleViewProfile} 
-          viewProfileEdit={this.handleViewProfileEdit}>
+          viewProfile={this.handleViewProfile}>
           {this.renderViews()}
         </SettingsBox>
       );      
