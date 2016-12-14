@@ -1,19 +1,5 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 
-.switcher {
-  text-align: center;
-  border: 2px solid color-mercury;
-  border-radius: global-radius;
-  cursor: pointer;
-  background: rgba(255, 255, 255, .08);
-  transition: 500ms;
-}
-
-.switcher:hover {
-  background: rgba(255, 255, 255, 1);
-}
-
-
 .sub-nav {
   margin: 30px auto;
   width: 380px;
@@ -100,6 +86,9 @@
   display: inline-block;
   background-color: #3e4956;
   transition: .15s ease;
+  margin: 0 auto;
+  width: 50%;
+
 }
 
 input[type="radio"] {
@@ -108,8 +97,8 @@ input[type="radio"] {
 
 input[type="radio"]:checked + .switch {
   color: #fff;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding-left: 3em;
+  padding-right: 3em;
 }
 
 input[type="radio"]:checked + .switch--on {
@@ -117,5 +106,5 @@ input[type="radio"]:checked + .switch--on {
 }
 
 input[type="radio"]:checked + .switch--off {
-  background-color: #dd4a38;
+  background-color: color-gold;
 }
