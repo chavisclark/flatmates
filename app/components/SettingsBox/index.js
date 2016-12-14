@@ -23,13 +23,13 @@ const SettingsBox = (props) => {
             🍻
             </span>
           </nav>
-          <div className={cx('loading')}>
-            <div className={cx('loader')}></div>
-          </div>
           <div className={cx('sub-container')}>
-            <p>
-                        SETTINGS
-            </p>
+            <div className={cx('sub-nav')}>
+              <span className={cx('switcher')} onClick={props.viewProfile}> 👨 </span>
+              <span className={cx('switcher')} onClick={props.viewProfileEdit}> ✏ </span>
+              <span className={cx('switcher')} onClick={props.viewControlPanel}>💡 </span>
+            </div>
+            {props.children}
             <button onClick={props.logOut} className={cx('login-button', 'primary')}>
               <span>Log out</span>
             </button>

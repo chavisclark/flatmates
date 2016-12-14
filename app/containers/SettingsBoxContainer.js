@@ -1,12 +1,41 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchUser } from 'actions/users';
+import { fetchUser, logOut } from 'actions/users';
 import SettingsBox from '../components/SettingsBox';
+import ControlPanel from '../components/ControlPanel';
+import Profile from '../components/Profile';
+import ProfileEdit from '../components/ProfileEdit';
 
 class SettingsBoxContainer extends Component {
     constructor(props){
       super(props);
+      this.state = {
+        currentSettingsView: 'profile'
+      }
+      this.handleViewControlPanel = this.handleViewControlPanel.bind(this);
+      this.handleViewProfile = this.handleViewProfile.bind(this);
+      this.handleViewProfileEdit = this.handleViewProfileEdit.bind(this);
+      this.handleLogOut = this.handleLogOut.bind(this);
+      this.renderViews = this.renderViews.bind(this);
+    }
+  
+    handleViewControlPanel() {
+      this.setState({
+        currentSettingsView: 'controls'
+      })
+    }
+
+    handleViewProfile() {
+      this.setState({
+        currentSettingsView: 'profile'
+      })
+    }
+
+    handleViewProfileEdit() {
+      this.setState({
+        currentSettingsView: 'profile-edit'
+      })
     }
 
     componentDidMount() {
@@ -14,10 +43,33 @@ class SettingsBoxContainer extends Component {
       fetchUser();
     }
 
+    handleLogOut() {
+      const { logOut } = this.props;
+        logOut({null});
+    }
+
+    renderViews() {
+      const { currentSettingsView } = this.state;
+      if (currentSettingsView == 'controls')
+        return ( <ControlPanel /> )
+      if (currentSettingsView == 'profile')
+        return ( <Profile /> )
+      if (currentSettingsView == 'profile-edit')
+        return ( <ProfileEdit /> )
+    }
+
     render() {
-      const {user} = this.props.state;
+      const {info} = this.props.state.user;
       return (
-        <SettingsBox user={user.info.email} viewRequest={this.props.viewRequest} viewSettings={this.props.viewSettings} />
+        <SettingsBox logOut={this.handleLogOut} 
+          viewRequest={this.props.viewRequest} 
+          viewActivities={this.props.viewActivities} 
+          viewSettings={this.props.viewSettings}
+          viewControlPanel={this.handleViewControlPanel} 
+          viewProfile={this.handleViewProfile} 
+          viewProfileEdit={this.handleViewProfileEdit}>
+          {this.renderViews()}
+        </SettingsBox>
       );      
     }
 };
@@ -29,4 +81,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {fetchUser})(SettingsBoxContainer);
+export default connect(mapStateToProps, {fetchUser, logOut})(SettingsBoxContainer);

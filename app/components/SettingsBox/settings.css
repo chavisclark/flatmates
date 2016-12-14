@@ -37,7 +37,24 @@ nav {
   cursor: pointer;
 }
 
+.switcher {
+  padding: 20px;
+  text-align: center;
+  border: 2px solid color-mercury;
+  border-radius: global-radius;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .08);
+  transition: 500ms;
+}
 
+.switcher:hover {
+  background: rgba(255, 255, 255, 1);
+}
+
+
+.sub-nav {
+  margin-bottom: 30px;
+}
 
 .container {
   max-width: 800px;
@@ -82,7 +99,6 @@ nav {
   }
 
   .sub-container {
-    margin-top: 200px;
     padding: 16px 12px;
   }
 
