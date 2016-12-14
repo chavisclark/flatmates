@@ -7,7 +7,6 @@ import styles from './Navigation/navigation.css';
 const cx = classNames.bind(styles);
 
 const MainWrapper = (props) => {
-
     return (
       <div>
         <LoggedInNav viewSettings={props.viewSettings} 

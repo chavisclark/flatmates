@@ -1,0 +1,185 @@
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-matte-blue, color-crimson, color-bombay from '../../css/common/colors.css';
+
+.card {
+  font-family: roboto, Arial, sans-serif;
+  float: none;
+  position: relative;
+  overflow: hidden;
+  margin: 20px auto;
+  min-width: 230px;
+  max-width: 315px;
+  width: 100%;
+  color: color-white;
+  text-align: left;
+  line-height: 1.4em;
+  background-color: #000000;
+  display: inline-block;
+  border-radius: 7px;
+  border: color-mercury solid 1px;
+}
+.card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.25s ease;
+  transition: all 0.25s ease;
+}
+.card img {
+  max-width: 100%;
+  vertical-align: top;
+  opacity: 0.85;
+}
+.card figcaption {
+  width: 100%;
+  background-color: color-dodger-blue;
+  padding: 25px;
+  position: relative;
+}
+.card figcaption:before {
+  position: absolute;
+  content: '';
+  bottom: 100%;
+  left: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 55px 0 0 400px;
+  border-color: transparent transparent transparent color-dodger-blue;
+}
+.card figcaption a {
+  padding: 5px;
+  border: 1px solid #ffffff;
+  color: #ffffff;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  margin: 10px 0;
+  display: inline-block;
+  opacity: 0.65;
+  width: 47%;
+  text-align: center;
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border-radius: 5px;
+}
+.card figcaption a:hover {
+  opacity: 1;
+}
+
+.card .follow {
+  margin-right: 4%;
+  border-color: #000;
+  color: #000;
+}
+.card h2 {
+  margin: 0 0 5px;
+  font-weight: 300;
+}
+.card h2 span {
+  display: block;
+  font-size: 0.5em;
+  color: #2980b9;
+}
+.card p {
+  margin: 0 0 10px;
+  font-size: 0.8em;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+.name {
+  margin-top: 10%;
+  font-size: 28px;
+  color: color-white;
+  text-align: left
+}
+
+.company {
+  display: block;
+  font-size: font-small;
+  line-height: 12px;
+  color: color-mercury;
+}
+.title {
+  color: color-athens-gray;
+}
+
+
+.male::before{
+  content: '\24C2 / F';
+  color: color-darker-slate; 
+}
+
+.female::before{
+  content: 'M / \24BB';
+  color: color-darker-slate;
+}
+
+.pin::before{
+  content: '\1F4CD'
+}
+
+.bio {
+  height: 100px;
+  overflow: auto;
+  padding-top: 10px;
+  padding-left: 5px;
+  font-weight: 100
+}
+
+.location {
+  padding-top: 5px;
+  font-weight: 100;
+  display: block;
+  font-size: font-small;
+  color: color-athens-gray;
+}
+
+@-moz-keyframes blink {
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #fff;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@-webkit-keyframes blink {
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #fff;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@-o-keyframes blink {
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #fff;
+  }
+  100% {
+    background: #fff;
+  }
+}
+@keyframes blink {
+  49% {
+    background: transparent;
+  }
+  50% {
+    background: #fff;
+  }
+  100% {
+    background: #fff;
+  }
+}
+.imageHeight {
+  width: 100%;
+  padding-top: 10px;
+  background: color-matte-blue;
+}
