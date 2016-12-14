@@ -1,14 +1,15 @@
-import React from 'react'
-import { connect } from 'react-redux'
+import React from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from 'redux-form';
 import classNames from 'classnames/bind';
 import styles from './profile-edit.css';
 const cx = classNames.bind(styles);
+
 const genders = [ 'male', 'female' ]
 
 let ProfileEdit = props => {
-  const { onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
+  const { email, onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
   let renderHeader = () => {
     return (
       <div className={cx('header')}>
@@ -17,7 +18,7 @@ let ProfileEdit = props => {
     );
   }
   let renderPic = () => {
-      var avatar = 'https://robohash.org/'+'hello'+'?set=set2&bgset=bg1';
+      var avatar = 'https://robohash.org/'+email+'?set=set2&bgset=bg1';
     return (
         <center>
         <img src={avatar} className={cx('profile')}/>
