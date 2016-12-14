@@ -1,13 +1,26 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-matte-blue, color-crimson, color-bombay from '../../css/common/colors.css';
 
+.login {
+  width: 380px;
+  margin: 0 auto;
+  background-color: color-athens-gray;
+  border: 2px solid color-mercury;
+  border-radius: global-radius;
+  min-width: 380px;
+}
+
+@media(max-width: 940px){
+  .login {
+    width:100%;
+  }
+}
+
 .card {
   font-family: roboto, Arial, sans-serif;
   float: none;
   position: relative;
   overflow: hidden;
-  margin: 20px auto;
-  min-width: 230px;
-  max-width: 315px;
+  margin: 0 auto;
   width: 100%;
   color: color-white;
   text-align: left;
@@ -103,7 +116,6 @@
   color: color-athens-gray;
 }
 
-
 .male::before{
   content: '\24C2 / F';
   color: color-darker-slate; 
@@ -134,50 +146,6 @@
   color: color-athens-gray;
 }
 
-@-moz-keyframes blink {
-  49% {
-    background: transparent;
-  }
-  50% {
-    background: #fff;
-  }
-  100% {
-    background: #fff;
-  }
-}
-@-webkit-keyframes blink {
-  49% {
-    background: transparent;
-  }
-  50% {
-    background: #fff;
-  }
-  100% {
-    background: #fff;
-  }
-}
-@-o-keyframes blink {
-  49% {
-    background: transparent;
-  }
-  50% {
-    background: #fff;
-  }
-  100% {
-    background: #fff;
-  }
-}
-@keyframes blink {
-  49% {
-    background: transparent;
-  }
-  50% {
-    background: #fff;
-  }
-  100% {
-    background: #fff;
-  }
-}
 .imageHeight {
   width: 100%;
   padding-top: 10px;

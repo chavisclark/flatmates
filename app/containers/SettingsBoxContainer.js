@@ -50,13 +50,12 @@ class SettingsBoxContainer extends Component {
 
     renderViews() {
       const { currentSettingsView, user } = this.state;
-      const { email } = this.props.state.user.info;
       if (currentSettingsView == 'controls')
         return ( <ControlPanel /> )
       if (currentSettingsView == 'profile')
         return ( <Profile /> )
       if (currentSettingsView == 'profile-edit')
-        return ( <ProfileEdit onEntryChange={this.props.onEntryChange} user={email}/> )
+        return ( <ProfileEdit onEntryChange={this.props.onEntryChange} /> )
     }
 
     render() {
