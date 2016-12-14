@@ -12,17 +12,6 @@ const SettingsBox = (props) => {
         waiting: props.isWaiting
       })}>
         <div>
-          <nav className={cx('navigation')}>
-            <span onClick={props.viewSettings} className={cx('settings')}>
-            ⚙
-            </span>
-            <span onClick={props.viewRequest} className={cx('logo')}>
-            Cheers
-            </span>
-            <span onClick={props.viewActivities} className={cx('activities')}>
-            🍻
-            </span>
-          </nav>
           <div className={cx('sub-container')}>
             <div className={cx('sub-nav')}>
               <span className={cx('switcher')} onClick={props.viewProfile}> 👨 </span>

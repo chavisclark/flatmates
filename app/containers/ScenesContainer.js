@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting, findUserOutings } from '../actions/outings';
-import { logOut,  } from '../actions/users';
+import { logOut } from '../actions/users';
+import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
 import SettingsBoxContainer from 'containers/SettingsBoxContainer';
 import ActionBoxContainer from 'containers/ActionBoxContainer';
@@ -102,8 +103,13 @@ class ScenesContainer extends Component {
     const { outing } = this.props.state;
     return (
       <div>
-        { outing.showRequest ? this.renderScene() :
-          <ActionBoxContainer currentLocation={this.props.currentLocation} />
+        { outing.showRequest ? 
+          <MainWrapper viewSettings={this.handleViewSettings} 
+            viewActivities={this.handleViewActivities} 
+            viewRequest={this.handleViewRequest}>
+              {this.renderScene()} 
+            </MainWrapper> 
+          : <ActionBoxContainer currentLocation={this.props.currentLocation} />
         }
       </div>
     );

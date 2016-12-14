@@ -1,42 +1,5 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 
-nav {
-  z-index: 2
-}
-
-.navigation {
-  width: 100%;
-  background: rgba(0,0,0,.05);
-  border-bottom: solid .5px rgba(0,0,0,.05);
-  height: 40px;
-}
-
-.navigation > span {
-  display: inline-block;
-  display: -moz-inline-box;
-  *display: inline; /* For IE7 */
-  zoom: 1; /* Trigger hasLayout */
-  width: 32.5%;
-}
-
-.settings {
-  text-align: left;
-  margin-left: 1%;
-  cursor: pointer;
-}
-
-.logo {
-  color: color-matte-blue;
-  font-size: 1.5em;
-  text-align: center;
-  cursor: pointer;
-}
-
-.activities {
-  text-align: right;
-  cursor: pointer;
-}
-
 .switcher {
   padding: 20px;
   text-align: center;

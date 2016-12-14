@@ -16,17 +16,6 @@ const ActivityList = (props) => {
         waiting: props.isWaiting
       })}>
         <div>
-          <nav className={cx('navigation')}>
-            <span onClick={viewSettings} className={cx('settings')}>
-            ⚙
-            </span>
-            <span onClick={viewRequest} className={cx('logo')}>
-            Cheers
-            </span>
-            <span onClick={viewActivities} className={cx('activities')}>
-            🍻
-            </span>
-          </nav>
           <div className={cx('loading')}>
             <div className={cx('loader')}></div>
           </div>
