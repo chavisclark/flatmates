@@ -25,7 +25,7 @@ let ProfileEdit = props => {
   }
   let submit = pristine ? 'undo' : 'submit';
     return (
-      <div className={cx('login')}>
+      <div>
         <div className={cx('container')}>
           { renderHeader() }
           { renderPic() }

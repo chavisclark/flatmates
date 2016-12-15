@@ -13,7 +13,7 @@ const Profile = ({ state, viewProfileEdit }) => {
     return (
       <div className={cx('login')}>
         <figure className={cx('card')}>
-        <span className={cx('edit')} onClick={() => viewProfileEdit('profile-edit')}> edit ✏ </span>
+        <button className={cx('edit')} onClick={() => viewProfileEdit('profile-edit')}> edit ✏ </button>
           <img src={avatar} className={cx('imageHeight')} />
           <figcaption>
             <h2 className={cx('name')}>{name}<span className={cx(gender)}></span></h2>

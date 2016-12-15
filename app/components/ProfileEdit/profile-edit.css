@@ -1,27 +1,21 @@
 @value global-radius, font-large, font-medium, font-small from ''../../css/common/settings';
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from '.'../../css/common/colors.css';
 
-.login {
-  width: 380px;
+.container {
+  max-width: 800px;
   margin: 0 auto;
   background-color: color-athens-gray;
   border: 2px solid color-mercury;
   border-radius: global-radius;
-  min-width: 380px;
+  height: 100%;
 }
 
-.emptyUser {
-  display: flex;
-  flex:1;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
 @media(max-width: 940px){
-  .login {
+  .container {
     width:100%;
   }
 }
+
 .profile {
   border-radius: 50%;
   margin: auto;
@@ -130,8 +124,6 @@
   .google-container {
     padding: 16px 12px;
   }
-
-  .header {}
 
   .heading {
     composes: subheading from '../../css/common/typography';
