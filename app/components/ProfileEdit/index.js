@@ -9,7 +9,7 @@ const cx = classNames.bind(styles);
 const genders = [ 'male', 'female' ]
 
 let ProfileEdit = props => {
-  const { email, onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
+  const { onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
   let renderHeader = () => {
     return (
       <div className={cx('header')}>

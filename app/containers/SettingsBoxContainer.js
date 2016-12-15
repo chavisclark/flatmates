@@ -13,25 +13,12 @@ class SettingsBoxContainer extends Component {
       this.state = {
         currentSettingsView: 'profile'
       }
-      this.handleViewControlPanel = this.handleViewControlPanel.bind(this);
-      this.handleViewProfile = this.handleViewProfile.bind(this);
       this.handleViewProfileEdit = this.handleViewProfileEdit.bind(this);
+      this.handleOptionChange = this.handleOptionChange.bind(this);
       this.handleLogOut = this.handleLogOut.bind(this);
       this.renderViews = this.renderViews.bind(this);
     }
   
-    handleViewControlPanel() {
-      this.setState({
-        currentSettingsView: 'controls'
-      })
-    }
-
-    handleViewProfile() {
-      this.setState({
-        currentSettingsView: 'profile'
-      })
-    }
-
     handleViewProfileEdit() {
       this.setState({
         currentSettingsView: 'profile-edit'
@@ -46,6 +33,12 @@ class SettingsBoxContainer extends Component {
     handleLogOut() {
       const { logOut } = this.props;
         logOut({null});
+    }
+
+     handleOptionChange(event) {
+      this.setState({
+        currentSettingsView: event.target.value
+      });
     }
 
     renderViews() {
@@ -65,8 +58,8 @@ class SettingsBoxContainer extends Component {
           viewRequest={this.props.viewRequest} 
           viewActivities={this.props.viewActivities} 
           viewSettings={this.props.viewSettings}
-          viewControlPanel={this.handleViewControlPanel} 
-          viewProfile={this.handleViewProfile}>
+          handleOnChange={this.handleOptionChange}
+          currentSettingsView={this.state.currentSettingsView}>
           {this.renderViews()}
         </SettingsBox>
       );      

@@ -45,15 +45,13 @@ nav {
   cursor: pointer;
 }
 
-
-
 .container {
   max-width: 800px;
   margin: 0 auto;
   background-color: color-athens-gray;
   border: 2px solid color-mercury;
   border-radius: global-radius;
-  height: 100vh;
+  height: 100%;
 }
 
 .waiting {
