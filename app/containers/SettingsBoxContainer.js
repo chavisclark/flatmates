@@ -19,9 +19,9 @@ class SettingsBoxContainer extends Component {
       this.renderViews = this.renderViews.bind(this);
     }
   
-    handleViewProfileEdit() {
+    handleViewProfileEdit(edit) {
       this.setState({
-        currentSettingsView: 'profile-edit'
+        currentSettingsView: edit
       })
     }
 
@@ -47,21 +47,25 @@ class SettingsBoxContainer extends Component {
         return ( <ControlPanel /> )
       if (currentSettingsView == 'profile')
         return ( <Profile viewProfileEdit={this.handleViewProfileEdit} /> )
-      if (currentSettingsView == 'profile-edit')
-        return ( <ProfileEdit onEntryChange={this.props.onEntryChange} /> )
+
     }
 
     render() {
       const {info} = this.props.state.user;
+      const {currentSettingsView} = this.state;
       return (
-        <SettingsBox logOut={this.handleLogOut}
-          viewRequest={this.props.viewRequest} 
-          viewActivities={this.props.viewActivities} 
-          viewSettings={this.props.viewSettings}
-          handleOnChange={this.handleOptionChange}
-          currentSettingsView={this.state.currentSettingsView}>
-          {this.renderViews()}
-        </SettingsBox>
+        <div>
+          { currentSettingsView == 'profile-edit' ? <ProfileEdit viewProfileEdit={this.handleViewProfileEdit} onEntryChange={this.props.onEntryChange} /> 
+          : <SettingsBox logOut={this.handleLogOut}
+              viewRequest={this.props.viewRequest} 
+              viewActivities={this.props.viewActivities} 
+              viewSettings={this.props.viewSettings}
+              handleOnChange={this.handleOptionChange}
+              currentSettingsView={this.state.currentSettingsView}>
+              {this.renderViews()}
+            </SettingsBox>
+        }
+        </div>
       );      
     }
 };

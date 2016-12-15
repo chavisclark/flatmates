@@ -9,20 +9,18 @@ const cx = classNames.bind(styles);
 const genders = [ 'male', 'female' ]
 
 let ProfileEdit = props => {
-  const { onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
+  const { viewProfileEdit, onEntryChange, handleSubmit, loaded, pristine, reset, submitting } = props
   let renderHeader = () => {
     return (
       <div className={cx('header')}>
+      <button onClick={() => viewProfileEdit('profile')}>Done</button>
         <h1 className={cx('heading')}>My Info</h1>
       </div>
     );
   }
   let renderPic = () => {
       var avatar = 'https://gravatar.com/avatar/bf039ae8736a6cedb03a29358565c608';
-    return (
-        <center>
-        <img src={avatar} className={cx('profile')}/>
-        </center>
+    return ( <center> <img src={avatar} className={cx('profile')}/> </center>
     );
   }
   let submit = pristine ? 'undo' : 'submit';
