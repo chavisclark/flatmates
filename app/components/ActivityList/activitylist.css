@@ -1,4 +1,5 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
+@value global-radius from '../../css/common/layout.css';
 
 .activity-item {
   padding: 20px

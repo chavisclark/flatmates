@@ -1,5 +1,5 @@
-@value global-radius, font-large, font-medium, font-small from ''../../css/common/settings';
-@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from '.'../../css/common/colors.css';
+@value global-radius from '../../css/common/layout.css';
+@value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay from '../../css/common/colors.css';
 
 .container {
   max-width: 800px;
@@ -156,3 +156,7 @@
     composes: small from '../../css/common/typography';
     color: color-bombay;
   }
+
+.inline {
+  display: inline-block;
+}

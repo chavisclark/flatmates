@@ -47,7 +47,7 @@ let ProfileEdit = props => {
               </div>
               <div>
                 <label>Sex</label>
-                <div>
+                <div className={cx('inline')}>
                   <label><Field name="gender" component="input" type="radio" value="male"/> Male</label>
                   <label><Field name="gender" component="input" type="radio" value="female"/> Female</label>
                 </div>

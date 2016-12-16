@@ -11,7 +11,8 @@ class SettingsBoxContainer extends Component {
     constructor(props){
       super(props);
       this.state = {
-        currentSettingsView: 'profile'
+        currentSettingsView: 'profile',
+        loading: true
       }
       this.handleViewProfileEdit = this.handleViewProfileEdit.bind(this);
       this.handleOptionChange = this.handleOptionChange.bind(this);
@@ -27,7 +28,10 @@ class SettingsBoxContainer extends Component {
 
     componentDidMount() {
       const {fetchUser} = this.props;
-      fetchUser();
+      fetchUser().then(function(user) {
+        if (user)
+          this.setState({ loading: false })
+      }.bind(this));
     }
 
     handleLogOut() {
@@ -42,7 +46,9 @@ class SettingsBoxContainer extends Component {
     }
 
     renderViews() {
-      const { currentSettingsView, user } = this.state;
+      const { currentSettingsView, loading } = this.state;
+      if (loading)
+        return ( <div>Loading...</div> )
       if (currentSettingsView == 'controls')
         return ( <ControlPanel /> )
       if (currentSettingsView == 'profile')

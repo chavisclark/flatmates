@@ -1,5 +1,5 @@
 @value color-mercury from './colors.css';
-
+@value global-radius: 5px;
 
 @media(min-width: 800px){
   .box {

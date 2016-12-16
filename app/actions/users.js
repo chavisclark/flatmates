@@ -132,6 +132,7 @@ export function fetchUser(data) {
       .then(response => {
         if (response.status == 200) {
           dispatch(fetchUserSuccess(response.data))
+            return response.data
         } else {
           dispatch(fetchUserError(response.data.message))
         }
