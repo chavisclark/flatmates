@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 const ControlPanel = (props) => {
     return (
       <div>
-        ControlPanel
+        Control Panel
       </div>
     );
 };
