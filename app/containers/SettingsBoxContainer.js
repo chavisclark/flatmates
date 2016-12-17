@@ -6,6 +6,8 @@ import SettingsBox from '../components/SettingsBox';
 import ControlPanel from '../components/ControlPanel';
 import Profile from '../components/Profile';
 import ProfileEdit from '../components/ProfileEdit';
+// import multirange from 'helpers/multirange.js';
+
 
 class SettingsBoxContainer extends Component {
     constructor(props){

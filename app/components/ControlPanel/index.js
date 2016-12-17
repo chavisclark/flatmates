@@ -8,7 +8,7 @@ const cx = classNames.bind(styles);
 const ControlPanel = (props) => {
     return (
       <div>
-        Control Panel
+        <input type="range" multiple={true} defaultValue="10,80" />
       </div>
     );
 };
