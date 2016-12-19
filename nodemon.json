@@ -8,7 +8,8 @@
       "app/components/Meta.js",
       "server",
       "webpack",
-      "__tests__"
+      "__clientTests__",
+      "__serverTests__"
     ],
     "exec": "npm run build:dev && npm run babel-node -- server/index.js"
 }

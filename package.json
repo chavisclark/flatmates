@@ -13,7 +13,8 @@
     "scriptPreprocessor": "./preprocessor.js",
     "testPathIgnorePatterns": [
       "/node_modules/"
-    ]
+    ],
+    "testRegex": "(/__clientTests__/.*|(\\.|/)(test|spec))\\.jsx?$"
   },
   "repository": {
     "type": "git",
@@ -72,6 +73,7 @@
     "redux": "^3.5.2",
     "redux-form": "^6.2.0",
     "redux-thunk": "^2.1.0",
+    "request": "^2.79.0",
     "retext": "^4.0.0",
     "retext-keywords": "^3.0.0",
     "url-loader": "^0.5.7",
@@ -91,8 +93,11 @@
     "css-loader": "^0.23.1",
     "enzyme": "^2.5.1",
     "html-webpack-plugin": "^2.22.0",
+    "jasmine": "^2.5.2",
+    "jasmine-node": "^1.14.5",
     "jest": "^16.0.2",
     "jest-cli": "*",
+    "mocha": "^3.2.0",
     "node-sass": "^3.11.2",
     "nodemon": "^1.10.2",
     "react-addons-test-utils": "^15.3.2",

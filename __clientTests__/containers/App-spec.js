@@ -1,5 +1,5 @@
 import React from 'react';
-import App from '../app/containers/App';
+import App from '../../app/containers/App';
 
 describe('<App />', () => {
 
