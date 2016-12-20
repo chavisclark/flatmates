@@ -83,6 +83,7 @@ export default function user(state = {
         info: action.user
       });
     case SIGNUP_ERROR_USER:
+    console.log(actoin)
       return Object.assign({}, state, {
         isWaiting: false,
         authenticated: false,

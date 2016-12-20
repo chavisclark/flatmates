@@ -1,9 +1,9 @@
-import React from 'react';
-import App from '../../app/containers/App';
+import {renderComponent, expect} from '../test_helper';
 
 describe('<App />', () => {
 
-  it('should exists', () => {
-    expect(App).toBeDefined();
+  it('should exist', () => {
+    const component = renderComponent('App')
+    expect(component).to.exist;
   });
 });

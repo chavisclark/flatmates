@@ -1,12 +1,9 @@
-import React from 'react';
-import { shallow, mount, render } from 'enzyme';
-import Navigation from '../../../app/components/Navigation';
-import Modal from '../../../app/components/Modal';
+import {renderComponent, expect} from '../../test_helper';
 
 describe('<Navigation />', () => {
 
-  it('should exists', () => {
-    const wrapper = shallow(<Navigation />)
-    expect(wrapper).toBeDefined();
+  it('should exist', () => {
+    const component = renderComponent('Navigation')
+    expect(component).to.exist;
   });
 });

@@ -15,8 +15,12 @@ function makeUserRequest(method, data, api = '/login') {
   });
 }
 
-export function makeUserEditRequest(method, data, api = '/dashboard') {
+function makeUserEditRequest(method, data, api = '/dashboard') {
   return request[method](api, data);
+}
+
+function toggleLogin() {
+  return { type: types.TOGGLE_LOGIN_MODE };
 }
 
 function beginLogin() {
@@ -60,7 +64,6 @@ function fetchUserSuccess(info) {
   };
 }
 
-
 function fetchUserError(message) {
   return {
     type: types.USER_FETCH_ERROR ,
@@ -103,8 +106,10 @@ function logoutError() {
   return { type: types.LOGOUT_ERROR_USER };
 }
 
+/////////Exported Functions//////////
+
 export function toggleLoginMode() {
-  return { type: types.TOGGLE_LOGIN_MODE };
+  return toggleLogin();
 }
 
 export function manualLogin(data) {
@@ -145,8 +150,8 @@ export function onEntryChange(data) {
     return makeUserEditRequest('post', data)
       .then(response => {
           if (response.status === 200) {
-            dispatch(userEditSuccess(response.data.message))
             alert('Your profile has been updated!');
+            return dispatch(userEditSuccess(response.data.message))
           } else {
             dispatch(userEditError(response.data.message))
           }
@@ -167,6 +172,7 @@ export function signUp(data) {
         }
       })
       .catch(err => {
+        console.log(err)
         dispatch(signUpError(err.data.message));
       });
   };

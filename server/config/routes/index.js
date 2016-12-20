@@ -1,11 +1,9 @@
 import user from './user';
-import flat from './flat';
 import outing from './outing';
 
-export { user, flat };
+export { user, outing };
 
 export default (app) => {
   user(app),
-  flat(app),
   outing(app)
 };

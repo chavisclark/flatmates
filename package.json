@@ -7,22 +7,13 @@
     "babel-node": "babel-node --presets es2015,stage-0 --ignore node_modules,public",
     "dev": "NODE_ENV=development nodemon",
     "build:dev": "NODE_ENV=development webpack --colors --config ./webpack/webpack.config.dev-server.js",
-    "test": "nodemon --exec jest --no-cache || true"
-  },
-  "jest": {
-    "scriptPreprocessor": "./preprocessor.js",
-    "testPathIgnorePatterns": [
-      "/node_modules/"
-    ],
-    "testRegex": "(/__clientTests__/.*|(\\.|/)(test|spec))\\.jsx?$"
+    "test": "mocha --compilers js:babel-core/register --require ./__clientTests__/test_helper.js --recursive ./__clientTests__",
+    "test:watch": "npm run test -- --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/chavisclark/flatmates.git"
   },
-  "keywords": [
-    "react"
-  ],
   "author": "Chavis Clark",
   "license": "ISC",
   "bugs": {
@@ -89,14 +80,14 @@
     "babel-preset-react": "^6.16.0",
     "babel-preset-react-hmre": "^1.1.1",
     "babel-preset-stage-0": "^6.5.0",
+    "chai": "^3.5.0",
+    "chai-jquery": "^2.0.0",
     "chance": "^1.0.4",
     "css-loader": "^0.23.1",
-    "enzyme": "^2.5.1",
     "html-webpack-plugin": "^2.22.0",
-    "jasmine": "^2.5.2",
-    "jasmine-node": "^1.14.5",
-    "jest": "^16.0.2",
-    "jest-cli": "*",
+    "ignore-styles": "^5.0.1",
+    "jquery": "^3.1.1",
+    "jsdom": "^9.9.1",
     "mocha": "^3.2.0",
     "node-sass": "^3.11.2",
     "nodemon": "^1.10.2",
