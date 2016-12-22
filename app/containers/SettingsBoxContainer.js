@@ -4,8 +4,8 @@ import { connect } from 'react-redux';
 import { fetchUser, onEntryChange, logOut } from 'actions/users';
 import SettingsBox from '../components/SettingsBox';
 import ControlPanel from '../components/ControlPanel';
-import Profile from '../components/Profile';
-import ProfileEdit from '../components/ProfileEdit';
+import ProfileContainer from '../containers/ProfileContainer';
+import ProfileEditContainer from '../containers/ProfileEditContainer';
 // import multirange from 'helpers/multirange.js';
 
 
@@ -54,7 +54,7 @@ class SettingsBoxContainer extends Component {
       if (currentSettingsView == 'controls')
         return ( <ControlPanel /> )
       if (currentSettingsView == 'profile')
-        return ( <Profile viewProfileEdit={this.handleViewProfileEdit} /> )
+        return ( <ProfileContainer viewProfileEdit={this.handleViewProfileEdit} /> )
 
     }
 
@@ -63,7 +63,7 @@ class SettingsBoxContainer extends Component {
       const {currentSettingsView} = this.state;
       return (
         <div>
-          { currentSettingsView == 'profile-edit' ? <ProfileEdit viewProfileEdit={this.handleViewProfileEdit} onEntryChange={this.props.onEntryChange} /> 
+          { currentSettingsView == 'profile-edit' ? <ProfileEditContainer viewProfileEdit={this.handleViewProfileEdit} onEntryChange={this.props.onEntryChange} /> 
           : <SettingsBox logOut={this.handleLogOut}
               viewRequest={this.props.viewRequest} 
               viewActivities={this.props.viewActivities} 
