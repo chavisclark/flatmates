@@ -2,7 +2,10 @@
 @value global-radius from '../../css/common/layout.css';
 
 .activity-item {
-  padding: 20px
+  padding: 20px;
+  border-radius: 50px;
+  border: black solid 1px;
+  margin: 10px;
 }
 
 .request-toggle {
