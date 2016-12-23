@@ -1,10 +1,6 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
 @value global-radius from '../../css/common/layout.css';
 
-nav {
-  z-index: 2
-}
-
 .navigation {
   width: 100%;
   background: rgba(0,0,0,.05);

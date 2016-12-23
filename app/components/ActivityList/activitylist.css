@@ -12,10 +12,6 @@
   text-align: center;
 }
 
-nav {
-  z-index: 2
-}
-
 .navigation {
   width: 100%;
   background: rgba(0,0,0,.05);
