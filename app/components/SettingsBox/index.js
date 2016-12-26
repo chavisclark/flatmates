@@ -25,9 +25,6 @@ const SettingsBox = (props) => {
 
         { props.children }
         
-        <button onClick={ props.logOut } className={ cx('login-button', 'primary') }>
-          <span> Log out </span>
-        </button>
       </div>
     </div>
   )

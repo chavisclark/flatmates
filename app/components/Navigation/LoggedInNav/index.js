@@ -6,8 +6,9 @@ import styles from './loggedin-nav.css';
 const cx = classNames.bind(styles);
 
 const LoggedInNav = (props) => {
+  const {currentScene} = props;
     return (
-      <nav className={cx('navigation')}>
+      <nav className={cx('navigation', currentScene)}>
         <span onClick={props.viewSettings} className={cx('settings')}>⚙</span>
         <span onClick={props.viewRequest} className={cx('logo')}>Cheers</span>
         <span onClick={props.viewActivities} className={cx('activities')}>🍻</span>

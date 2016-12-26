@@ -89,6 +89,7 @@ class ScenesContainer extends Component {
 
     if (currentScene == 'settings')
       return (<SettingsBoxContainer viewRequest={this.handleViewRequest} 
+                scene={this.state.scene}
                 viewSettings={this.handleViewSettings} 
                 viewActivities={this.handleViewActivities} />
       )
@@ -101,10 +102,12 @@ class ScenesContainer extends Component {
 
   render() {
     const { outing } = this.props.state;
+    const { currentScene } = this.state;
     return (
       <div>
         { outing.showRequest ? 
-          <MainWrapper viewSettings={this.handleViewSettings} 
+          <MainWrapper currentScene={currentScene}
+            viewSettings={this.handleViewSettings} 
             viewActivities={this.handleViewActivities} 
             viewRequest={this.handleViewRequest}>
               {this.renderScene()} 

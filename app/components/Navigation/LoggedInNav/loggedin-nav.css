@@ -11,6 +11,7 @@ nav {
   border-bottom: solid .5px rgba(0,0,0,.05);
   height: 40px;
   margin: 0 auto;
+  position: relative;
 }
 
 .navigation > span {
@@ -21,23 +22,70 @@ nav {
   width: 32.5%;
 }
 
-.settings {
+ .navigation .settings {
+  left: 0;
+  margin-left: 1%;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+ .navigation  .logo {
+  color: color-matte-blue;
+  font-size: 1.5em;
+  text-align: center;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+ .navigation  .activities {
+  text-align: right;
+  cursor: pointer;
+  transition: 500ms;
+}
+
+/*/
+/*/
+/*/
+/*/
+
+.settings .settings {
+  display: none;
+}
+
+.settings .logo {
+  color: color-matte-blue;
+  font-size: 1.5em;
+  margin-left: 1%;
+  cursor: pointer;
+}
+
+.settings .activities {
+  text-align: right;
+  cursor: pointer;
+}
+/*/
+/*/
+/*/
+/*/
+
+.activities .settings {
   text-align: left;
   margin-left: 1%;
   cursor: pointer;
 }
 
-.logo {
+.activities .logo {
   color: color-matte-blue;
   font-size: 1.5em;
   text-align: center;
   cursor: pointer;
 }
 
-.activities {
-  text-align: right;
-  cursor: pointer;
+.activities .activities {
+  display: none;
 }
+
+
 
 @media (max-width: 800px) {
   .navigation {
