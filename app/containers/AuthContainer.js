@@ -3,9 +3,9 @@ import { connect } from 'react-redux';
 import { manualLogin, signUp, toggleLoginMode } from '../actions/users';
 
 import hourGlassSvg from '../images/hourglass.svg';
-import AuthLoginHeader from '../components/AuthLoginHeader'
-import AuthRegisterHeader from '../components/AuthRegisterHeader'
-import AuthForm from '../components/AuthForm'
+import AuthLoginHeader from '../components/Auth/AuthLoginHeader';
+import AuthRegisterHeader from '../components/Auth/AuthRegisterHeader';
+import AuthForm from '../components/Auth/AuthForm';
 
 class AuthContainer extends Component {
   constructor(props) {

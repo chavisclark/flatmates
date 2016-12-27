@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from '../Auth/login.css';
+import styles from '../login.css';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
