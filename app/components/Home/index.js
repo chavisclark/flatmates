@@ -20,21 +20,23 @@ class Home extends Component {
   }
 
   componentDidMount() {
-    const vm = this;
+    const self = this;
+    
     const { fetchUser } = this.props;
     function success (position) {
       let lat = position.coords.latitude,
           lng = position.coords.longitude;
           
           console.info('Your coordinates are ' + lat + ', '+ lng)
-          vm.setState({currentLocation: [lat, lng]})
+          self.setState({currentLocation: [lat, lng]})
     }
 
     function error(err) {
       console.warn('ERROR(' + err.code + '): ' + err.message);
     }
 
-    navigator.geolocation.getCurrentPosition(success, error)
+    if (navigator.geolocation)
+      return navigator.geolocation.getCurrentPosition(success, error);
 
     fetchUser();
 
