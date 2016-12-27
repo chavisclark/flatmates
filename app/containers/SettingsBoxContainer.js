@@ -52,7 +52,7 @@ class SettingsBoxContainer extends Component {
       if (loading)
         return ( <div>Loading...</div> )
       if (currentSettingsView == 'controls')
-        return ( <ControlPanel /> )
+        return ( <ControlPanel logOut={this.handleLogOut}/> )
       if (currentSettingsView == 'profile')
         return ( <ProfileContainer viewProfileEdit={this.handleViewProfileEdit} /> )
 

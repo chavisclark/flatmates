@@ -9,6 +9,7 @@ const ControlPanel = (props) => {
     return (
       <div>
         <input type="range" multiple={true} defaultValue="10,80" />
+        <button className={cx('logout-button')} onClick={props.logOut}>Log out</button>
       </div>
     );
 };

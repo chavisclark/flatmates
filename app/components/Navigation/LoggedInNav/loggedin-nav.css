@@ -22,6 +22,13 @@ nav {
   width: 32.5%;
 }
 
+.nav-item {
+  cursor: pointer;
+  font-size:1.5em;
+  color: color-matte-blue;
+
+}
+
 .left {
   position: absolute;
   left:3px;
@@ -40,7 +47,7 @@ nav {
 
 .middle {
   position: absolute;
-  left: 50%;
+  left: 45%;
   transition: 200ms;
 }
 
@@ -54,7 +61,7 @@ nav {
 }
 
 .settings .middle:before {
-  content: '>'
+  content: '➤'
 }
 
 .settings .right {
@@ -71,12 +78,14 @@ nav {
 }
 
 .activities .middle:before {
-  content: '<'
+  content: '➤';
+  display: inline-block;
+  transform: rotate(180deg);
 }
 
 .activities .right {
   position: absolute;
-  left: 50%;  
+  left: 45%;  
 }
 
 .activities .left {
