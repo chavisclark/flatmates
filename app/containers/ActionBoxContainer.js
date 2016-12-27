@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { logOut } from '../actions/users';
 import { showNewRequest } from '../actions/outings';
 import ActionBox from '../components/ActionBox';
+import Modal from '../components/Modal';
 import dynamics from 'dynamics.js';
 
 class ActionBoxContainer extends Component {
@@ -62,6 +63,7 @@ class ActionBoxContainer extends Component {
 
     render() {
       return (
+        <div>
         <ActionBox logOut={this.handleLogOut} 
           showRequest={this.handleNewRequest}
           authenticated={this.props.user.authenticated}
@@ -69,6 +71,10 @@ class ActionBoxContainer extends Component {
           isPopupOpen={this.state.isPopupOpen}
           currentLocation={this.props.currentLocation}
           openLoginPopup={this.handleOpenPopup.bind(this)} />
+        <Modal authenticated={props.authenticated} isOpen={props.isPopupOpen} closePopupProp={props.handleClosePopup}>
+          <AuthContainer currentLocation={props.currentLocation}/>
+        </Modal>
+        </div>
       );      
     }
 };

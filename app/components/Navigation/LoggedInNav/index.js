@@ -9,9 +9,9 @@ const LoggedInNav = (props) => {
   const {currentScene} = props;
     return (
       <nav className={cx('navigation', currentScene)}>
-        <span onClick={props.viewSettings} className={cx('settings')}>⚙</span>
-        <span onClick={props.viewRequest} className={cx('logo')}>Cheers</span>
-        <span onClick={props.viewActivities} className={cx('activities')}>🍻</span>
+        <span onClick={props.viewSettings} className={cx('left')}>⚙</span>
+        <span onClick={props.viewRequest} className={cx('middle')}></span>
+        <span onClick={props.viewActivities} className={cx('right')}></span>
       </nav>
     );
 };
