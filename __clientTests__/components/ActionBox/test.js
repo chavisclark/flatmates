@@ -8,7 +8,6 @@ const cx = classNames.bind(styles);
 
 describe('ActionBox', () => {
   let component;
-  let thisClass;
 
   beforeEach(()=> {
     component = renderComponent(ActionBox);
@@ -20,20 +19,6 @@ describe('ActionBox', () => {
 
   it('has two buttons', () => {
     expect(component.find('button')).to.exist;
+    expect(component.find('button:nth-child(2)')).to.exist;
   });
-
-  // describe(' entering some text', () => {
-  //   beforeEach(() => {
-  //     component.find('textarea').simulate('change', 'new comment');
-  //   });
-
-  //   it('shows text that in textarea', () => {
-  //     expect(component.find('textarea')).to.have.value('new comment')
-  //   });
-
-  //   it('when submited, clears the input', () => {
-  //     component.simulate('submit');
-  //     expect(component.find('textarea')).to.have.value('');
-  //   });
-  // })
 })
