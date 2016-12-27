@@ -1,5 +1,4 @@
 import { renderComponent, expect } from '../../test_helper';
-import TestUtils from 'react-addons-test-utils';
 import ActivityList from '../../../app/components/ActivityList';
 import classNames from 'classnames/bind';
 import styles from '../../../app/components/ActivityList/activitylist.css';

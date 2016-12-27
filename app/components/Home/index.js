@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import {fetchUser} from 'actions/users';
-import NavigationContainer from 'containers/NavigationContainer';
-import ActionBoxContainer from 'containers/ActionBoxContainer';
-import ScenesContainer from 'containers/ScenesContainer';
-import Footer from 'components/Footer';
+import * as actions from '../../../app/actions/users';
+import NavigationContainer from '../../../app/containers/NavigationContainer';
+import ActionBoxContainer from '../../../app/containers/ActionBoxContainer';
+import ScenesContainer from '../../../app/containers/ScenesContainer';
+import Footer from '../../../app/components/Footer';
 import classNames from 'classnames/bind';
 import styles from './home';
 
@@ -44,7 +44,7 @@ class Home extends Component {
     const authenticated = this.props.user.authenticated;
 
     return (
-      <div className={cx("container")}>
+      <div className={cx("home_container")}>
         {authenticated ? (<ScenesContainer currentLocation={this.state.currentLocation}/>) : (
           <span>
             <NavigationContainer />
@@ -65,4 +65,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {fetchUser})(Home);
+export default connect(mapStateToProps, actions)(Home);

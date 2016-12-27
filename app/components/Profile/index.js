@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './profile.css';
-import home from 'images/residential-block-profile.svg';
+import home from '../../images/residential-block-profile.svg';
 
 const cx = classNames.bind(styles);
 

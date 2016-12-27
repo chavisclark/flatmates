@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchFlats } from 'actions/flats';
+import { fetchFlats } from '../actions/flats';
 import CitySelect from '../components/CitySelect';
 import Button_Search from '../components/Button_Search';
 import GoogleMapsWrapper from '../components/GoogleMapsWrapper';

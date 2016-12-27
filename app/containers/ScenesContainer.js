@@ -5,9 +5,9 @@ import { createOuting, findUserOutings } from '../actions/outings';
 import { logOut } from '../actions/users';
 import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
-import SettingsBoxContainer from 'containers/SettingsBoxContainer';
-import ActionBoxContainer from 'containers/ActionBoxContainer';
-import ActivityListContainer from 'containers/ActivityListContainer';
+import SettingsBoxContainer from './SettingsBoxContainer';
+import ActionBoxContainer from './ActionBoxContainer';
+import ActivityListContainer from './ActivityListContainer';
 
 class ScenesContainer extends Component {
   constructor(props) {

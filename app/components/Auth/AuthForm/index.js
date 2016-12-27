@@ -30,7 +30,7 @@ const AuthForm = (props) => {
               placeholder="password" />
               <div className={cx('hint')}>
               <div>Hint</div>
-              <div>email: example@wgzimmer.com <br />password: zimmer</div>
+              <div>email: example@cheers-app.com <br />password: knowsyourname</div>
               </div>
               <p className={cx('message', {
                 'message-show': props.message && props.message.length > 0

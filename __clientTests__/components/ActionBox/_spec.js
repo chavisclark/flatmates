@@ -1,5 +1,4 @@
 import { renderComponent, expect } from '../../test_helper';
-import TestUtils from 'react-addons-test-utils';
 import ActionBox from '../../../app/components/ActionBox';
 import classNames from 'classnames/bind';
 import styles from '../../../app/components/ActionBox/actionbox.css';

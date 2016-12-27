@@ -10,18 +10,14 @@
   letter-spacing: -2px;
 }
 
-.container {
+.home_container {
   position: relative;
   width: 100%;
   margin: 0 auto;
 }
 
-.container img {
+.home_container img {
   z-index: -1;
   width: 100%;
   height: 100%;
-}
-
-.tripRequester{
-  display: inline-flex;
 }

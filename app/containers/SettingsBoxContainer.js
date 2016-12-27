@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchUser, onEntryChange, logOut } from 'actions/users';
+import { fetchUser, onEntryChange, logOut } from '../actions/users';
 import SettingsBox from '../components/SettingsBox';
 import ControlPanel from '../components/ControlPanel';
 import ProfileContainer from '../containers/ProfileContainer';
