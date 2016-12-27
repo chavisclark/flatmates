@@ -1,4 +1,4 @@
-import React, {PropTypes} from 'react';
+import React from 'react';
 import classNames from 'classnames/bind';
 import styles from './modal.css';
 
@@ -8,7 +8,7 @@ const Modal = (props) => {
   const {noBg, isOpen, closePopupProp, children, authenticated} = props;
   const alt = noBg ? "-noBg" : "";
   
-  if (isOpen == false || authenticated) {
+  if (isOpen === false || authenticated) {
     return null
   } else {
       return (

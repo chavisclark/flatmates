@@ -7,19 +7,17 @@ const cx = classNames.bind(styles);
 
 const Navigation = (props) => {
     return (
-      <div>
-        <nav className={cx('navigation')} role="navigation">
-          <Link to="/"
-            className={cx('item', 'logo')}
-            activeClassName={cx('active')}>Cheers</Link>
+      <nav className={cx('navigation')} role="navigation">
+        <Link to="/"
+          className={cx('item', 'logo')}
+          activeClassName={cx('active')}>Cheers</Link>
 
-            { props.authenticated ? (
-              <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
-            ) : (
-              ""
-            )}
-        </nav>
-      </div>
+          { props.authenticated ? (
+            <Link to="/dashboard" className={cx('item', 'nav')} activeClassName={cx('active')}>Dashboard</Link>
+          ) : (
+            ""
+          )}
+      </nav>
     );
 };
 

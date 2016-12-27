@@ -5,7 +5,7 @@ nav {
   z-index: 2
 }
 
-.navigation {
+.navigation-auth {
   width: 800px;
   background: rgba(0,0,0,.05);
   border-bottom: solid .5px rgba(0,0,0,.05);
@@ -14,7 +14,7 @@ nav {
   position: relative;
 }
 
-.navigation > span {
+.navigation-auth > span {
   display: inline-block;
   display: -moz-inline-box;
   *display: inline; /* For IE7 */
@@ -93,7 +93,7 @@ nav {
 }
 
 @media (max-width: 800px) {
-  .navigation {
+  .navigation-auth {
     width: 100%;
   }
 }
