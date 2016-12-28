@@ -6,10 +6,10 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
-  const {viewRequest, viewSettings, viewActivities, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
-  const RenderTodaysOutings = TodaysOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderAnyOutings = AnyOutings.map((outing, index) => (<span key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const {openSingleActivity, viewRequest, viewSettings, viewActivities, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
+  const RenderTodaysOutings = TodaysOutings.map((outing, index) => (<span onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => (<span onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderAnyOutings = AnyOutings.map((outing, index) => (<span  onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
   
   return (
       <div className={cx('container', {

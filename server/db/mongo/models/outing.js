@@ -9,6 +9,9 @@ const OutingSchema = new mongoose.Schema({
   text: {
     type: String
   },
+  category: {
+    type: String
+  },
   keywords: [{ 
     type: String
   }],

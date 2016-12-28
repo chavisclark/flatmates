@@ -7,11 +7,15 @@ import ActivityList from '../components/ActivityList';
 class ActivityListContainer extends Component {
     constructor(props){
       super(props);
+      this.handleOpenSingleActivity = this.handleOpenSingleActivity.bind(this);
     }
 
     componentDidMount() {
       const {findUserOutings} = this.props;
       findUserOutings();
+    }
+    handleOpenSingleActivity(outing) {
+      console.log(outing)
     }
 
     render() {
@@ -36,7 +40,8 @@ class ActivityListContainer extends Component {
           TomorrowsOutings={outingsTomorrow}
           AnyOutings={outingsAny}
           viewRequest={this.props.viewRequest} 
-          viewSettings={this.props.viewSettings} />
+          viewSettings={this.props.viewSettings}
+          openSingleActivity={this.handleOpenSingleActivity}/>
       );      
     }
 };

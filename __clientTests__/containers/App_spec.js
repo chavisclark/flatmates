@@ -1,9 +1,14 @@
-import {renderComponent, expect} from '../test_helper';
+import { renderComponent, expect } from '../test_helper';
+import App from '../../app/containers/App';
 
-describe('<App />', () => {
+describe('App', () => {
+  let component;
 
-  it('should exist', () => {
-    const component = renderComponent('App')
+  beforeEach(()=> {
+    component = renderComponent(App);
+  });
+
+  it('exists', () => {
     expect(component).to.exist;
   });
-});
+})

@@ -13,6 +13,7 @@ describe('ActionBox', () => {
   });
 
   it('has a correct class', () => {
+    console.log(component)
     expect(component).to.have.class(cx('home_actions'));
   });
 
