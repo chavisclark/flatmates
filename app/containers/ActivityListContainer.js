@@ -14,6 +14,7 @@ class ActivityListContainer extends Component {
       const {findUserOutings} = this.props;
       findUserOutings();
     }
+    
     handleOpenSingleActivity(outing) {
       console.log(outing)
     }

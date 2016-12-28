@@ -21,6 +21,7 @@ export default function outing(state = {
     case CREATE_SUCCESS_OUTING:
       return Object.assign({}, state, {
         message: action.message,
+        current: action.current,
         showRequest: false
       });
     case SHOW_USER_OUTINGS:

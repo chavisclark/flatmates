@@ -6,11 +6,14 @@ import Outing from '../models/outing';
 const classifier = bayes();
 
 (function () {
-  classifier.learn('I want to go shoot some hoops', 'sports');
-  classifier.learn('go out to the club','nightlife');
+  classifier.learn('shoot some hoops', 'sports');
+  classifier.learn('out to the club','nightlife');
+  classifier.learn('dance at the bar','nightlife');
+  classifier.learn('play ball','sports');
+  classifier.learn('shop at the mall','casual');  
   classifier.learn('hike the mountain','outdoors');
   classifier.learn('bike riding','outdoors');
-  classifier.learn('go cycling','outdoors');
+  classifier.learn('cycling','outdoors');
 })();
 
 export function add(req, res) {
@@ -58,7 +61,7 @@ export function add(req, res) {
   
   console.log('Outing saved... ', outing );
 
-  return res.json({message: outing.text + ' was added!'});
+  return res.json({current: outing, message: outing.text + ' was added!'});
 }
 
 export function find(req, res) {

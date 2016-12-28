@@ -27,10 +27,11 @@ function beginCreate() {
   return { type: types.CREATE_OUTING };
 }
 
-function createOutingSuccess(message) {
+function createOutingSuccess(message, current) {
   return {
     type: types.CREATE_SUCCESS_OUTING,
-    message
+    message,
+    current
   };
 }
 
@@ -63,7 +64,7 @@ export function createOuting(data, n) {
       .then(response => {
         if (response.status === 200) {
           dispatch(reset('RequestBox'));
-          dispatch(createOutingSuccess(response.data.message));
+          dispatch(createOutingSuccess(response.data.message, response.data.current));
 
           (setTimeout(() => {
             alert(response.data.message)

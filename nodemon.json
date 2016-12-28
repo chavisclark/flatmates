@@ -1,7 +1,7 @@
 {
     "verbose": false,
     "watch": [
-      "app",
+      "app/state",
       "server",
       "webpack",
       "__clientTests__",

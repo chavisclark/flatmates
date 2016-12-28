@@ -6,7 +6,7 @@ import { logOut } from '../state/actions/users';
 import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
 import SettingsBoxContainer from './SettingsBoxContainer';
-import ActionBoxContainer from './ActionBoxContainer';
+import Activity from '../components/Activity';
 import ActivityListContainer from './ActivityListContainer';
 
 class ScenesContainer extends Component {
@@ -103,6 +103,8 @@ class ScenesContainer extends Component {
   render() {
     const { outing } = this.props.state;
     const { currentScene } = this.state;
+    const ActivityCount = outing.outings.length;
+
     return (
       <div>
         { outing.showRequest ? 
@@ -112,7 +114,7 @@ class ScenesContainer extends Component {
             viewRequest={this.handleViewRequest}>
               {this.renderScene()} 
             </MainWrapper> 
-          : <ActionBoxContainer currentLocation={this.props.currentLocation} />
+          : <Activity thisOuting={outing.current} />
         }
       </div>
     );
