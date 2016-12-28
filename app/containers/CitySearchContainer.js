@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchFlats } from '../actions/flats';
 import CitySelect from '../components/CitySelect';
 import Button_Search from '../components/Button_Search';
 import GoogleMapsWrapper from '../components/GoogleMapsWrapper';
@@ -37,7 +36,7 @@ class CitySearchContainer extends Component {
       let reservation = {day, address};
 
       if (this.props.state.stay.city) 
-        fetchFlats(reservation);         
+        alert(reservation);         
     }
 
 
@@ -70,4 +69,4 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, {fetchFlats})(CitySearchContainer);
+export default connect(mapStateToProps)(CitySearchContainer);

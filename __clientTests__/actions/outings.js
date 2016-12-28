@@ -1,5 +1,5 @@
 import {expect} from '../test_helper';
-import * as types from 'constants';
+import * as types from '../../app/state/types';
 import { polyfill } from 'es6-promise';
 
 polyfill();

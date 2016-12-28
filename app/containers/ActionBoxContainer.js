@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { logOut } from '../actions/users';
-import { showNewRequest } from '../actions/outings';
+import { logOut } from '../state/actions/users';
+import { showNewRequest } from '../state/actions/outings';
 import ActionBox from '../components/ActionBox';
 import AuthContainer from './AuthContainer';
 import Modal from '../components/Modal';

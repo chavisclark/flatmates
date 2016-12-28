@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { manualLogin, signUp, toggleLoginMode } from '../actions/users';
+import { manualLogin, signUp, toggleLoginMode } from '../state/actions/users';
 
 import hourGlassSvg from '../images/hourglass.svg';
 import AuthLoginHeader from '../components/Auth/AuthLoginHeader';

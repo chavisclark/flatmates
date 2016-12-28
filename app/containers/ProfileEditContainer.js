@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { fetchUser, onEntryChange } from '../actions/users';
+import { fetchUser, onEntryChange } from '../state/actions/users';
 import ProfileEdit from '../components/ProfileEdit';
 // import multirange from 'helpers/multirange.js';
 

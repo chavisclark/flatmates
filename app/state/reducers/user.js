@@ -15,7 +15,7 @@ import {
   LOGOUT_USER,
   LOGOUT_SUCCESS_USER,
   LOGOUT_ERROR_USER 
-} from 'constants';
+} from '../types';
 
 export default function user(state = {
   isLogin: true,

@@ -1,4 +1,4 @@
-import favicon from 'images/favicon.png';
+import favicon from '../images/favicon.png';
 
 const config = {
   link: [

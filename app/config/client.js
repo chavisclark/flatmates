@@ -4,9 +4,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { Provider } from 'react-redux';
 import { Router, browserHistory } from 'react-router';
-import createRoutes from 'routes';
-import configStore from 'store/configStore';
-import preRenderMiddleware from 'middlewares/preRenderMiddleware';
+import createRoutes from './routes';
+import configStore from '../state/store/configStore';
+import preRenderMiddleware from '../state/middlewares/preRenderMiddleware';
 
 const initialState = window.__INITIAL_STATE__;
 const store = configStore(initialState, browserHistory);

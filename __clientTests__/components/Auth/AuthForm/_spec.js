@@ -16,7 +16,7 @@ describe('AuthForm', () => {
     expect(component).to.have.class(cx('login'));
   });
 
-  it('has three headings', () => {
+  it('has a form', () => {
     expect(component.find('form')).to.exist;
   });
 });

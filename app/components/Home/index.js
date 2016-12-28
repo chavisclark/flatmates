@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
-import * as actions from '../../../app/actions/users';
-import NavigationContainer from '../../../app/containers/NavigationContainer';
-import ActionBoxContainer from '../../../app/containers/ActionBoxContainer';
-import ScenesContainer from '../../../app/containers/ScenesContainer';
-import Footer from '../../../app/components/Footer';
+import * as actions from '../../state/actions/users';
+import NavigationContainer from '../../containers/NavigationContainer';
+import ActionBoxContainer from '../../containers/ActionBoxContainer';
+import ScenesContainer from '../../containers/ScenesContainer';
+import Footer from '../Footer';
 import classNames from 'classnames/bind';
 import styles from './home';
 

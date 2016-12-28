@@ -3,7 +3,7 @@ import request from 'axios';
 import { push } from 'react-router-redux';
 import { reset } from 'redux-form';
 
-import * as types from 'constants';
+import * as types from '../types';
 
 polyfill();
 

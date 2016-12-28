@@ -3,10 +3,10 @@ import React from 'react';
 import { renderToString } from 'react-dom/server';
 import { createMemoryHistory, match, RouterContext } from 'react-router';
 import { Provider } from 'react-redux';
-import createRoutes from 'routes';
-import configStore from 'store/configStore';
-import preRenderMiddleware from 'middlewares/preRenderMiddleware';
-import header from 'components/Meta';
+import createRoutes from './routes';
+import configStore from '../state/store/configStore';
+import preRenderMiddleware from '../state/middlewares/preRenderMiddleware';
+import header from '../components/Meta';
 
 const clientConfig = {
   host: process.env.HOSTNAME || 'localhost',

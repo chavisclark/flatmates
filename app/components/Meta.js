@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import Helmet from 'react-helmet';
-import config from 'helmConfig.js';
+import config from '../config/helmet.js';
 
 if (__DEVSERVER__) {
   config.link = config.link.filter(l => l.rel !== 'stylesheet');

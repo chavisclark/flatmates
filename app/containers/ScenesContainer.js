@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { createOuting, findUserOutings } from '../actions/outings';
-import { logOut } from '../actions/users';
+import { createOuting, findUserOutings } from '../state/actions/outings';
+import { logOut } from '../state/actions/users';
 import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
 import SettingsBoxContainer from './SettingsBoxContainer';

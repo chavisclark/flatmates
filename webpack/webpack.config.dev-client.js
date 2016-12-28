@@ -41,7 +41,7 @@ module.exports = {
     name: 'browser',
     context: path.join(__dirname, '..', 'app'),
     entry: {
-      app: ['./client', hotMiddlewareScript]
+      app: ['./config/client', hotMiddlewareScript]
     },
     output: {
       path: assetsPath,

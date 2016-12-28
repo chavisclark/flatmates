@@ -28,7 +28,7 @@ module.exports = {
     name: "server-side rendering",
     context: path.join(__dirname, "..", "app"),
     entry: {
-      server: "./server"
+      server: "./config/server"
     },
     target: "node",
     output: {

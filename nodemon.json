@@ -1,11 +1,7 @@
 {
     "verbose": false,
     "watch": [
-      "app/server.js",
-      "app/client.js",
-      "app/routes.js",
-      "app/helmconfig.js",
-      "app/components/Meta.js",
+      "app",
       "server",
       "webpack",
       "__clientTests__",

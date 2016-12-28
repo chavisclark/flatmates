@@ -4,7 +4,7 @@ import ScenesContainer from '../../../app/containers/ScenesContainer';
 import NavigationContainer from '../../../app/containers/NavigationContainer';
 import ActionBoxContainer from '../../../app/containers/ActionBoxContainer';
 import Footer from '../../../app/components/Footer';
-import * as actions from '../../../app/actions/users';
+import * as actions from '../../../app/state/actions/users';
 import classNames from 'classnames/bind';
 import styles from '../../../app/components/Home/home.css';
 

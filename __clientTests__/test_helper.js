@@ -7,7 +7,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
-import reducers from '../app/reducers';
+import reducers from '../app/state/reducers';
 import chaiJquery from 'chai-jquery';
 import 'ignore-styles';
 

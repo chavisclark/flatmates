@@ -5,7 +5,7 @@ import {
   CREATE_ERROR_OUTING,
   SHOW_USER_OUTINGS
 
-} from 'constants';
+} from '../types';
 
 export default function outing(state = {
   outings: [],
