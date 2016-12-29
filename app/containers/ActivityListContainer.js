@@ -4,10 +4,6 @@ import { connect } from 'react-redux';
 import { findUserOutings } from '../state/actions/outings';
 import ActivityList from '../components/ActivityList';
 import Activity from '../components/Activity';
-import sports from '../images/sports.svg';
-import outdoors from '../images/outdoors.svg';
-import nightlife from '../images/nightlife.svg';
-import casual from '../images/casual.svg';
 
 class ActivityListContainer extends Component {
     constructor(props){
@@ -25,45 +21,10 @@ class ActivityListContainer extends Component {
     }
     
     handleOpenSingleActivity(outing) {
-      const self = this;
-
-      function sortCategoryIcon() {
-        return self.selectIcon(outing)        
-      };
-
-      outing.icon = sortCategoryIcon();
-
-      self.setState({
+      this.setState({
         singleView: true,
         currentActivity: outing
       });
-    }
-
-    selectIcon(outing) {
-      if (this.handleSports(outing))
-        return sports;
-      if (this.handleOutdoors(outing))
-        return outdoors;
-      if (this.handleNightlife(outing))
-        return nightlife;
-      if (this.handleCasual(outing))
-        return casual;
-    }
-
-    handleSports(outing) {
-      return outing.category === 'sports';
-    }
-
-    handleOutdoors(outing) {
-      return outing.category === 'outdoors';
-    }
-
-    handleNightlife(outing) {
-      return outing.category === 'nightlife';
-    }
-
-    handleCasual(outing) {
-      return outing.category === 'casual';
     }
 
     render() {

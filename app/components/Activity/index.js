@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import Sort from './sort_activity';
 import classNames from 'classnames/bind';
 import styles from './activity.css';
 
@@ -18,4 +19,4 @@ const Activity = (props) => {
     );
 };
 
-export default Activity;
+export default Sort(Activity);
