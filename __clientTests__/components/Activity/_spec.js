@@ -21,4 +21,7 @@ describe('Activity', () => {
   it('has a primary activity icon', () => {
     expect(component.find('div')).to.have.class(cx('activity_icon'));
   });
+  it('has a primary activity icon', () => {
+    expect(component.find('div:nth-child(2)')).to.have.class(cx('activity_title'));
+  });
 });

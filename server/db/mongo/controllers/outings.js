@@ -14,6 +14,10 @@ const classifier = bayes();
   classifier.learn('hike the mountain','outdoors');
   classifier.learn('bike riding','outdoors');
   classifier.learn('cycling','outdoors');
+  classifier.learn('drunk','nightlife');
+  classifier.learn('swim','nightlife');
+  classifier.learn('drink wine','nightlife');
+  classifier.learn('drink beer','nightlife');
 })();
 
 export function add(req, res) {

@@ -8,7 +8,12 @@ const cx = classNames.bind(styles);
 const Activity = (props) => {
     return (
       <div className={cx('activity_container')}>
-          Activity: {props.thisOuting.text}
+        <div className={cx('activity_icon')}>
+            <img src={props.thisOuting.icon} />
+        </div>
+        <div className={cx('activity_title')}> 
+          {props.thisOuting.text}
+        </div>
       </div>
     );
 };

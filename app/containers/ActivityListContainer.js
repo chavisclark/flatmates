@@ -3,11 +3,20 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { findUserOutings } from '../state/actions/outings';
 import ActivityList from '../components/ActivityList';
+import Activity from '../components/Activity';
+import sports from '../images/sports.svg';
+import outdoors from '../images/outdoors.svg';
+import nightlife from '../images/nightlife.svg';
+import casual from '../images/casual.svg';
 
 class ActivityListContainer extends Component {
     constructor(props){
       super(props);
       this.handleOpenSingleActivity = this.handleOpenSingleActivity.bind(this);
+      this.state = {
+        singleView: false,
+        currentActivity: {}
+      }
     }
 
     componentDidMount() {
@@ -16,11 +25,49 @@ class ActivityListContainer extends Component {
     }
     
     handleOpenSingleActivity(outing) {
-      console.log(outing)
+      const self = this;
+
+      function sortCategoryIcon() {
+        return self.selectIcon(outing)        
+      };
+
+      outing.icon = sortCategoryIcon();
+
+      self.setState({
+        singleView: true,
+        currentActivity: outing
+      });
+    }
+
+    selectIcon(outing) {
+      if (this.handleSports(outing))
+        return sports;
+      if (this.handleOutdoors(outing))
+        return outdoors;
+      if (this.handleNightlife(outing))
+        return nightlife;
+      if (this.handleCasual(outing))
+        return casual;
+    }
+
+    handleSports(outing) {
+      return outing.category === 'sports';
+    }
+
+    handleOutdoors(outing) {
+      return outing.category === 'outdoors';
+    }
+
+    handleNightlife(outing) {
+      return outing.category === 'nightlife';
+    }
+
+    handleCasual(outing) {
+      return outing.category === 'casual';
     }
 
     render() {
-      const {outing} = this.props.state;
+      const {outing} = this.props;
       var todaysDate = new Date();
       var endOfToday = new Date(new Date().setHours(24,0,0,0));
 
@@ -37,12 +84,16 @@ class ActivityListContainer extends Component {
       const outingsAny = outing.outings.filter((outing) => !outing.expire)
 
       return (
-        <ActivityList TodaysOutings={outingsToday} 
-          TomorrowsOutings={outingsTomorrow}
-          AnyOutings={outingsAny}
-          viewRequest={this.props.viewRequest} 
-          viewSettings={this.props.viewSettings}
-          openSingleActivity={this.handleOpenSingleActivity}/>
+        <div>
+          {this.state.singleView ? <Activity thisOuting={this.state.currentActivity} /> :
+          <ActivityList TodaysOutings={outingsToday} 
+            TomorrowsOutings={outingsTomorrow}
+            AnyOutings={outingsAny}
+            viewRequest={this.props.viewRequest} 
+            viewSettings={this.props.viewSettings}
+            openSingleActivity={this.handleOpenSingleActivity}/>
+          }
+        </div>
       );      
     }
 };
@@ -50,7 +101,7 @@ class ActivityListContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    outing: state.outing
   };
 }
 

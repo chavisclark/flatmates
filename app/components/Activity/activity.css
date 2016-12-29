@@ -1,6 +1,28 @@
-.activity-item {
+@value color-blue-grey, color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
+@value global-radius from '../../css/common/layout.css';
+
+.activity_container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: color-athens-gray;
+  border: 2px solid color-mercury;
+  border-radius: global-radius;
+  height: 100%;
+}
+
+.activity_title {
   padding: 20px;
-  border-radius: 50px;
-  border: black solid 1px;
   margin: 10px;
+  font-size: 2em;
+  text-align: center;
+}
+
+.activity_icon {
+  width: 220px;
+  height: 220px;
+  padding: 10px;
+  border-radius: 160px;
+  border: solid color-blue-grey 2px;
+  background-color: color-matte-blue;
+  margin: 10px auto;
 }
