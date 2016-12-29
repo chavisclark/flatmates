@@ -37,7 +37,7 @@ nav {
 
 .right {
   position: absolute;
-  left: 775px;
+  right: -220px;
   transition: 200ms;
 }
 
@@ -57,7 +57,7 @@ nav {
 
 .settings .middle {
   position: absolute;
-  left: 775px;
+  right: -220px;
 }
 
 .settings .middle:before {
@@ -95,5 +95,10 @@ nav {
 @media (max-width: 800px) {
   .navigation-auth {
     width: 100%;
+  }
+
+  .right, .settings .middle {
+    right:0;
+    float: right;
   }
 }

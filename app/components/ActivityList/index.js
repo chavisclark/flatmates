@@ -1,5 +1,6 @@
 import React from 'react';
 import Modal from '../Modal';
+import ActivityIcon from '../ActivityIcon';
 import styles from './activitylist.css';
 import classNames from 'classnames/bind';
 
@@ -7,14 +8,12 @@ const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
   const {openSingleActivity, viewRequest, viewSettings, viewActivities, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
-  const RenderTodaysOutings = TodaysOutings.map((outing, index) => (<span onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => (<span onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
-  const RenderAnyOutings = AnyOutings.map((outing, index) => (<span  onClick={() => openSingleActivity(outing)} key={index} className={cx('activity-item')}>{outing.text}</span>));
+  const RenderTodaysOutings = TodaysOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);
+  const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);
+  const RenderAnyOutings = AnyOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);
   
   return (
-      <div className={cx('container', {
-        waiting: props.isWaiting
-      })}>
+      <div className={cx('container')}>
         <div>
           <div className={cx('loading')}>
             <div className={cx('loader')}></div>
