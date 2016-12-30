@@ -1,7 +1,7 @@
 import retext from 'retext';
 import nlcstToString from 'nlcst-to-string';
 import keywords from 'retext-keywords';
-import bayes from 'bayes';
+import bayes from '../../../../forked_modules/bayes';
 import Outing from '../models/outing';
 const classifier = bayes();
 
@@ -11,13 +11,19 @@ const classifier = bayes();
   classifier.learn('dance at the bar','nightlife');
   classifier.learn('play ball','sports');
   classifier.learn('shop at the mall','casual');  
+  classifier.learn('hang by the pool','casual'); 
+  classifier.learn('netflix and chill','casual');  
   classifier.learn('hike the mountain','outdoors');
-  classifier.learn('bike riding','outdoors');
-  classifier.learn('cycling','outdoors');
+  classifier.learn('camp out in the woods','outdoors');
+  classifier.learn('bike riding','sports');
+  classifier.learn('cycling','sports');
   classifier.learn('drunk','nightlife');
-  classifier.learn('swim','nightlife');
+  classifier.learn('swim','casual');
   classifier.learn('drink wine','nightlife');
   classifier.learn('drink beer','nightlife');
+  classifier.learn('lift weights at gym','sports');
+  classifier.learn('run 10 miles','nightlife');
+  classifier.learn('play ball','sports');
 })();
 
 export function add(req, res) {
@@ -64,6 +70,7 @@ export function add(req, res) {
   });
   
   console.log('Outing saved... ', outing );
+  console.log(classifier.probabilities(text))
 
   return res.json({current: outing, message: outing.text + ' was added!'});
 }
