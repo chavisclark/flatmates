@@ -7,6 +7,7 @@ import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
 import SettingsBoxContainer from './SettingsBoxContainer';
 import Activity from '../components/Activity';
+import Loading from '../components/Loading';
 import ActivityListContainer from './ActivityListContainer';
 
 class ScenesContainer extends Component {
@@ -16,9 +17,7 @@ class ScenesContainer extends Component {
     this.handleOpenPopup = this.handleOpenPopup.bind(this);
     this.handleClosePopup = this.handleClosePopup.bind(this);
     this.handleExpire = this.handleExpire.bind(this);
-    this.handleViewActivities = this.handleViewActivities.bind(this);
-    this.handleViewRequest = this.handleViewRequest.bind(this);
-    this.handleViewSettings = this.handleViewSettings.bind(this);
+    this.handleViewScene = this.handleViewScene.bind(this);
     this.state = {
       isPopupOpen: false,
       currentScene: 'request'
@@ -44,21 +43,9 @@ class ScenesContainer extends Component {
     this.submitForm(n);
   }
 
-  handleViewActivities() {
+  handleViewScene(scene) {
     this.setState({
-      currentScene: 'activities'
-    })
-  }
-
-  handleViewSettings() {
-    this.setState({
-      currentScene: 'settings'
-    })
-  }
-
-  handleViewRequest() {
-    this.setState({
-      currentScene: 'request'
+      currentScene: scene
     })
   }
 
@@ -69,53 +56,55 @@ class ScenesContainer extends Component {
   submitForm(n) {
     const { createOuting } = this.props;
     let data = this.state.formData;
-    //Fix empty server response bug
+    this.setState({
+      currentScene: 'single-activity'
+    })
     return createOuting(data, n);
   }
 
   renderScene() {
     const { currentScene } = this.state;
     if (currentScene == 'request') 
-      return ( 
-        <RequestBox handleOnSubmit={this.handleOnSubmit}
-            OnExpire={this.handleExpire}
-            closePopup={this.handleClosePopup}
-            openPopup={this.handleOpenPopup}
-            isOpen={this.state.isPopupOpen}
-            viewActivities={this.handleViewActivities}
-            viewSettings={this.handleViewSettings}
-            viewRequest={this.handleViewRequest} /> 
+      return (
+        <MainWrapper currentScene={currentScene} viewScene={this.handleViewScene}>
+          <RequestBox handleOnSubmit={this.handleOnSubmit}
+              OnExpire={this.handleExpire}
+              closePopup={this.handleClosePopup}
+              openPopup={this.handleOpenPopup}
+              isOpen={this.state.isPopupOpen} />                
+          </MainWrapper> 
+
       );
 
     if (currentScene == 'settings')
-      return (<SettingsBoxContainer viewRequest={this.handleViewRequest} 
-                scene={this.state.scene}
-                viewSettings={this.handleViewSettings} 
-                viewActivities={this.handleViewActivities} />
+      return (
+        <MainWrapper currentScene={currentScene} viewScene={this.handleViewScene}>
+            <SettingsBoxContainer />               
+          </MainWrapper>
+
       )
 
     if (currentScene == 'activities')
-      return (<ActivityListContainer  viewRequest={this.handleViewRequest} 
-                viewSettings={this.handleViewSettings} 
-                viewActivities={this.handleViewActivities} />)
+      return (
+          <MainWrapper currentScene={currentScene} viewScene={this.handleViewScene}>
+              <ActivityListContainer />
+            </MainWrapper>
+      )
+
+    if (currentScene == 'single-activity') 
+      return (
+        <div>
+          { this.props.outing.current ? <Activity closeScene={() => this.handleViewScene('request')} thisOuting={this.props.outing.current} />
+            : <Loading />
+          }
+        </div>
+      )
   }
 
   render() {
-    const { outing } = this.props.state;
-    const { currentScene } = this.state;
-    const ActivityCount = outing.outings.length;
-
     return (
       <div>
-        { outing.showRequest ? 
-          <MainWrapper currentScene={currentScene}
-            viewSettings={this.handleViewSettings} 
-            viewActivities={this.handleViewActivities} 
-            viewRequest={this.handleViewRequest}>
-              {this.renderScene()} 
-            </MainWrapper> 
-          : <Activity thisOuting={outing.current} />
-        }
+        {this.renderScene()}
       </div>
     );
   }
@@ -124,7 +113,7 @@ class ScenesContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    outing: state.outing
   };
 }
 

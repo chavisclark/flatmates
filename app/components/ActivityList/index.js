@@ -7,7 +7,7 @@ import classNames from 'classnames/bind';
 const cx = classNames.bind(styles);
 
 const ActivityList = (props) => {
-  const {openSingleActivity, viewRequest, viewSettings, viewActivities, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
+  const {openSingleActivity, TodaysOutings, TomorrowsOutings, AnyOutings} = props;
   const RenderTodaysOutings = TodaysOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);
   const RenderTomorrowsOutings = TomorrowsOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);
   const RenderAnyOutings = AnyOutings.map((outing, index) => <ActivityIcon key={index} thisOuting={outing} openSingleActivity={openSingleActivity}/>);

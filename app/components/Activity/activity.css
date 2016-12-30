@@ -2,6 +2,7 @@
 @value global-radius from '../../css/common/layout.css';
 
 .activity_container {
+  position: relative;
   max-width: 800px;
   margin: 0 auto;
   background-color: color-athens-gray;
@@ -18,11 +19,41 @@
 }
 
 .activity_icon {
-  width: 220px;
-  height: 220px;
+  width: 240px;
+  height: 240px;
   padding: 10px;
-  border-radius: 160px;
+  border-radius: 170px;
   border: solid color-blue-grey 2px;
   background-color: color-matte-blue;
   margin: 10px auto;
+}
+
+.participant_list {
+  max-width: 240px;
+  padding: 7px;
+  margin: 0 auto;
+}
+
+.participants {
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  padding: 5px;
+  border-radius: 35px;
+  border: solid color-blue-grey 5px;
+  background-color: color-crimson;
+  margin:0 3px 0 0;
+}
+
+.pending {
+  background-color: color-crimson;
+}
+
+.accepted {
+  background-color: color-gold;
+}
+
+.close_button {
+  position: absolute;
+  right: 0;
 }

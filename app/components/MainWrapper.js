@@ -9,10 +9,7 @@ const cx = classNames.bind(styles);
 const MainWrapper = (props) => {
     return (
       <div>
-        <LoggedInNav currentScene={props.currentScene}
-          viewSettings={props.viewSettings} 
-          viewRequest={props.viewRequest} 
-          viewActivities={props.viewActivities} />
+        <LoggedInNav currentScene={props.currentScene} viewScene={props.viewScene}  />
         {props.children}
       </div>
     );

@@ -9,6 +9,7 @@ class ActivityListContainer extends Component {
     constructor(props){
       super(props);
       this.handleOpenSingleActivity = this.handleOpenSingleActivity.bind(this);
+      this.handleCloseSingleActivity = this.handleCloseSingleActivity.bind(this);
       this.state = {
         singleView: false,
         currentActivity: {}
@@ -24,6 +25,13 @@ class ActivityListContainer extends Component {
       this.setState({
         singleView: true,
         currentActivity: outing
+      });
+    }
+
+    handleCloseSingleActivity(outing) {
+      this.setState({
+        singleView: false,
+        currentActivity: {}
       });
     }
 
@@ -46,12 +54,10 @@ class ActivityListContainer extends Component {
 
       return (
         <div>
-          {this.state.singleView ? <Activity thisOuting={this.state.currentActivity} /> :
+          {this.state.singleView ? <Activity closeScene={this.handleCloseSingleActivity} thisOuting={this.state.currentActivity} /> :
           <ActivityList TodaysOutings={outingsToday} 
             TomorrowsOutings={outingsTomorrow}
             AnyOutings={outingsAny}
-            viewRequest={this.props.viewRequest} 
-            viewSettings={this.props.viewSettings}
             openSingleActivity={this.handleOpenSingleActivity}/>
           }
         </div>
