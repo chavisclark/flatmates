@@ -9,7 +9,6 @@ class ProfileContainer extends Component {
     constructor(props){
       super(props);
       this.state = {
-        currentSettingsView: 'profile',
         loading: true
       }
     }
@@ -23,7 +22,6 @@ class ProfileContainer extends Component {
     }
 
     render() {
-      const {currentSettingsView} = this.state;
       return (
           <Profile 
             viewProfileEdit={this.props.viewProfileEdit} 
@@ -35,7 +33,7 @@ class ProfileContainer extends Component {
 
 function mapStateToProps(state) {
   return {
-    state
+    user: state.user
   };
 }
 

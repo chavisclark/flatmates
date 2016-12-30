@@ -1,35 +1,19 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
 import styles from './settings.css';
 import classNames from 'classnames/bind';
 
 const cx = classNames.bind(styles);
 
-//Add OnChange event 
-//
-//
-//
-// Start toggle on "Profile"
-
-const SettingsBox = (props) => {
-  const {handleSubmit, pristine, reset, submitting} = props;
+const SettingsBox = props => {
+  const {currentSettingsView, switchSettings} = props;
   return (
-    <div className={cx('container')}>
-      <div className={cx('sub-container')}>
-        <div className={cx('sub-nav')}>
-          <input id="s1On" name="s1" className={ cx('switches') } type="radio" value={'profile'} checked={props.currentSettingsView === 'profile'} onChange={props.handleOnChange} />
-          <label htmlFor="s1On" className={ cx('switch', 'switch--on') }>Profile</label>
-          <input id="s1Off" name="s1" className={ cx('switches') }  type="radio" value={'controls'} checked={props.currentSettingsView === 'controls'} onChange={props.handleOnChange} />
-          <label htmlFor="s1Off" className={ cx('switch', 'switch--off') }>Settings</label>
-        </div>
-
-        { props.children }
-        
-      </div>
+    <div className={cx('sub-nav')}>
+      <input id="s1On" name="s1" className={ cx('switches') } type="radio" value={'profile'} checked={currentSettingsView === 'profile'} onChange={switchSettings} />
+      <label htmlFor="s1On" className={ cx('switch', 'switch--on') }>Profile</label>
+      <input id="s1Off" name="s1" className={ cx('switches') }  type="radio" value={'controls'} checked={currentSettingsView === 'controls'} onChange={switchSettings} />
+      <label htmlFor="s1Off" className={ cx('switch', 'switch--off') }>Settings</label>
     </div>
   )
 }
 
-export default reduxForm({
-  form: 'SettingsBox'
-})(SettingsBox)
+export default SettingsBox;

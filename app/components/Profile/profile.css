@@ -1,6 +1,14 @@
 @value color-athens-gray, color-mercury, color-white, color-dodger-blue, color-matte-blue, color-crimson, color-bombay from '../../css/common/colors.css';
 @value global-radius from '../../css/common/layout.css';
 
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: color-athens-gray;
+  border-radius: global-radius;
+  height: 100%;
+}
+
 .login {
   width: 380px;
   margin: 0 auto;

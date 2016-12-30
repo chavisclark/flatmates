@@ -61,7 +61,8 @@ nav {
 } 
 
 .settings .left {
-  display: none;
+  position: absolute;
+  left: 26%;
 }
 
 .activities .middle {

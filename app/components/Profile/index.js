@@ -11,20 +11,22 @@ const Profile = ({ state, viewProfileEdit }) => {
   const {email, name, job, company, location, bio, website, gender} = state.user.info;
   var avatar = 'https://gravatar.com/avatar/bf039ae8736a6cedb03a29358565c608';
     return (
-      <div className={cx('login')}>
-        <figure className={cx('card')}>
-        <button className={cx('edit')} onClick={() => viewProfileEdit('profile-edit')}> edit ✏ </button>
-          <img src={avatar} className={cx('imageHeight')} />
-          <figcaption>
-            <h2 className={cx('name')}>{name}<span className={cx(gender)}></span></h2>
-            <span className={cx('title')}>{job}</span>
-            <span className={cx('company')}>{company}</span>
-            <span className={cx('location')}><span className={cx('pin')}></span> {location}</span>
-            <p className={cx('cards', 'bio')}>{bio}</p>
-            <a href={'mailto:'+email+'?Subject=Hello%20from%20WG-Zimmer'} className={cx('follow')}>Contact</a>
-            <a href={'//'+website} className={cx('info')}>More About Me</a>
-          </figcaption>
-        </figure>
+      <div className={cx('container')}>
+        <div className={cx('login')}>
+          <figure className={cx('card')}>
+          <button className={cx('edit')} onClick={() => viewProfileEdit('profile-edit')}> edit ✏ </button>
+            <img src={avatar} className={cx('imageHeight')} />
+            <figcaption>
+              <h2 className={cx('name')}>{name}<span className={cx(gender)}></span></h2>
+              <span className={cx('title')}>{job}</span>
+              <span className={cx('company')}>{company}</span>
+              <span className={cx('location')}><span className={cx('pin')}></span> {location}</span>
+              <p className={cx('cards', 'bio')}>{bio}</p>
+              <a href={'mailto:'+email+'?Subject=Hello%20from%20WG-Zimmer'} className={cx('follow')}>Contact</a>
+              <a href={'//'+website} className={cx('info')}>More About Me</a>
+            </figcaption>
+          </figure>
+        </div>
       </div>
     );
 };

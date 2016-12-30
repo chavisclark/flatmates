@@ -2,13 +2,15 @@ import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { createOuting, findUserOutings } from '../state/actions/outings';
-import { logOut } from '../state/actions/users';
+import { fetchUser, onEntryChange, logOut } from '../state/actions/users';
 import MainWrapper from '../components/MainWrapper';
 import RequestBox from '../components/RequestBox';
-import SettingsBoxContainer from './SettingsBoxContainer';
 import Activity from '../components/Activity';
 import Loading from '../components/Loading';
+import ControlPanel from '../components/ControlPanel';
 import ActivityListContainer from './ActivityListContainer';
+import ProfileContainer from './ProfileContainer';
+import ProfileEditContainer from './ProfileEditContainer';
 
 class ScenesContainer extends Component {
   constructor(props) {
@@ -18,10 +20,28 @@ class ScenesContainer extends Component {
     this.handleClosePopup = this.handleClosePopup.bind(this);
     this.handleExpire = this.handleExpire.bind(this);
     this.handleViewScene = this.handleViewScene.bind(this);
+    this.handleViewProfileEdit = this.handleViewProfileEdit.bind(this);
+    this.handleOptionChange = this.handleOptionChange.bind(this);
+    this.handleLogOut = this.handleLogOut.bind(this);
     this.state = {
       isPopupOpen: false,
-      currentScene: 'request'
+      currentScene: 'request',
+      currentSettingsView: 'profile',
+      loading: true
     }
+  }
+
+  componentDidMount() {
+    const {fetchUser} = this.props;
+    fetchUser().then(function(user) {
+      if (user)
+        this.setState({ loading: false })
+    }.bind(this));
+  }
+
+  handleLogOut() {
+    const { logOut } = this.props;
+      logOut({null});
   }
 
   handleOpenPopup() {
@@ -49,9 +69,22 @@ class ScenesContainer extends Component {
     })
   }
 
+   handleOptionChange(event) {
+    this.setState({
+      currentSettingsView: event.target.value
+    });
+  }
+
   handleOnSubmit(data) {
       return this.setState({ isPopupOpen: true, formData: data})
   }
+
+  handleViewProfileEdit(edit) {
+    this.setState({
+      currentSettingsView: edit
+    })
+  }
+
 
   submitForm(n) {
     const { createOuting } = this.props;
@@ -60,6 +93,22 @@ class ScenesContainer extends Component {
       currentScene: 'single-activity'
     })
     return createOuting(data, n);
+  }
+
+  renderSettings() {
+    const { currentSettingsView, loading } = this.state;
+    if (loading)
+      return <Loading />
+    if (currentSettingsView == 'controls')
+      return ( <ControlPanel logOut={this.handleLogOut}/> )
+    if (currentSettingsView == 'profile')
+      return ( <ProfileContainer viewProfileEdit={this.handleViewProfileEdit} /> )
+  }
+  
+  handleOptionChange(event) {
+    this.setState({
+      currentSettingsView: event.target.value
+    });
   }
 
   renderScene() {
@@ -78,9 +127,14 @@ class ScenesContainer extends Component {
 
     if (currentScene == 'settings')
       return (
-        <MainWrapper currentScene={currentScene} viewScene={this.handleViewScene}>
-            <SettingsBoxContainer />               
-          </MainWrapper>
+        <div>
+         { this.state.currentSettingsView == 'profile-edit' ? <ProfileEditContainer viewProfileEdit={this.handleViewProfileEdit} /> :
+          <MainWrapper currentSettingsView={this.state.currentSettingsView} switchSettings={this.handleOptionChange} currentScene={currentScene} viewScene={this.handleViewScene}>
+             {this.renderSettings()}              
+            </MainWrapper>
+          }        
+        </div>
+
 
       );
 
@@ -117,5 +171,5 @@ function mapStateToProps(state) {
   };
 }
 
-export default connect(mapStateToProps, { createOuting, findUserOutings, logOut })(ScenesContainer);
+export default connect(mapStateToProps, { createOuting, findUserOutings, logOut, onEntryChange, fetchUser })(ScenesContainer);
 

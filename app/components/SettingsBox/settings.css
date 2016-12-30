@@ -1,83 +1,9 @@
 @value color-blue-grey, color-athens-gray, color-mercury, color-white, color-dodger-blue, color-crimson, color-bombay, color-gold, color-matte-blue from '../../css/common/colors.css';
-@value global-radius from '../../css/common/layout.css';
 
 .sub-nav {
-  margin: 30px auto;
   width: 380px;
   background-color: color-blue-grey;
   border-radius: 30px;
-}
-
-.container {
-  max-width: 800px;
-  margin: 0 auto;
-  background-color: color-athens-gray;
-  border: 2px solid color-mercury;
-  border-radius: global-radius;
-  height: 100%;
-}
-
-.waiting {
-  .loading {
-    display: block;
-  }
-}
-
-.loader {
-  composes: loader from '../../css/common/animations';
-}
-
-.alternative {
-  background: color-white;
-  padding: 12px 8px;
-  font-size: font-medium;
-  text-align: center;
-}
-
-.alternative-link {
-  color: color-dodger-blue;
-  font-weight: bold;
-  cursor: pointer;
-}
-.alternative-link:hover{
-  color: color-dodger-blue;
-  text-decoration: none;
-  border-bottom: none;
-}
-
-.loading {
-  display: none;
-  text-align: center;
-  margin: 24px auto;
-}
-
-.sub-container {
-  padding: 16px 12px;
-}
-
-.heading {
-  composes: subheading from '../../css/common/typography';
-
-  padding: 16px 12px;
-  text-align: center;
-}
-
-.input {
-  composes: input from '../../css/common/input';
-}
-
-.message {
-  color: color-crimson;
-  font-size: font-small;
-}
-
-.button {
-  composes: slateButton from '../../css/common/button';
-}
-
-.hint {
-  composes: small from '../../css/common/typography';
-  color: color-bombay;
 }
 
 .switch {
