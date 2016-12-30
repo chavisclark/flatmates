@@ -56,6 +56,16 @@ nav {
   content: '➤'
 }
 
+.settings .middle:after {
+  position: absolute;
+  content: '○';
+  display: inline-block;
+  z-index: 2;
+  left: -10px;
+  top: -40px;
+  font-size: 3em;
+}
+
 .settings .right {
   display: none;
 } 
@@ -76,6 +86,16 @@ nav {
   transform: rotate(180deg);
 }
 
+.activities .middle:after {
+  position: absolute;
+  content: '○';
+  display: inline-block;
+  z-index: 2;
+  left: -8px;
+  top: -40px;
+  font-size: 3em;
+}
+
 .activities .right {
   position: absolute;
   left: 45%;  
@@ -88,5 +108,10 @@ nav {
 @media (max-width: 800px) {
   .navigation-auth {
     width: 100%;
+    padding-right: 20px;
+  }
+  .settings .left {
+    width: 90%;
+    left:0;
   }
 }

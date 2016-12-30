@@ -37,3 +37,9 @@ input[type="radio"]:checked + .switch--on {
 input[type="radio"]:checked + .switch--off {
   background-color: color-gold;
 }
+
+@media (max-width: 800px) {
+  .sub-nav {
+    margin: 0 auto;
+  }
+}
