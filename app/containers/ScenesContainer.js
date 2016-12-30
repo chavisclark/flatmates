@@ -82,14 +82,14 @@ class ScenesContainer extends Component {
             <SettingsBoxContainer />               
           </MainWrapper>
 
-      )
+      );
 
     if (currentScene == 'activities')
       return (
           <MainWrapper currentScene={currentScene} viewScene={this.handleViewScene}>
               <ActivityListContainer />
             </MainWrapper>
-      )
+      );
 
     if (currentScene == 'single-activity') 
       return (
@@ -98,7 +98,7 @@ class ScenesContainer extends Component {
             : <Loading />
           }
         </div>
-      )
+      );
   }
 
   render() {
