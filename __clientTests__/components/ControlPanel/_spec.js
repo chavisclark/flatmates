@@ -13,6 +13,6 @@ describe('ControlPanel', () => {
   });
 
   it('has a correct class', () => {
-    expect(component).to.have.class(cx('control-panel'));
+    expect(component).to.have.class(cx('container'));
   });
 });

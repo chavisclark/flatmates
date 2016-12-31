@@ -85,7 +85,6 @@ class ScenesContainer extends Component {
     })
   }
 
-
   submitForm(n) {
     const { createOuting } = this.props;
     let data = this.state.formData;

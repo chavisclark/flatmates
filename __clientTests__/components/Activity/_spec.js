@@ -21,7 +21,10 @@ describe('Activity', () => {
   it('has a primary activity icon', () => {
     expect(component.find('div')).to.have.class(cx('activity_icon'));
   });
-  it('has a primary activity icon', () => {
-    expect(component.find('div:nth-child(2)')).to.have.class(cx('activity_title'));
+  it('has an activity title', () => {
+    expect(component.find('div:nth-child(3)')).to.have.class(cx('activity_title'));
+  });
+  it('has a participant list', () => {
+    expect(component.find('div:nth-child(4)')).to.have.class(cx('participant_list'));
   });
 });

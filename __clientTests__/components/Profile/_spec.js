@@ -13,6 +13,6 @@ describe('Profile', () => {
   });
 
   it('has a correct class', () => {
-    expect(component).to.have.class(cx('login'));
+    expect(component).to.have.class(cx('container'));
   });
 });

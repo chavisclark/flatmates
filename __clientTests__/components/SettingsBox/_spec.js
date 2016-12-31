@@ -13,6 +13,6 @@ describe('SettingsBox', () => {
   });
 
   it('has a correct class', () => {
-    expect(component).to.have.class('container');
+    expect(component).to.have.class('sub-nav');
   });
 });
